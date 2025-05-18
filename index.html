@@ -4,25 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aditya Kumar | Cybersecurity Explorer, Cyber Threat Intelligence & Cloud Enthusiast</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
-      /* Dark Mode Colors */
-      --bg-dark: #0f0f0f;
-      --card-bg-dark: #1a1a1a;
-      --text-dark: #f0f0f0;
-      --border-dark: #2a2a2a;
+      /* Modern Color Palette */
+      --bg-dark: #121212;
+      --card-bg-dark: #1e1e1e;
+      --text-dark: #e0e0e0;
+      --border-dark: #333333;
       
-      /* Light Mode Colors */
       --bg-light: #f8f9fa;
       --card-bg-light: #ffffff;
-      --text-light: #222222;
+      --text-light: #333333;
       --border-light: #e0e0e0;
       
-      /* Accent Colors */
-      --accent: #4a6fa5;
-      --accent-hover: #3a5a80;
+      --accent: #4f46e5;  /* Modern purple-blue */
+      --accent-hover: #4338ca;
+      --secondary: #10b981; /* Emerald green */
+      --tertiary: #f59e0b; /* Amber */
     }
 
     * {
@@ -67,13 +67,14 @@
     }
 
     .logo {
-      font-weight: 600;
-      font-size: 1.2rem;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--accent);
     }
 
     .nav-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
     }
 
     nav a {
@@ -82,10 +83,26 @@
       font-weight: 500;
       transition: color 0.2s;
       font-size: 0.95rem;
+      position: relative;
     }
 
     nav a:hover {
       color: var(--accent);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      bottom: -5px;
+      left: 0;
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     .toggle-btn {
@@ -95,6 +112,11 @@
       cursor: pointer;
       font-size: 1.2rem;
       margin-left: 1.5rem;
+      transition: transform 0.3s;
+    }
+
+    .toggle-btn:hover {
+      transform: rotate(30deg);
     }
 
     /* Sections */
@@ -111,6 +133,7 @@
       display: flex;
       align-items: center;
       min-height: 100vh;
+      position: relative;
     }
 
     .hero-content {
@@ -127,24 +150,27 @@
     .hero-image {
       flex: 1;
       text-align: center;
+      position: relative;
     }
 
-    .hero-image img {
-      max-width: 100%;
-      border-radius: 1rem;
-      border: 4px solid var(--accent);
+    .profile-image {
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--accent);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
 
     h1 {
-      font-size: 2.8rem;
+      font-size: 3rem;
       margin-bottom: 1.5rem;
-      line-height: 1.3;
+      line-height: 1.2;
     }
 
     h2 {
-      font-size: 2.2rem;
-      margin-bottom: 2rem;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
       position: relative;
       display: inline-block;
     }
@@ -152,15 +178,20 @@
     h2::after {
       content: '';
       position: absolute;
-      width: 50px;
-      height: 3px;
+      width: 60px;
+      height: 4px;
       background: var(--accent);
-      bottom: -10px;
+      bottom: -15px;
       left: 0;
+      border-radius: 2px;
     }
 
     .accent {
       color: var(--accent);
+    }
+
+    .secondary {
+      color: var(--secondary);
     }
 
     /* Tech Icons */
@@ -172,7 +203,7 @@
     }
 
     .tech-icons img {
-      height: 45px;
+      height: 50px;
       transition: transform 0.3s;
     }
 
@@ -189,36 +220,63 @@
     .social-links a {
       color: var(--text);
       font-size: 1.5rem;
-      transition: color 0.3s, transform 0.3s;
+      transition: all 0.3s;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--card-bg);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .social-links a:hover {
-      color: var(--accent);
-      transform: translateY(-3px);
+      color: white;
+      background-color: var(--accent);
+      transform: translateY(-5px);
     }
 
-    /* Cards */
-    .card {
+    /* Main Card Containers */
+    .section-card {
       background-color: var(--card-bg);
-      border-radius: 0.75rem;
-      padding: 2rem;
+      border-radius: 1rem;
+      padding: 2.5rem;
       border: 1px solid var(--border);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      margin-bottom: 3rem;
+    }
+
+    /* Sub Cards */
+    .sub-card {
+      background-color: var(--bg);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      transition: all 0.3s;
       height: 100%;
     }
 
-    .card:hover {
+    .sub-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      border-color: var(--accent);
     }
 
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 0.5rem;
-      margin-bottom: 1.5rem;
+    .sub-card h3 {
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .sub-card p {
+      color: var(--text);
+      opacity: 0.9;
+    }
+
+    .sub-card .date {
+      color: var(--secondary);
+      font-weight: 500;
+      margin-top: 0.5rem;
     }
 
     /* Grid Layout */
@@ -231,36 +289,49 @@
     /* Section Headers */
     .section-header {
       margin-bottom: 3rem;
+      text-align: center;
     }
 
     .section-header h2 {
       display: inline-block;
     }
 
+    .section-header h2::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
     /* Contact Form Styles */
     .contact-container {
-      max-width: 800px;
+      max-width: 1000px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      gap: 3rem;
     }
 
     .contact-info {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 2rem;
     }
 
     .contact-info-item {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 1.5rem;
     }
 
     .contact-info-item i {
       color: var(--accent);
-      font-size: 1.2rem;
+      font-size: 1.5rem;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: rgba(79, 70, 229, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .contact-form {
@@ -276,18 +347,26 @@
     }
 
     .form-group label {
-      font-weight: 500;
+      font-weight: 600;
       color: var(--accent);
     }
 
     .form-group input,
     .form-group textarea {
-      padding: 0.8rem;
+      padding: 1rem;
       border: 1px solid var(--border);
-      border-radius: 0.25rem;
+      border-radius: 0.5rem;
       background-color: var(--card-bg);
       color: var(--text);
       font-family: 'Inter', sans-serif;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
     }
 
     .form-group textarea {
@@ -307,19 +386,24 @@
     }
 
     .submit-btn {
-      padding: 0.8rem 1.5rem;
+      padding: 1rem 2rem;
       background-color: var(--accent);
       color: white;
       border: none;
-      border-radius: 0.25rem;
+      border-radius: 0.5rem;
       font-weight: 600;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: all 0.3s;
       width: fit-content;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     .submit-btn:hover {
       background-color: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
     }
 
     /* Footer */
@@ -329,6 +413,23 @@
       border-top: 1px solid var(--border);
     }
 
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .footer-links a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
     /* Responsive Design */
     @media (max-width: 1024px) {
       section {
@@ -336,11 +437,16 @@
       }
       
       h1 {
-        font-size: 2.4rem;
+        font-size: 2.5rem;
       }
       
       h2 {
         font-size: 2rem;
+      }
+      
+      .profile-image {
+        width: 300px;
+        height: 300px;
       }
     }
 
@@ -354,22 +460,22 @@
       }
       
       .hero-content {
-        flex-direction: column-reverse;
-        gap: 2rem;
+        flex-direction: column;
+        gap: 3rem;
         text-align: center;
       }
       
       h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
       
       h2 {
         font-size: 1.8rem;
       }
       
-      h2::after {
-        left: 50%;
-        transform: translateX(-50%);
+      .profile-image {
+        width: 250px;
+        height: 250px;
       }
       
       .tech-icons {
@@ -383,6 +489,11 @@
       .contact-container {
         grid-template-columns: 1fr;
       }
+      
+      .section-header h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
 
     @media (max-width: 480px) {
@@ -391,11 +502,16 @@
       }
       
       h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
       
-      .card {
+      .section-card {
         padding: 1.5rem;
+      }
+      
+      .profile-image {
+        width: 200px;
+        height: 200px;
       }
     }
   </style>
@@ -423,7 +539,8 @@
         <div class="hero-text">
           <h1>
             I'm <span class="accent">Aditya Kumar</span><br>
-            <span class="accent">Cybersecurity & Cloud Enthusiast</span>
+            <span class="secondary">Cybersecurity Explorer</span><br>
+            <span>Cyber Threat Intelligence & Cloud Enthusiast</span>
           </h1>
           <p>
             With expertise in AWS, SQL, Threat Intelligence, and Networking with a strong background in Linux and Cybersecurity.
@@ -431,7 +548,7 @@
           
           <div class="tech-icons">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
-            <img src="https://d1.awsstatic.com/logos/aws-logo-lockups/poweredbyaws/PB_AWS_logo_RGB_stacked_REV_SQ.91cd4af40773cbfbd15577a3c2b8a346fe3e8fa2.png" alt="AWS" style="height: 45px;">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash">
@@ -445,7 +562,8 @@
         </div>
         
         <div class="hero-image">
-          <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Profile">
+          <!-- Replace with your actual image path -->
+          <img src="your-profile-image.jpg" alt="Aditya Kumar" class="profile-image">
         </div>
       </div>
     </div>
@@ -457,21 +575,23 @@
       <div class="section-header">
         <h2>Education</h2>
       </div>
-      <div class="grid">
-        <div class="card">
-          <h3>Master of Computer Applications</h3>
-          <p>UPES, Dehradun</p>
-          <p class="accent">2024 - 2026</p>
-        </div>
-        <div class="card">
-          <h3>Bachelor of Science in IT</h3>
-          <p>HNB Garhwal University</p>
-          <p class="accent">2021 - 2024</p>
-        </div>
-        <div class="card">
-          <h3>Higher Secondary</h3>
-          <p>The Aryan School (ISC)</p>
-          <p class="accent">2020 - 2021</p>
+      <div class="section-card">
+        <div class="grid">
+          <div class="sub-card">
+            <h3>Master of Computer Applications</h3>
+            <p>UPES, Dehradun</p>
+            <p class="date">2024 - 2026</p>
+          </div>
+          <div class="sub-card">
+            <h3>Bachelor of Science in IT</h3>
+            <p>HNB Garhwal University</p>
+            <p class="date">2021 - 2024</p>
+          </div>
+          <div class="sub-card">
+            <h3>Higher Secondary</h3>
+            <p>The Aryan School (ISC)</p>
+            <p class="date">2020 - 2021</p>
+          </div>
         </div>
       </div>
     </div>
@@ -483,30 +603,32 @@
       <div class="section-header">
         <h2>Skills</h2>
       </div>
-      <div class="grid">
-        <div class="card">
-          <h3><i class="fas fa-laptop-code"></i> Frontend Development</h3>
-          <p>HTML, CSS, JavaScript, React</p>
-        </div>
-        <div class="card">
-          <h3><i class="fas fa-server"></i> Backend Development</h3>
-          <p>Node.js, Express</p>
-        </div>
-        <div class="card">
-          <h3><i class="fas fa-database"></i> Databases</h3>
-          <p>MySQL, MariaDB</p>
-        </div>
-        <div class="card">
-          <h3><i class="fas fa-shield-alt"></i> Security Tools</h3>
-          <p>Metasploit, Burp Suite, Nmap, Wireshark</p>
-        </div>
-        <div class="card">
-          <h3><i class="fas fa-cloud"></i> Cloud </h3>
-          <p>AWS, Docker, Git/</p>
-        </div>
-        <div class="card">
-          <h3><i class="fas fa-terminal"></i> Operating Systems</h3>
-          <p>Linux (Debian, RedHat), Windows</p>
+      <div class="section-card">
+        <div class="grid">
+          <div class="sub-card">
+            <h3><i class="fas fa-laptop-code"></i> Frontend Development</h3>
+            <p>HTML, CSS, JavaScript, React</p>
+          </div>
+          <div class="sub-card">
+            <h3><i class="fas fa-server"></i> Backend Development</h3>
+            <p>Node.js, Express</p>
+          </div>
+          <div class="sub-card">
+            <h3><i class="fas fa-database"></i> Databases</h3>
+            <p>MySQL, MongoDB</p>
+          </div>
+          <div class="sub-card">
+            <h3><i class="fas fa-shield-alt"></i> Security Tools</h3>
+            <p>Metasploit, Burp Suite, Nmap, Wireshark</p>
+          </div>
+          <div class="sub-card">
+            <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
+            <p>AWS, Docker, Git, CI/CD</p>
+          </div>
+          <div class="sub-card">
+            <h3><i class="fas fa-terminal"></i> Operating Systems</h3>
+            <p>Linux (Debian, RedHat), Windows</p>
+          </div>
         </div>
       </div>
     </div>
@@ -518,21 +640,23 @@
       <div class="section-header">
         <h2>Projects</h2>
       </div>
-      <div class="grid">
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Threat Detection">
-          <h3>Threat Detection System</h3>
-          <p>Python-based threat intelligence system using open-source feeds and machine learning algorithms to detect potential security threats.</p>
-        </div>
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="AWS Automation">
-          <h3>AWS Automation</h3>
-          <p>Automated EC2 backup and monitoring system using AWS CLI, Lambda functions, and CloudWatch for efficient cloud resource management.</p>
-        </div>
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1586282391129-76a746c25d56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Timetable System">
-          <h3>Timetable Management System</h3>
-          <p>Web-based timetable management system for educational institutions with SQL database backend and responsive frontend interface.</p>
+      <div class="section-card">
+        <div class="grid">
+          <div class="sub-card">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Threat Detection">
+            <h3>Threat Detection System</h3>
+            <p>Python-based threat intelligence system using open-source feeds and machine learning algorithms to detect potential security threats.</p>
+          </div>
+          <div class="sub-card">
+            <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="AWS Automation">
+            <h3>AWS Automation</h3>
+            <p>Automated EC2 backup and monitoring system using AWS CLI, Lambda functions, and CloudWatch for efficient cloud resource management.</p>
+          </div>
+          <div class="sub-card">
+            <img src="https://images.unsplash.com/photo-1586282391129-76a746c25d56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Timetable System">
+            <h3>Timetable Management System</h3>
+            <p>Web-based timetable management system for educational institutions with SQL database backend and responsive frontend interface.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -596,7 +720,9 @@
             <input type="checkbox" id="terms" name="terms" required>
             <label for="terms">I agree to the Terms and Privacy Policy</label>
           </div>
-          <button type="submit" class="submit-btn">Send Message</button>
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
         </form>
       </div>
     </div>
@@ -604,7 +730,14 @@
 
   <!-- Footer -->
   <footer>
-    <p>© 2024 Aditya Kumar. All rights reserved.</p>
+    <p>© 2025 Aditya Kumar. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
     <div class="social-links" style="justify-content: center; margin-top: 1.5rem;">
       <a href="https://linkedin.com/in/kumaraditya766899" target="_blank"><i class="fab fa-linkedin"></i></a>
       <a href="https://github.com/0x1337adi" target="_blank"><i class="fab fa-github"></i></a>
