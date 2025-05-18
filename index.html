@@ -3,189 +3,123 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aditya Kumar | Master's Student in Cybersecurity & Cloud | Networking | AWS | Linux | Threat Intelligence</title>
-  <body>
-  <h1>Hello, I'm Aditya Kumar</h1>
-  <p>Master's Student | Cybersecurity & Cloud Enthusiast | Skilled in Networking, Linux, AWS & Threat Intelligence</p>
-  </body>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  <title>Aditya Kumar | Cybersecurity & Cloud Enthusiast</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     body {
-      background-color: #121212;
-      color: #e0e0e0;
-      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      font-family: 'Fira Code', monospace;
+      background-color: #0e0e0e;
+      color: #ccc;
     }
-    nav, footer {
-      background-color: #1e1e1e;
-    }
-    .navbar-brand, .nav-link, footer p {
-      color: #bbb !important;
-    }
-    header {
-      background: linear-gradient(135deg, #1f1c2c, #928dab);
-      min-height: 100vh;
+    .container {
       display: flex;
+      flex-wrap: wrap;
+      min-height: 100vh;
+      padding: 50px;
       align-items: center;
       justify-content: center;
+    }
+    .left {
+      flex: 1 1 300px;
+      max-width: 400px;
+      padding: 20px;
       text-align: center;
+    }
+    .left img {
+      width: 100%;
+      border-radius: 20px;
+      border: 4px solid #2e2e2e;
+    }
+    .right {
+      flex: 2 1 400px;
+      padding: 20px;
+    }
+    .right span {
+      color: #ff79c6;
+    }
+    .right h1 {
       color: #fff;
+      font-size: 2rem;
+      line-height: 1.6;
     }
-    header h1 {
-      font-size: 3.5rem;
-      font-weight: 600;
+    .green {
+      color: #50fa7b;
     }
-    header p {
-      font-size: 1.2rem;
+    .tech-icons {
+      margin: 20px 0;
     }
-    .btn-primary {
-      background-color: #7f5af0;
-      border: none;
+    .tech-icons img {
+      height: 40px;
+      margin-right: 10px;
+      transition: transform 0.3s;
     }
-    .btn-primary:hover {
-      background-color: #6245c6;
+    .tech-icons img:hover {
+      transform: scale(1.2);
     }
-    section {
-      padding: 4rem 0;
+    .social {
+      margin-top: 20px;
     }
-    .card {
-      background-color: #1e1e1e;
+    .social a {
       color: #ccc;
-      border: none;
-      transition: transform 0.3s ease;
+      margin-right: 15px;
+      font-size: 1.5rem;
+      transition: color 0.3s;
     }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 15px rgba(127, 90, 240, 0.3);
+    .social a:hover {
+      color: #50fa7b;
     }
-    .card img {
-      height: 200px;
-      object-fit: cover;
-    }
-    footer {
-      padding: 1rem 0;
-      text-align: center;
-    }
-    input, textarea {
-      background-color: #2a2a2a !important;
-      border: none !important;
-      color: #fff !important;
+    @media(max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 30px 20px;
+      }
+      .right h1 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="#">Aditya Kumar</a>
-    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-      </ul>
+<div class="container">
+  <!-- Left Side - Profile Image -->
+  <div class="left">
+    <img src="your-photo.jpg" alt="Aditya Kumar" />
+  </div>
+
+  <!-- Right Side - Text & Info -->
+  <div class="right">
+    <span>Hey, I'm Aditya</span>
+    <h1>
+      I am a <span class="green">{Cybersecurity Enthusiast || Cloud Explorer || Linux Advocate}</span>, <br>
+      I love to <span class="green">Build || Secure || Deploy</span>
+    </h1>
+    <p>
+      With expertise in technologies like <span class="green">AWS, DevOps, Threat Intelligence, Networking</span> and a strong background in Linux and Cybersecurity.
+    </p>
+
+    <!-- Tech Logos -->
+    <div class="tech-icons">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" />
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS" />
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash" />
+    </div>
+
+    <!-- Social Links -->
+    <div class="social">
+      <a href="https://linkedin.com/in/yourlinkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/0x1337adi" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="mailto:your@email.com"><i class="fas fa-envelope"></i></a>
     </div>
   </div>
-</nav>
-
-<!-- Hero -->
-<header>
-  <div class="container">
-    <h1>Hello, I'm Aditya Kumar</h1>
-    <p>Cybersecurity Analyst | Linux Enthusiast | AWS Learner</p>
-    <a href="#projects" class="btn btn-primary mt-3">View My Work</a>
-  </div>
-</header>
-
-<!-- About -->
-<section id="about" class="container">
-  <h2 class="text-center mb-4">About Me</h2>
-  <div class="row justify-content-center">
-    <div class="col-md-8 text-center">
-      <p>
-        I am a cybersecurity enthusiast with hands-on experience in Linux, AWS, and penetration testing.
-        Passionate about securing digital infrastructures and continuously learning new technologies to stay ahead in the cyber world.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- Projects -->
-<section id="projects" class="container">
-  <h2 class="text-center mb-5">Projects</h2>
-  <div class="row g-4">
-    <div class="col-md-4">
-      <div class="card">
-        <img src="https://wallpapercave.com/amazon-web-services-wallpapers?auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="Cloud Hosting" />
-        <div class="card-body">
-          <h5 class="card-title">AWS Cloud Hosting</h5>
-          <p class="card-text">Launched EC2 instances, configured NGINX, and managed cloud storage via S3.</p>
-          <a href="#" class="btn btn-primary btn-sm">View Project</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="Pen Testing" />
-        <div class="card-body">
-          <h5 class="card-title">Pentesting Lab</h5>
-          <p class="card-text">Created a simulated environment to run vulnerability assessments and exploits.</p>
-          <a href="#" class="btn btn-primary btn-sm">View Project</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1624953587687-9c8a5dfbcb0d?auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="Threat Intel" />
-        <div class="card-body">
-          <h5 class="card-title">Threat Intelligence</h5>
-          <p class="card-text">Analyzed threat feeds, OSINT tools, and emerging cyber attack patterns.</p>
-          <a href="#" class="btn btn-primary btn-sm">View Project</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Contact -->
-<section id="contact" class="container">
-  <h2 class="text-center mb-4">Contact Me</h2>
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <form action="https://formspree.io/f/mrbqjwql" method="POST">
-        <div class="mb-3">
-          <label for="name" class="form-label">Name</label>
-          <input type="text" id="name" name="name" class="form-control" required />
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" id="email" name="_replyto" class="form-control" required />
-        </div>
-        <div class="mb-3">
-          <label for="message" class="form-label">Message</label>
-          <textarea id="message" name="message" rows="4" class="form-control" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Send Message</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer>
-  <div class="container">
-    <p>&copy; 2025 Aditya Kumar | All Rights Reserved</p>
-  </div>
-</footer>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</div>
 
 </body>
 </html>
