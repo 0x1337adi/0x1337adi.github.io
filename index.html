@@ -4,21 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aditya Kumar | Cybersecurity & Cloud Enthusiast</title>
-
-  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
   <style>
     :root {
       --bg-dark: #0e0e0e;
       --bg-light: #e6f0ff;
-      --text-dark: #ffffff;
-      --text-light: #111111;
-      --accent: #4169e1; /* Royal Blue */
+      --text-dark: #ccffcc;
+      --text-light: #1a1a1a;
+      --accent: #4169e1;
+      --card-bg-light: #ffffff;
+      --card-bg-dark: #1f1f1f;
     }
-
     html[data-theme="dark"] {
       background-color: var(--bg-dark);
       color: var(--text-dark);
@@ -27,295 +25,139 @@
       background-color: var(--bg-light);
       color: var(--text-light);
     }
-
     body {
       margin: 0;
       font-family: 'Fira Code', monospace;
       scroll-behavior: smooth;
     }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background-color: inherit;
-      border-bottom: 1px solid #444;
-    }
-
-    nav a {
-      color: inherit;
-      text-decoration: none;
-      margin-left: 1rem;
-      font-weight: bold;
-    }
-
-    .toggle-btn {
-      cursor: pointer;
-      font-size: 1.2rem;
-      background: none;
-      border: none;
-      color: inherit;
-    }
-
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 50px 20px;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .right {
-      flex: 1 1 400px;
-      max-width: 400px;
-      padding: 20px;
-    }
-
-    .right img {
-      width: 100%;
-      border-radius: 20px;
-      border: 4px solid var(--accent);
-    }
-
-    .left {
-      flex: 2 1 500px;
-      padding: 20px;
-    }
-
-    .left h1 {
-      font-size: 2rem;
-      line-height: 1.6;
-    }
-
-    .green {
-      color: var(--accent);
-    }
-
-    .tech-icons img {
-      height: 40px;
-      margin-right: 10px;
-      transition: transform 0.3s;
-    }
-
-    .tech-icons img:hover {
-      transform: scale(1.2);
-    }
-
-    .social {
-      margin-top: 20px;
-    }
-
-    .social a {
-      color: inherit;
-      margin-right: 15px;
-      font-size: 1.5rem;
-    }
-
-    .projects, .contact-section {
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    .project-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .card {
-      background-color: rgba(0, 0, 0, 0.1);
-      border: 2px solid var(--accent);
-      border-radius: 10px;
-      overflow: hidden;
-      transition: transform 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-    }
-
-    .card-content {
-      padding: 15px;
-    }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      max-width: 600px;
-      margin: 30px auto;
-      gap: 15px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      padding: 12px;
-      border: 2px solid var(--accent);
-      background-color: transparent;
-      color: inherit;
-      font-family: 'Fira Code', monospace;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 8px var(--accent);
-    }
-
-    .contact-form button {
-      padding: 12px;
-      background-color: var(--accent);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .cursor {
-      display: inline-block;
-      width: 10px;
-      background-color: var(--accent);
-      animation: blink 1s step-start infinite;
-    }
-
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-
-    @media(max-width: 768px) {
-      .container {
-        flex-direction: column-reverse;
-      }
-    }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; background-color: inherit; border-bottom: 1px solid #444; }
+    nav a { color: inherit; text-decoration: none; margin-left: 1rem; font-weight: bold; }
+    .toggle-btn { cursor: pointer; font-size: 1.2rem; background: none; border: none; color: inherit; }
+    .container { display: flex; flex-wrap: wrap; padding: 50px 20px; align-items: center; justify-content: center; }
+    .right { flex: 1 1 400px; max-width: 400px; padding: 20px; }
+    .right img { width: 100%; border-radius: 20px; border: 4px solid var(--accent); }
+    .left { flex: 2 1 500px; padding: 20px; }
+    .left h1 { font-size: 2rem; line-height: 1.6; }
+    .green { color: var(--accent); }
+    .tech-icons img { height: 40px; margin-right: 10px; transition: transform 0.3s; }
+    .tech-icons img:hover { transform: scale(1.2); }
+    .social { margin-top: 20px; }
+    .social a { color: inherit; margin-right: 15px; font-size: 1.5rem; }
+    .projects, .contact-section { padding: 40px 20px; text-align: center; }
+    .project-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+    .card { background-color: var(--card-bg-light); border: 2px solid var(--accent); border-radius: 10px; overflow: hidden; transition: transform 0.3s; }
+    html[data-theme="dark"] .card { background-color: var(--card-bg-dark); }
+    .card:hover { transform: translateY(-5px); }
+    .card img { width: 100%; height: 160px; object-fit: cover; }
+    .card-content { padding: 15px; }
+    .contact-form { display: flex; flex-direction: column; max-width: 600px; margin: 30px auto; gap: 15px; }
+    .contact-form input, .contact-form textarea { padding: 12px; border: 2px solid var(--accent); background-color: transparent; color: inherit; font-family: 'Fira Code', monospace; border-radius: 8px; font-size: 1rem; }
+    .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 8px var(--accent); }
+    .contact-form button { padding: 12px; background-color: var(--accent); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+    .cursor { display: inline-block; width: 10px; background-color: var(--accent); animation: blink 1s step-start infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    @media(max-width: 768px) { .container { flex-direction: column-reverse; } }
   </style>
 </head>
 <body>
-
-<!-- Navbar -->
 <nav>
   <div><strong>Aditya.dev</strong></div>
   <div>
     <a href="#home">Home</a>
+    <a href="#services">Services</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
-    <button class="toggle-btn" onclick="toggleTheme()" title="Toggle Theme">🌓</button>
+    <button class="toggle-btn" onclick="toggleTheme()">🌓</button>
   </div>
 </nav>
 
 <!-- Hero Section -->
 <section class="container" id="home">
   <div class="left">
-    <span class="fade-in">Hey, I'm Aditya<span class="cursor">|</span></span>
-    <h1 class="fade-in">
-      I am a <span class="green">{Cybersecurity Enthusiast || Cloud Explorer || Linux Learner }</span><br>
+    <span>Hey, I'm Aditya <span class="cursor">|</span></span>
+    <h1>
+      I am a <span class="green">Cybersecurity Enthusiast || Cloud Explorer || Linux Learner</span><br>
       I love to <span class="green">Build || Secure || Deploy</span>
     </h1>
-    <p class="fade-in">
+    <p>
       With expertise in <span class="green">AWS, SQL, Threat Intelligence, Networking</span> and a strong background in Linux and Cybersecurity.
     </p>
-
-    <div class="tech-icons fade-in">
+    <div class="tech-icons">
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" />
       <img src="https://img.icons8.com/color/48/000000/amazon-web-services.png" width="40" alt="AWS" />
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash" />
     </div>
-
-    <div class="social fade-in">
+    <div class="social">
       <a href="https://linkedin.com/in/kumaraditya766899" target="_blank"><i class="fab fa-linkedin"></i></a>
       <a href="https://github.com/0x1337adi" target="_blank"><i class="fab fa-github"></i></a>
       <a href="mailto:kumaraditya766899@gmail.com"><i class="fas fa-envelope"></i></a>
     </div>
   </div>
-
-  <div class="right fade-in">
+  <div class="right">
     <img src="866cd002-0aa0-4efc-9e5b-c9ee63ed03fe.png" alt="Aditya" />
   </div>
 </section>
 
-<!-- Projects -->
-<section class="projects" id="projects">
-  <h2>My Projects</h2>
-  <div class="project-cards">
-    <div class="card fade-in">
-      <img src="https://source.unsplash.com/600x400/?cybersecurity" alt="Threat Detection" />
+<!-- Services Section -->
+<section id="services" style="padding: 60px 20px; text-align: center;">
+  <h3 style="color: var(--accent);">* Cooperation</h3>
+  <h2>Designing <strong>solutions</strong> customized<br>to meet your <strong>requirements</strong></h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1100px; margin: 40px auto;">
+    <div class="card">
       <div class="card-content">
-        <h3>Threat Detection System</h3>
-        <p>Built a threat intel system using Python & open-source feeds.</p>
+        <h4><i class="fas fa-code"></i> API Development</h4>
+        <p>Designing and developing scalable RESTful APIs for web and mobile applications.</p>
       </div>
     </div>
-    <div class="card fade-in">
-      <img src="https://source.unsplash.com/600x400/?cloud,aws" alt="AWS Automation" />
+    <div class="card">
       <div class="card-content">
-        <h3>AWS Automation</h3>
-        <p>Automated EC2 backup and monitoring using AWS CLI and Lambda.</p>
+        <h4><i class="fas fa-laptop-code"></i> Frontend Development</h4>
+        <p>Creating dynamic and interactive web pages using modern JS frameworks.</p>
       </div>
     </div>
-    <div class="card fade-in">
-      <img src="https://source.unsplash.com/600x400/?sql,database" alt="Timetable System" />
+    <div class="card">
       <div class="card-content">
-        <h3>Timetable Management System</h3>
-        <p>A small School/College Timetable Managing system using SQL.</p>
+        <h4><i class="fas fa-mobile-alt"></i> Mobile App Development</h4>
+        <p>Building cross-platform mobile applications using Flutter and React Native.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <h4><i class="fas fa-server"></i> DevOps Consulting</h4>
+        <p>Implementing automated pipelines for CI/CD and efficient delivery.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <h4><i class="fas fa-cloud"></i> Cloud Integration</h4>
+        <p>Seamless integration with AWS, Azure, Google Cloud, and more.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <h4><i class="fas fa-database"></i> Database Management</h4>
+        <p>Managing both relational and non-relational DBs for high-performance systems.</p>
       </div>
     </div>
   </div>
+  <p>Excited to take on <strong>new projects</strong> and collaborate.<br>Let’s chat about your ideas. <span style="color: var(--accent);">Reach out!</span></p>
 </section>
 
-<!-- Contact -->
-<section class="contact-section" id="contact">
-  <h2>Contact Me</h2>
-  <form class="contact-form" action="https://formspree.io/f/mrbqjwql" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
-
-<!-- Theme Toggle Script -->
+<!-- JS -->
 <script>
   function toggleTheme() {
     const html = document.documentElement;
-    const currentTheme = html.getAttribute("data-theme");
-    const newTheme = currentTheme === "dark" ? "light" : "dark";
+    const current = html.getAttribute("data-theme");
+    const newTheme = current === "dark" ? "light" : "dark";
     html.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
   }
-
   (function () {
     const saved = localStorage.getItem("theme");
     if (saved) document.documentElement.setAttribute("data-theme", saved);
   })();
 </script>
-
-<!-- GSAP Animations -->
-<script>
-  window.onload = () => {
-    gsap.from(".fade-in", {
-      opacity: 0,
-      y: 40,
-      duration: 1,
-      stagger: 0.3,
-      ease: "power2.out"
-    });
-  };
-</script>
-
 </body>
 </html>
