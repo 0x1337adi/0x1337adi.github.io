@@ -4,160 +4,516 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aditya Kumar | Cybersecurity & Cloud Enthusiast</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
   <style>
     :root {
-      --bg-dark: #0e0e0e;
-      --bg-light: #e6f0ff;
-      --text-dark: #ccffcc;
-      --text-light: #1a1a1a;
-      --accent: #4169e1;
+      /* Dark Mode Colors */
+      --bg-dark: #121212;
+      --card-bg-dark: #1e1e1e;
+      --text-dark: #e0e0e0;
+      --border-dark: #333333;
+      
+      /* Light Mode Colors */
+      --bg-light: #f8f9fa;
       --card-bg-light: #ffffff;
-      --card-bg-dark: #1f1f1f;
+      --text-light: #333333;
+      --border-light: #e0e0e0;
+      
+      /* Accent Colors (same for both modes) */
+      --accent: #4a6fa5;
+      --accent-light: #6b8cbe;
+      --accent-dark: #3a5a80;
     }
+
     html[data-theme="dark"] {
       background-color: var(--bg-dark);
       color: var(--text-dark);
+      --bg: var(--bg-dark);
+      --card-bg: var(--card-bg-dark);
+      --text: var(--text-dark);
+      --border: var(--border-dark);
     }
+    
     html[data-theme="light"] {
       background-color: var(--bg-light);
       color: var(--text-light);
+      --bg: var(--bg-light);
+      --card-bg: var(--card-bg-light);
+      --text: var(--text-light);
+      --border: var(--border-light);
     }
+
     body {
       margin: 0;
       font-family: 'Fira Code', monospace;
       scroll-behavior: smooth;
+      line-height: 1.6;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; background-color: inherit; border-bottom: 1px solid #444; }
-    nav a { color: inherit; text-decoration: none; margin-left: 1rem; font-weight: bold; }
-    .toggle-btn { cursor: pointer; font-size: 1.2rem; background: none; border: none; color: inherit; }
-    .container { display: flex; flex-wrap: wrap; padding: 50px 20px; align-items: center; justify-content: center; }
-    .right { flex: 1 1 400px; max-width: 400px; padding: 20px; }
-    .right img { width: 100%; border-radius: 20px; border: 4px solid var(--accent); }
-    .left { flex: 2 1 500px; padding: 20px; }
-    .left h1 { font-size: 2rem; line-height: 1.6; }
-    .green { color: var(--accent); }
-    .tech-icons img { height: 40px; margin-right: 10px; transition: transform 0.3s; }
-    .tech-icons img:hover { transform: scale(1.2); }
-    .social { margin-top: 20px; }
-    .social a { color: inherit; margin-right: 15px; font-size: 1.5rem; }
-    .projects, .contact-section { padding: 40px 20px; text-align: center; }
-    .project-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
-    .card { background-color: var(--card-bg-light); border: 2px solid var(--accent); border-radius: 10px; overflow: hidden; transition: transform 0.3s; }
-    html[data-theme="dark"] .card { background-color: var(--card-bg-dark); }
-    .card:hover { transform: translateY(-5px); }
-    .card img { width: 100%; height: 160px; object-fit: cover; }
-    .card-content { padding: 15px; }
-    .contact-form { display: flex; flex-direction: column; max-width: 600px; margin: 30px auto; gap: 15px; }
-    .contact-form input, .contact-form textarea { padding: 12px; border: 2px solid var(--accent); background-color: transparent; color: inherit; font-family: 'Fira Code', monospace; border-radius: 8px; font-size: 1rem; }
-    .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 8px var(--accent); }
-    .contact-form button { padding: 12px; background-color: var(--accent); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
-    .cursor { display: inline-block; width: 10px; background-color: var(--accent); animation: blink 1s step-start infinite; }
-    @keyframes blink { 50% { opacity: 0; } }
-    @media(max-width: 768px) { .container { flex-direction: column-reverse; } }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: var(--bg);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .toggle-btn {
+      cursor: pointer;
+      font-size: 1.2rem;
+      background: none;
+      border: none;
+      color: var(--text);
+      transition: transform 0.3s;
+    }
+
+    .toggle-btn:hover {
+      transform: rotate(30deg);
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 20px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-header h2 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-header h2::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      background: var(--accent);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .section-header i {
+      color: var(--accent);
+      margin-right: 10px;
+    }
+
+    /* Container & Cards */
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      border: 1px solid var(--border);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-content {
+      padding: 25px;
+    }
+
+    /* Grid Layouts */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Hero Section */
+    #home {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-left {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .hero-right {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .hero-right img {
+      max-width: 100%;
+      border-radius: 20px;
+      border: 4px solid var(--accent);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    .accent {
+      color: var(--accent);
+    }
+
+    /* Tech Icons */
+    .tech-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 30px 0;
+    }
+
+    .tech-icons img {
+      height: 40px;
+      transition: transform 0.3s;
+    }
+
+    .tech-icons img:hover {
+      transform: scale(1.2);
+    }
+
+    /* Social Links */
+    .social-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .social-links a {
+      color: var(--text);
+      font-size: 1.5rem;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .social-links a:hover {
+      color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    /* Alternate Section Background */
+    .alt-bg {
+      background-color: rgba(74, 111, 165, 0.05);
+    }
+
+    /* Cursor Animation */
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      background-color: var(--accent);
+      animation: blink 1s step-start infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      
+      nav {
+        flex-direction: column;
+        padding: 1rem;
+      }
+      
+      nav div {
+        margin-top: 10px;
+      }
+      
+      .section-header h2 {
+        font-size: 1.8rem;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
+
+<!-- Navigation -->
 <nav>
   <div><strong>Aditya.dev</strong></div>
   <div>
     <a href="#home">Home</a>
-    <a href="#services">Services</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
-    <button class="toggle-btn" onclick="toggleTheme()">🌓</button>
+    <button class="toggle-btn" onclick="toggleTheme()" title="Toggle Theme">
+      <i class="fas fa-moon"></i>
+    </button>
   </div>
 </nav>
 
 <!-- Hero Section -->
-<section class="container" id="home">
-  <div class="left">
-    <span>Hey, I'm Aditya <span class="cursor">|</span></span>
-    <h1>
-      I am a <span class="green">Cybersecurity Enthusiast || Cloud Explorer || Linux Learner</span><br>
-      I love to <span class="green">Build || Secure || Deploy</span>
-    </h1>
-    <p>
-      With expertise in <span class="green">AWS, SQL, Threat Intelligence, Networking</span> and a strong background in Linux and Cybersecurity.
-    </p>
-    <div class="tech-icons">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" />
-      <img src="https://img.icons8.com/color/48/000000/amazon-web-services.png" width="40" alt="AWS" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash" />
+<section id="home">
+  <div class="container">
+    <div class="hero-left fade-in">
+      <span>Hey, I'm Aditya<span class="cursor">|</span></span>
+      <h1>
+        I am a <span class="accent">{Cybersecurity Enthusiast || Cloud Explorer || Linux Learner}</span><br>
+        I love to <span class="accent">Build || Secure || Deploy</span>
+      </h1>
+      <p>
+        With expertise in <span class="accent">AWS, SQL, Threat Intelligence, Networking</span> and a strong background in Linux and Cybersecurity.
+      </p>
+
+      <div class="tech-icons fade-in">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" />
+        <img src="https://img.icons8.com/color/48/000000/amazon-web-services.png" width="40" alt="AWS" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash" />
+      </div>
+
+      <div class="social-links fade-in">
+        <a href="https://linkedin.com/in/kumaraditya766899" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/0x1337adi" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="mailto:kumaraditya766899@gmail.com"><i class="fas fa-envelope"></i></a>
+      </div>
     </div>
-    <div class="social">
-      <a href="https://linkedin.com/in/kumaraditya766899" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/0x1337adi" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="mailto:kumaraditya766899@gmail.com"><i class="fas fa-envelope"></i></a>
+
+    <div class="hero-right fade-in">
+      <img src="866cd002-0aa0-4efc-9e5b-c9ee63ed03fe.png" alt="Aditya" />
     </div>
-  </div>
-  <div class="right">
-    <img src="866cd002-0aa0-4efc-9e5b-c9ee63ed03fe.png" alt="Aditya" />
   </div>
 </section>
 
-<!-- Services Section -->
-<section id="services" style="padding: 60px 20px; text-align: center;">
-  <h3 style="color: var(--accent);">* Cooperation</h3>
-  <h2>Designing <strong>solutions</strong> customized<br>to meet your <strong>requirements</strong></h2>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1100px; margin: 40px auto;">
-    <div class="card">
+<!-- Education Section -->
+<section id="education">
+  <div class="section-header">
+    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+  </div>
+  <div class="grid">
+    <div class="card fade-in">
       <div class="card-content">
-        <h4><i class="fas fa-code"></i> API Development</h4>
-        <p>Designing and developing scalable RESTful APIs for web and mobile applications.</p>
+        <h3>2024 - 2026</h3>
+        <h4>Master Of Computer Applications</h4>
+        <p>UPES - Dehradun</p>
       </div>
     </div>
-    <div class="card">
+    <div class="card fade-in">
       <div class="card-content">
-        <h4><i class="fas fa-laptop-code"></i> Frontend Development</h4>
-        <p>Creating dynamic and interactive web pages using modern JS frameworks.</p>
+        <h3>2021 - 2024</h3>
+        <h4>Bachelor of Science in Information Technology</h4>
+        <p>Hemwati Nandan Bahuguna Garhwal University, Uttarakhand</p>
       </div>
     </div>
-    <div class="card">
+    <div class="card fade-in">
       <div class="card-content">
-        <h4><i class="fas fa-mobile-alt"></i> Mobile App Development</h4>
-        <p>Building cross-platform mobile applications using Flutter and React Native.</p>
+        <h3>2020 - 2021</h3>
+        <h4>Higher Secondary School Certificate</h4>
+        <p>The Aryan School(ISC Board)</p>
       </div>
     </div>
-    <div class="card">
+    <div class="card fade-in">
       <div class="card-content">
-        <h4><i class="fas fa-server"></i> DevOps Consulting</h4>
-        <p>Implementing automated pipelines for CI/CD and efficient delivery.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-content">
-        <h4><i class="fas fa-cloud"></i> Cloud Integration</h4>
-        <p>Seamless integration with AWS, Azure, Google Cloud, and more.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-content">
-        <h4><i class="fas fa-database"></i> Database Management</h4>
-        <p>Managing both relational and non-relational DBs for high-performance systems.</p>
+        <h3>2018 - 2019</h3>
+        <h4>Secondary School Certificate</h4>
+        <p>The Aryan School(ICSE Board)</p>
       </div>
     </div>
   </div>
-  <p>Excited to take on <strong>new projects</strong> and collaborate.<br>Let’s chat about your ideas. <span style="color: var(--accent);">Reach out!</span></p>
 </section>
 
-<!-- JS -->
+<!-- Skills Section -->
+<section id="skills">
+  <div class="section-header">
+    <h2><i class="fas fa-code"></i> Skills</h2>
+  </div>
+  <div class="grid">
+    <div class="card fade-in">
+      <div class="card-content">
+        <h4><i class="fab fa-html5"></i> Front-End</h4>
+        <p>HTML, CSS, JavaScript, React</p>
+      </div>
+    </div>
+    <div class="card fade-in">
+      <div class="card-content">
+        <h4><i class="fas fa-server"></i> Back-End</h4>
+        <p>Node.js, Express</p>
+      </div>
+    </div>
+    <div class="card fade-in">
+      <div class="card-content">
+        <h4><i class="fas fa-database"></i> Databases</h4>
+        <p>MySQL, MariaDB</p>
+      </div>
+    </div>
+    <div class="card fade-in">
+      <div class="card-content">
+        <h4><i class="fas fa-tools"></i> Tools & Platforms</h4>
+        <p>Metasploit, Burpsuite, Nmap, AWS</p>
+      </div>
+    </div>
+    <div class="card fade-in">
+      <div class="card-content">
+        <h4><i class="fas fa-laptop-code"></i> Operating Systems</h4>
+        <p>Debian, RedHat, Cloud Essentials</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="alt-bg">
+  <div class="section-header">
+    <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+  </div>
+  <div class="grid">
+    <div class="card fade-in">
+      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="Threat Detection" />
+      <div class="card-content">
+        <h3>Threat Detection System</h3>
+        <p>Built a threat intel system using Python & open-source feeds.</p>
+      </div>
+    </div>
+    <div class="card fade-in">
+      <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="AWS Automation" />
+      <div class="card-content">
+        <h3>AWS Automation</h3>
+        <p>Automated EC2 backup and monitoring using AWS CLI and Lambda.</p>
+      </div>
+    </div>
+    <div class="card fade-in">
+      <img src="https://images.unsplash.com/photo-1586282391129-76a746c25d56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="Timetable System" />
+      <div class="card-content">
+        <h3>Timetable Management System</h3>
+        <p>A Small School/College Timetable Managing system using SQL.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+  <div class="section-header">
+    <h2><i class="fas fa-envelope"></i> Contact Me</h2>
+  </div>
+  <div class="container">
+    <form class="card fade-in" style="max-width: 600px; width: 100%;" action="https://formspree.io/f/mrbqjwql" method="POST">
+      <div class="card-content">
+        <div style="margin-bottom: 20px;">
+          <input type="text" name="name" placeholder="Your Name" required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 5px; background-color: var(--card-bg); color: var(--text);"/>
+        </div>
+        <div style="margin-bottom: 20px;">
+          <input type="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 5px; background-color: var(--card-bg); color: var(--text);"/>
+        </div>
+        <div style="margin-bottom: 20px;">
+          <textarea name="message" rows="6" placeholder="Your Message" required style="width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 5px; background-color: var(--card-bg); color: var(--text);"></textarea>
+        </div>
+        <button type="submit" style="width: 100%; padding: 12px; background-color: var(--accent); color: white; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; transition: background-color 0.3s;">
+          Send Message
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer style="text-align: center; padding: 30px; border-top: 1px solid var(--border);">
+  <p>© 2024 Aditya Kumar. All rights reserved.</p>
+  <div style="margin-top: 15px;">
+    <a href="https://linkedin.com/in/kumaraditya766899" target="_blank" style="color: var(--text); margin: 0 10px;"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/0x1337adi" target="_blank" style="color: var(--text); margin: 0 10px;"><i class="fab fa-github"></i></a>
+    <a href="mailto:kumaraditya766899@gmail.com" style="color: var(--text); margin: 0 10px;"><i class="fas fa-envelope"></i></a>
+  </div>
+</footer>
+
+<!-- Scripts -->
 <script>
+  // Theme Toggle
   function toggleTheme() {
     const html = document.documentElement;
-    const current = html.getAttribute("data-theme");
-    const newTheme = current === "dark" ? "light" : "dark";
+    const currentTheme = html.getAttribute("data-theme");
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
     html.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
+    
+    // Update icon
+    const icon = document.querySelector('.toggle-btn i');
+    if (newTheme === 'dark') {
+      icon.classList.remove('fa-sun');
+      icon.classList.add('fa-moon');
+    } else {
+      icon.classList.remove('fa-moon');
+      icon.classList.add('fa-sun');
+    }
   }
+
+  // Check for saved theme preference
   (function () {
-    const saved = localStorage.getItem("theme");
-    if (saved) document.documentElement.setAttribute("data-theme", saved);
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    document.documentElement.setAttribute("data-theme", savedTheme);
+    
+    // Set initial icon
+    const icon = document.querySelector('.toggle-btn i');
+    icon.classList.add(savedTheme === 'dark' ? 'fa-moon' : 'fa-sun');
   })();
+
+  // GSAP Animations
+  window.onload = () => {
+    gsap.from(".fade-in", {
+      opacity: 0,
+      y: 40,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power2.out"
+    });
+  };
 </script>
+
 </body>
 </html>
