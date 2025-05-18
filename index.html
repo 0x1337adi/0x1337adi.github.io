@@ -2,66 +2,177 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aditya Kumar | Cybersecurity Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aditya Kumar | Cybersecurity Analyst</title>
+
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+    header h1 {
+      font-weight: 700;
+      font-size: 3.5rem;
+    }
+    header p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    section {
+      padding: 4rem 0;
+    }
+    .nav-link {
+      font-weight: 600;
+    }
+    footer {
+      background: #2c2c2c;
+      color: #bbb;
+      padding: 1rem 0;
+      text-align: center;
+    }
+    .card:hover {
+      box-shadow: 0 0 20px rgba(118, 75, 162, 0.7);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+  </style>
 </head>
 <body>
-  <header class="fade-in">
-    <h1>Aditya Kumar</h1>
-    <p>Aspiring Cybersecurity Analyst | AWS Certified</p>
-  </header>
 
-  <main>
-    <section class="card slide-up">
-      <h2>About Me</h2>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+  <div class="container">
+    <a class="navbar-brand" href="#">Aditya Kumar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link active" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<header id="hero">
+  <div class="container">
+    <h1>Hello, I'm Aditya Kumar</h1>
+    <p>Cybersecurity Analyst | Linux Enthusiast | AWS Learner</p>
+    <a href="#projects" class="btn btn-light btn-lg">View My Work</a>
+  </div>
+</header>
+
+<!-- About Section -->
+<section id="about" class="container">
+  <h2 class="text-center mb-5">About Me</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
       <p>
-        I am an IT graduate skilled in Networking, Linux, AWS, and Threat Intelligence.
-        Passionate about digital security and open-source intelligence.
+        I am an aspiring cybersecurity analyst passionate about protecting digital assets and
+        learning new technologies. Skilled in Linux, AWS cloud services, threat intelligence, and
+        penetration testing. Currently focused on expanding my expertise in cloud security and open-source intelligence.
       </p>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <section class="card slide-up">
-      <h2>Skills</h2>
-      <ul>
-        <li>Cybersecurity</li>
-        <li>Linux</li>
-        <li>Networking</li>
-        <li>AWS</li>
-        <li>Penetration Testing</li>
-      </ul>
-    </section>
+<!-- Projects Section -->
+<section id="projects" class="bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">My Projects</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card shadow-sm">
+          <img src="https://via.placeholder.com/400x200.png?text=Project+1" class="card-img-top" alt="Basic Cloud Hosting" />
+          <div class="card-body">
+            <h5 class="card-title">Basic Cloud Hosting with AWS</h5>
+            <p class="card-text">
+              Setup of EC2 instance, configuration of Nginx server, IAM policies, and S3 storage.
+            </p>
+            <a href="#" class="btn btn-primary" target="_blank">View Details</a>
+          </div>
+        </div>
+      </div>
+      <!-- Add more project cards similarly -->
+      <div class="col-md-4">
+        <div class="card shadow-sm">
+          <img src="https://via.placeholder.com/400x200.png?text=Project+2" class="card-img-top" alt="Penetration Testing" />
+          <div class="card-body">
+            <h5 class="card-title">Penetration Testing Lab</h5>
+            <p class="card-text">
+              Practical lab environment to simulate cyber attacks and learn security defense.
+            </p>
+            <a href="#" class="btn btn-primary" target="_blank">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow-sm">
+          <img src="https://via.placeholder.com/400x200.png?text=Project+3" class="card-img-top" alt="Threat Intelligence" />
+          <div class="card-body">
+            <h5 class="card-title">Cyber Threat Intelligence</h5>
+            <p class="card-text">
+              Research and analysis on cyber threats, monitoring emerging attack vectors.
+            </p>
+            <a href="#" class="btn btn-primary" target="_blank">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section class="card slide-up">
-      <h2>Projects</h2>
-      <h3>Basic Cloud Hosting with AWS</h3>
-      <p>Launched EC2 instance, configured Nginx, applied IAM policies, and used S3 for storage.</p>
-    </section>
-
-    <section class="card slide-up">
-      <h2>Certifications</h2>
-      <ul>
-        <li>Cyber Threat Intelligence – ArcX</li>
-        <li>AWS Cloud Practitioner – AWS</li>
-        <li>Cybersecurity Threat Vectors – Microsoft/Coursera</li>
-        <li>ISRO E-learning Certificate</li>
-      </ul>
-    </section>
-
-    <section class="card slide-up">
-      <h2>Contact Me</h2>
+<!-- Contact Section -->
+<section id="contact" class="container">
+  <h2 class="text-center mb-5">Contact Me</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
       <form action="https://formspree.io/f/mrbqjwql" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="_replyto" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit">Send Message</button>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" name="_replyto" placeholder="name@example.com" required />
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" name="message" rows="4" placeholder="Write your message here..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Send Message</button>
       </form>
-    </section>
-  </main>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Aditya Kumar</p>
-  </footer>
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>&copy; 2025 Aditya Kumar. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Bootstrap JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
