@@ -107,425 +107,184 @@
       margin: 0 auto;
     }
 
-    .hero {
-      display: flex;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    .hero-content {
-      display: flex;
-      align-items: center;
-      gap: 3rem;
-      width: 100%;
-    }
-
-    .hero-text {
-      flex: 1;
-    }
-
-    .hero-image {
-      flex: 1;
-      text-align: center;
-    }
-
-    .hero-image img {
-      max-width: 100%;
-      border-radius: 1rem;
-      border: 4px solid var(--accent);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1.5rem;
-      line-height: 1.3;
-    }
-
-    h2 {
-      font-size: 2.2rem;
-      margin-bottom: 2rem;
-      position: relative;
-      display: inline-block;
-    }
-
-    h2::after {
-      content: '';
-      position: absolute;
-      width: 50px;
-      height: 3px;
-      background: var(--accent);
-      bottom: -10px;
-      left: 0;
-    }
-
-    .accent {
-      color: var(--accent);
-    }
-
-    /* Tech Icons */
-    .tech-icons {
-      display: flex;
-      gap: 1.5rem;
-      margin: 2.5rem 0;
-      flex-wrap: wrap;
-    }
-
-    .tech-icons img {
-      height: 45px;
-      transition: transform 0.3s;
-    }
-
-    .tech-icons img:hover {
-      transform: scale(1.1);
-    }
-
-    /* Social Links */
-    .social-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .social-links a {
-      color: var(--text);
-      font-size: 1.5rem;
-      transition: color 0.3s, transform 0.3s;
-    }
-
-    .social-links a:hover {
-      color: var(--accent);
-      transform: translateY(-3px);
-    }
-
-    /* Cards */
-    .card {
-      background-color: var(--card-bg);
-      border-radius: 0.75rem;
-      padding: 2rem;
-      border: 1px solid var(--border);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-      height: 100%;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    /* Grid Layout */
-    .grid {
+    /* Contact Form Styles */
+    .contact-container {
+      max-width: 800px;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: 2rem;
     }
 
-    /* Section Headers */
-    .section-header {
-      margin-bottom: 3rem;
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
     }
 
-    .section-header h2 {
-      display: inline-block;
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 3rem 5%;
-      border-top: 1px solid var(--border);
+    .contact-info-item i {
+      color: var(--accent);
+      font-size: 1.2rem;
     }
 
-    /* Contact Form */
     .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
     }
 
     .form-group {
-      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
-    .form-control {
-      width: 100%;
-      padding: 1rem;
+    .form-group label {
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      padding: 0.8rem;
       border: 1px solid var(--border);
-      border-radius: 0.5rem;
+      border-radius: 0.25rem;
       background-color: var(--card-bg);
       color: var(--text);
       font-family: 'Inter', sans-serif;
     }
 
-    .form-control:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.2);
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 1rem 2rem;
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .checkbox-group input {
+      width: auto;
+    }
+
+    .submit-btn {
+      padding: 0.8rem 1.5rem;
       background-color: var(--accent);
       color: white;
       border: none;
-      border-radius: 0.5rem;
+      border-radius: 0.25rem;
       font-weight: 600;
       cursor: pointer;
       transition: background-color 0.3s;
-      width: 100%;
+      width: fit-content;
     }
 
-    .btn:hover {
+    .submit-btn:hover {
       background-color: var(--accent-hover);
     }
 
     /* Responsive Design */
-    @media (max-width: 1024px) {
-      section {
-        padding: 4rem 5%;
-      }
-      
-      h1 {
-        font-size: 2.4rem;
-      }
-      
-      h2 {
-        font-size: 2rem;
-      }
-    }
-
     @media (max-width: 768px) {
-      nav {
-        padding: 1rem 5%;
-      }
-      
-      .nav-links {
-        display: none;
-      }
-      
-      .hero-content {
-        flex-direction: column-reverse;
-        gap: 2rem;
-        text-align: center;
-      }
-      
-      h1 {
-        font-size: 2rem;
-      }
-      
-      h2 {
-        font-size: 1.8rem;
-      }
-      
-      h2::after {
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      
-      .tech-icons {
-        justify-content: center;
-      }
-      
-      .social-links {
-        justify-content: center;
-      }
-    }
-
-    @media (max-width: 480px) {
-      section {
-        padding: 3rem 5%;
-      }
-      
-      h1 {
-        font-size: 1.8rem;
-      }
-      
-      .card {
-        padding: 1.5rem;
+      .contact-container {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <div class="logo">Aditya.dev</div>
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#education">Education</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <button class="toggle-btn" onclick="toggleTheme()">
-      <i class="fas fa-moon"></i>
-    </button>
-  </nav>
-
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-text">
-          <h1>
-            I'm <span class="accent">Aditya Kumar</span><br>
-            <span class="accent">Cybersecurity & Cloud Enthusiast</span>
-          </h1>
-          <p>
-            With expertise in AWS, SQL, Threat Intelligence, and Networking with a strong background in Linux and Cybersecurity.
-          </p>
-          
-          <div class="tech-icons">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash">
-          </div>
-
-          <div class="social-links">
-            <a href="https://linkedin.com/in/kumaraditya766899" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/0x1337adi" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="mailto:kumaraditya766899@gmail.com"><i class="fas fa-envelope"></i></a>
-          </div>
-        </div>
-        
-        <div class="hero-image">
-          <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Profile">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Education Section -->
-  <section id="education">
-    <div class="container">
-      <div class="section-header">
-        <h2>Education</h2>
-      </div>
-      <div class="grid">
-        <div class="card">
-          <h3>Master of Computer Applications</h3>
-          <p>UPES, Dehradun</p>
-          <p class="accent">2024 - 2026</p>
-        </div>
-        <div class="card">
-          <h3>Bachelor of Science in IT</h3>
-          <p>HNB Garhwal University</p>
-          <p class="accent">2021 - 2024</p>
-        </div>
-        <div class="card">
-          <h3>Higher Secondary</h3>
-          <p>The Aryan School (ISC)</p>
-          <p class="accent">2020 - 2021</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills">
-    <div class="container">
-      <div class="section-header">
-        <h2>Skills</h2>
-      </div>
-      <div class="grid">
-        <div class="card">
-          <h3><i class="fas fa-laptop-code"></i> Frontend Development</h3>
-          <p>HTML, CSS, JavaScript, React</p>
-        </div>
-        <div class="card">
-          <h3><i class="fas fa-server"></i> Backend Development</h3>
-          <p>Node.js, Express</p>
-        </div>
-        <div class="card">
-          <h3><i class="fas fa-database"></i> Databases</h3>
-          <p>MySQL, MongoDB</p>
-        </div>
-        <div class="card">
-          <h3><i class="fas fa-shield-alt"></i> Security Tools</h3>
-          <p>Metasploit, Burp Suite, Nmap, Wireshark</p>
-        </div>
-        <div class="card">
-          <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
-          <p>AWS, Docker, Git, CI/CD</p>
-        </div>
-        <div class="card">
-          <h3><i class="fas fa-terminal"></i> Operating Systems</h3>
-          <p>Linux (Debian, RedHat), Windows</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects">
-    <div class="container">
-      <div class="section-header">
-        <h2>Projects</h2>
-      </div>
-      <div class="grid">
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Threat Detection">
-          <h3>Threat Detection System</h3>
-          <p>Python-based threat intelligence system using open-source feeds and machine learning algorithms to detect potential security threats.</p>
-        </div>
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="AWS Automation">
-          <h3>AWS Automation</h3>
-          <p>Automated EC2 backup and monitoring system using AWS CLI, Lambda functions, and CloudWatch for efficient cloud resource management.</p>
-        </div>
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1586282391129-76a746c25d56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Timetable System">
-          <h3>Timetable Management System</h3>
-          <p>Web-based timetable management system for educational institutions with SQL database backend and responsive frontend interface.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Navigation and other sections remain the same until Contact Section -->
 
   <!-- Contact Section -->
   <section id="contact">
     <div class="container">
       <div class="section-header">
-        <h2>Contact Me</h2>
+        <h2>Let's connect</h2>
       </div>
-      <div class="contact-form">
-        <form action="https://formspree.io/f/mrbqjwql" method="POST">
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-info-item">
+            <i class="fas fa-phone"></i>
+            <div>
+              <p>Phone</p>
+              <p>+91-789869XXXX</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <p>Email</p>
+              <p>kumaraditya766899@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <i class="fab fa-github"></i>
+            <div>
+              <p>Github</p>
+              <p>0x1337adi</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <p>Address</p>
+              <p>Madhya Pradesh | Uttrakhand</p>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form" action="https://formspree.io/f/mrbqjwql" method="POST">
           <div class="form-group">
-            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
           </div>
           <div class="form-group">
-            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
           </div>
           <div class="form-group">
-            <textarea name="message" rows="6" class="form-control" placeholder="Your Message" required></textarea>
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Subject">
           </div>
-          <button type="submit" class="btn">Send Message</button>
+          <div class="form-group">
+            <label for="message">Content *</label>
+            <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
+          </div>
+          <div class="checkbox-group">
+            <input type="checkbox" id="terms" name="terms" required>
+            <label for="terms">I agree to the Terms and Privacy Policy</label>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2024 Aditya Kumar. All rights reserved.</p>
-    <div class="social-links" style="justify-content: center; margin-top: 1.5rem;">
-      <a href="https://linkedin.com/in/kumaraditya766899" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/0x1337adi" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="mailto:kumaraditya766899@gmail.com"><i class="fas fa-envelope"></i></a>
-    </div>
-  </footer>
+  <!-- Rest of your HTML remains the same -->
 
   <script>
+    // Fix for AWS logo - using a reliable CDN
+    document.addEventListener('DOMContentLoaded', function() {
+      const awsLogo = document.createElement('img');
+      awsLogo.src = 'https://d1.awsstatic.com/logos/aws-logo-lockups/poweredbyaws/PB_AWS_logo_RGB_stacked_REV_SQ.91cd4af40773cbfbd15577a3c2b8a346fe3e8fa2.png';
+      awsLogo.alt = 'AWS';
+      awsLogo.style.height = '40px';
+      
+      // Find where you want to insert the AWS logo (likely in your tech-icons div)
+      const techIcons = document.querySelector('.tech-icons');
+      if (techIcons) {
+        techIcons.insertBefore(awsLogo, techIcons.children[1]); // Insert after Linux logo
+      }
+    });
+
+    // Rest of your JavaScript remains the same
     function toggleTheme() {
       const html = document.documentElement;
       const currentTheme = html.getAttribute("data-theme");
@@ -549,8 +308,6 @@
         icon.classList.add('fa-sun');
       }
     })();
-
-    // Mobile menu toggle (can be added later if needed)
   </script>
 </body>
 </html>
