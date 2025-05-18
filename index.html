@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,100 +10,215 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
+    :root {
+      --bg-dark: #0e0e0e;
+      --bg-light: #f5f5f5;
+      --text-dark: #00ffff;
+      --text-light: #0e0e0e;
+      --accent: #00ccff;
+    }
+    html[data-theme="dark"] {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    html[data-theme="light"] {
+      background-color: var(--bg-light);
+      color: var(--text-light);
+    }
+
     body {
       margin: 0;
       font-family: 'Fira Code', monospace;
-      background-color: #0e0e0e;
-      color: #ccc;
+      scroll-behavior: smooth;
     }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: inherit;
+      border-bottom: 1px solid #444;
+    }
+
+    nav a {
+      color: inherit;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-weight: bold;
+    }
+
+    .toggle-btn {
+      cursor: pointer;
+      font-size: 1.2rem;
+      background: none;
+      border: none;
+      color: inherit;
+    }
+
     .container {
       display: flex;
       flex-wrap: wrap;
-      min-height: 100vh;
-      padding: 50px;
+      padding: 50px 20px;
       align-items: center;
       justify-content: center;
     }
-    .left {
-      flex: 1 1 300px;
+
+    .right {
+      flex: 1 1 400px;
       max-width: 400px;
       padding: 20px;
-      text-align: center;
     }
-    .left img {
+
+    .right img {
       width: 100%;
       border-radius: 20px;
       border: 4px solid #2e2e2e;
     }
-    .right {
-      flex: 2 1 400px;
+
+    .left {
+      flex: 2 1 500px;
       padding: 20px;
     }
-    .right span {
-      color: #ff79c6;
-    }
-    .right h1 {
-      color: #fff;
+
+    .left h1 {
       font-size: 2rem;
       line-height: 1.6;
     }
+
     .green {
-      color: #50fa7b;
+      color: var(--accent);
     }
-    .tech-icons {
-      margin: 20px 0;
-    }
+
     .tech-icons img {
       height: 40px;
       margin-right: 10px;
       transition: transform 0.3s;
     }
+
     .tech-icons img:hover {
       transform: scale(1.2);
     }
+
     .social {
       margin-top: 20px;
     }
+
     .social a {
-      color: #ccc;
+      color: inherit;
       margin-right: 15px;
       font-size: 1.5rem;
-      transition: color 0.3s;
     }
-    .social a:hover {
-      color: #50fa7b;
+
+    .projects, .contact-section {
+      padding: 40px 20px;
+      text-align: center;
     }
+
+    .project-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: rgba(0,0,0,0.1);
+      border: 2px solid var(--accent);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      margin: 30px auto;
+      gap: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 12px;
+      border: 2px solid var(--accent);
+      background-color: transparent;
+      color: inherit;
+      font-family: 'Fira Code', monospace;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #00ccff;
+      box-shadow: 0 0 8px #00ffff66;
+    }
+
+    .contact-form button {
+      padding: 12px;
+      background-color: var(--accent);
+      color: black;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
     @media(max-width: 768px) {
       .container {
-        flex-direction: column;
-        padding: 30px 20px;
-      }
-      .right h1 {
-        font-size: 1.5rem;
+        flex-direction: column-reverse;
       }
     }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <!-- Left Side - Profile Image -->
-  <div class="left">
-    <img src="your-photo.jpg" alt="Aditya Kumar" />
+<!-- Navbar -->
+<nav>
+  <div><strong>Aditya.dev</strong></div>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <button class="toggle-btn" onclick="toggleTheme()" title="Toggle Theme">
+      🌓
+    </button>
   </div>
+</nav>
 
-  <!-- Right Side - Text & Info -->
-  <div class="right">
+<!-- Hero Section -->
+<section class="container" id="home">
+  <div class="left">
     <span>Hey, I'm Aditya</span>
     <h1>
-      I am a <span class="green">{Cybersecurity Enthusiast || Cloud Explorer || Linux Advocate}</span>, <br>
+      I am a <span class="green">{Cybersecurity Enthusiast || Cloud Explorer || Linux Learner }</span>, <br>
       I love to <span class="green">Build || Secure || Deploy</span>
     </h1>
     <p>
-      With expertise in technologies like <span class="green">AWS, DevOps, Threat Intelligence, Networking</span> and a strong background in Linux and Cybersecurity.
+      With expertise in <span class="green">AWS, SQL, Threat Intelligence, Networking</span> and a strong background in Linux and Cybersecurity.
     </p>
 
-    <!-- Tech Logos -->
     <div class="tech-icons">
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" />
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS" />
@@ -112,14 +227,72 @@
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash" />
     </div>
 
-    <!-- Social Links -->
     <div class="social">
-      <a href="https://linkedin.com/in/yourlinkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://linkedin.com/in/kumaraditya766899" target="_blank"><i class="fab fa-linkedin"></i></a>
       <a href="https://github.com/0x1337adi" target="_blank"><i class="fab fa-github"></i></a>
       <a href="mailto:your@email.com"><i class="fas fa-envelope"></i></a>
     </div>
   </div>
-</div>
+
+  <div class="right">
+    <img src="866cd002-0aa0-4efc-9e5b-c9ee63ed03fe.png" alt="Aditya" />
+  </div>
+</section>
+
+<!-- Projects -->
+<section class="projects" id="projects">
+  <h2>My Projects</h2>
+  <div class="project-cards">
+    <div class="card">
+      <img src="https://source.unsplash.com/600x400/?cybersecurity,terminal" alt="Threat Detection" />
+      <div class="card-content">
+        <h3>Threat Detection System</h3>
+        <p>Built a threat intel system using Python & open-source feeds.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://source.unsplash.com/600x400/?cloud,server" alt="AWS Automation" />
+      <div class="card-content">
+        <h3>AWS Automation</h3>
+        <p>Automated EC2 backup and monitoring using AWS CLI and Lambda.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://source.unsplash.com/600x400/?linux,code" alt="Linux Hardening" />
+      <div class="card-content">
+        <h3>Timetable Management System</h3>
+        <p>A small School/College Timetable Managing system using sql.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact-section" id="contact">
+  <h2>Contact Me</h2>
+  <form class="contact-form" action="https://formspree.io/f/mrbqjwql" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<!-- JS: Toggle Theme -->
+<script>
+  function toggleTheme() {
+    const html = document.documentElement;
+    const currentTheme = html.getAttribute("data-theme");
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+    html.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  }
+
+  (function () {
+    const saved = localStorage.getItem("theme");
+    if (saved) document.documentElement.setAttribute("data-theme", saved);
+  })();
+</script>
 
 </body>
 </html>
