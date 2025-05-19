@@ -233,21 +233,22 @@
       display: inline-block;
     }
 
+    /* Larger Profile Picture */
     .profile-image {
-      width: 300px;
-      height: 400px; /* Changed to rectangle */
+      width: 400px;
+      height: 500px;
       object-fit: cover;
       border: 5px solid var(--accent);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
       position: relative;
       z-index: 2;
-      border-radius: 10px; /* Slight rounded corners */
+      border-radius: 10px;
     }
 
     .profile-image-bg {
       position: absolute;
-      width: 320px;
-      height: 420px;
+      width: 420px;
+      height: 520px;
       background: linear-gradient(45deg, var(--accent), var(--secondary));
       top: -15px;
       left: -15px;
@@ -446,6 +447,74 @@
       transform: translateX(-50%);
     }
 
+    /* Timeline Styles */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background: linear-gradient(to bottom, var(--accent), var(--secondary));
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      padding: 20px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      top: 30px;
+      z-index: 1;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot {
+      right: -8px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-dot {
+      left: -8px;
+    }
+
+    .timeline-content {
+      background-color: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      position: relative;
+      transition: all 0.3s;
+    }
+
+    .timeline-content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      border-color: var(--accent);
+    }
+
     /* Contact Form Styles */
     .contact-container {
       max-width: 1000px;
@@ -599,95 +668,28 @@
       filter: blur(30px);
       z-index: -1;
     }
-    /* Timeline Styles */
-.timeline {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
 
-.timeline::before {
-  content: '';
-  position: absolute;
-  width: 4px;
-  background: linear-gradient(to bottom, var(--accent), var(--secondary));
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  margin-left: -2px;
-  border-radius: 2px;
-}
-
-.timeline-item {
-  padding: 20px 40px;
-  position: relative;
-  width: 50%;
-  box-sizing: border-box;
-}
-
-.timeline-item:nth-child(odd) {
-  left: 0;
-}
-
-.timeline-item:nth-child(even) {
-  left: 50%;
-}
-
-.timeline-dot {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  background-color: var(--accent);
-  border-radius: 50%;
-  top: 30px;
-  z-index: 1;
-}
-
-.timeline-item:nth-child(odd) .timeline-dot {
-  right: -8px;
-}
-
-.timeline-item:nth-child(even) .timeline-dot {
-  left: -8px;
-}
-
-.timeline-content {
-  background-color: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  position: relative;
-  transition: all 0.3s;
-}
-
-.timeline-content:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-  border-color: var(--accent);
-}
-
-/* Responsive Timeline */
-@media (max-width: 768px) {
-  .timeline::before {
-    left: 31px;
-  }
-  
-  .timeline-item {
-    width: 100%;
-    padding-left: 70px;
-    padding-right: 25px;
-  }
-  
-  .timeline-item:nth-child(even) {
-    left: 0;
-  }
-  
-  .timeline-item:nth-child(odd) .timeline-dot,
-  .timeline-item:nth-child(even) .timeline-dot {
-    left: 23px;
-  }
-}
+    /* Responsive Timeline */
+    @media (max-width: 768px) {
+      .timeline::before {
+        left: 31px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      
+      .timeline-item:nth-child(even) {
+        left: 0;
+      }
+      
+      .timeline-item:nth-child(odd) .timeline-dot,
+      .timeline-item:nth-child(even) .timeline-dot {
+        left: 23px;
+      }
+    }
 
     /* Responsive Design */
     @media (max-width: 1024px) {
@@ -704,13 +706,13 @@
       }
       
       .profile-image {
-        width: 250px;
-        height: 350px;
+        width: 350px;
+        height: 450px;
       }
       
       .profile-image-bg {
-        width: 270px;
-        height: 370px;
+        width: 370px;
+        height: 470px;
       }
     }
 
@@ -738,13 +740,13 @@
       }
       
       .profile-image {
-        width: 200px;
-        height: 300px;
+        width: 300px;
+        height: 400px;
       }
       
       .profile-image-bg {
-        width: 220px;
-        height: 320px;
+        width: 320px;
+        height: 420px;
       }
       
       .tech-icons {
@@ -779,13 +781,13 @@
       }
       
       .profile-image {
-        width: 180px;
-        height: 250px;
+        width: 250px;
+        height: 350px;
       }
       
       .profile-image-bg {
-        width: 200px;
-        height: 270px;
+        width: 270px;
+        height: 370px;
       }
       
       .tech-icons img {
@@ -858,70 +860,66 @@
     <div class="terminal-effect"></div>
   </section>
 
-<!-- Education Section -->
-<section id="education">
-  <div class="container">
-    <div class="section-header">
-      <h2>Education</h2>
-    </div>
-    <div class="section-card">
-      <div class="timeline">
-        <!-- Timeline Item 1 -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3><i class="fas fa-graduation-cap"></i> Master of Computer Applications</h3>
-            <p>UPES, Dehradun</p>
-            <p class="date"><i class="far fa-calendar-alt"></i> 2024 - 2026</p>
+  <!-- Education Section -->
+  <section id="education">
+    <div class="container">
+      <div class="section-header">
+        <h2>Education</h2>
+      </div>
+      <div class="section-card">
+        <div class="timeline">
+          <!-- Timeline Item 1 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3><i class="fas fa-graduation-cap"></i> Master of Computer Applications</h3>
+              <p>UPES, Dehradun</p>
+              <p class="date"><i class="far fa-calendar-alt"></i> 2024 - 2026</p>
+            </div>
           </div>
-        </div>
-        
-        <!-- Timeline Item 2 -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3><i class="fas fa-shield-alt"></i> Professionals in Cybersecurity</h3>
-            <p>Global Institute of Cyber Training</p>
-            <p class="date"><i class="far fa-calendar-alt"></i> 2023 - 2024</p>
+          
+          <!-- Timeline Item 2 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3><i class="fas fa-shield-alt"></i> Professionals in Cybersecurity</h3>
+              <p>Global Institute of Cyber Training</p>
+              <p class="date"><i class="far fa-calendar-alt"></i> 2023 - 2024</p>
+            </div>
           </div>
-        </div>
-        
-        <!-- Timeline Item 3 -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3><i class="fas fa-laptop-code"></i> Bachelor of Science in IT</h3>
-            <p>HNB Garhwal University</p>
-            <p class="date"><i class="far fa-calendar-alt"></i> 2021 - 2024</p>
+          
+          <!-- Timeline Item 3 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3><i class="fas fa-laptop-code"></i> Bachelor of Science in IT</h3>
+              <p>HNB Garhwal University</p>
+              <p class="date"><i class="far fa-calendar-alt"></i> 2021 - 2024</p>
+            </div>
           </div>
-        </div>
-        
-        <!-- Timeline Item 4 -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3><i class="fas fa-school"></i>Intermediate</h3>
-            <p>The Aryan School (ISC)</p>
-            <p class="date"><i class="far fa-calendar-alt"></i> 2020 - 2021</p>
+          
+          <!-- Timeline Item 4 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3><i class="fas fa-school"></i> Intermediate (ISC)</h3>
+              <p>The Aryan School</p>
+              <p class="date"><i class="far fa-calendar-alt"></i> 2020 - 2021</p>
+            </div>
           </div>
+          
+          <!-- Timeline Item 5 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3><i class="fas fa-school"></i> High School (ICSE)</h3>
+              <p>The Aryan School</p>
+              <p class="date"><i class="far fa-calendar-alt"></i> 2018 - 2019</p>
+            </div>
+           </div>
         </div>
       </div>
-    </div>
-  </div> 
-  
-        <!-- Timeline Item 5 -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3><i class="fas fa-school"></i> High School</h3>
-            <p>The Aryan School (ICSE)</p>
-            <p class="date"><i class="far fa-calendar-alt"></i> 2018 - 2019</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
   <!-- Skills Section -->
   <section id="skills">
