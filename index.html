@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aditya Kumar | Cybersecurity & Cloud Enthusiast</title>
+  <title>Aditya Kumar | Cybersecurity Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <style>
     :root {
       --bg-dark: #0e0e0e;
@@ -30,168 +29,162 @@
       font-family: 'Fira Code', monospace;
       scroll-behavior: smooth;
     }
-    nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; background-color: inherit; border-bottom: 1px solid #444; }
-    nav a { color: inherit; text-decoration: none; margin-left: 1rem; font-weight: bold; }
-    .toggle-btn { cursor: pointer; font-size: 1.2rem; background: none; border: none; color: inherit; }
-    .container { display: flex; flex-wrap: wrap; padding: 50px 20px; align-items: center; justify-content: center; }
-    .right { flex: 1 1 400px; max-width: 400px; padding: 20px; }
-    .right img { width: 100%; border-radius: 20px; border: 4px solid var(--accent); }
-    .left { flex: 2 1 500px; padding: 20px; }
-    .left h1 { font-size: 2rem; line-height: 1.6; }
-    .green { color: var(--accent); }
-    .tech-icons img { height: 40px; margin-right: 10px; transition: transform 0.3s; }
-    .tech-icons img:hover { transform: scale(1.2); }
-    .social { margin-top: 20px; }
-    .social a { color: inherit; margin-right: 15px; font-size: 1.5rem; }
-    .projects, .contact-section { padding: 40px 20px; text-align: center; }
-    .project-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
-    .card { background-color: var(--card-bg-light); border: 2px solid var(--accent); border-radius: 10px; overflow: hidden; transition: transform 0.3s; }
-    html[data-theme="dark"] .card { background-color: var(--card-bg-dark); }
-    .card:hover { transform: translateY(-5px); }
-    .card img { width: 100%; height: 160px; object-fit: cover; }
-    .card-content { padding: 15px; }
-    .contact-form { display: flex; flex-direction: column; max-width: 600px; margin: 30px auto; gap: 15px; }
-    .contact-form input, .contact-form textarea { padding: 12px; border: 2px solid var(--accent); background-color: transparent; color: inherit; font-family: 'Fira Code', monospace; border-radius: 8px; font-size: 1rem; }
-    .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 8px var(--accent); }
-    .contact-form button { padding: 12px; background-color: var(--accent); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
-    .cursor { display: inline-block; width: 10px; background-color: var(--accent); animation: blink 1s step-start infinite; }
-    @keyframes blink { 50% { opacity: 0; } }
-    @media(max-width: 768px) { .container { flex-direction: column-reverse; } }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: inherit;
+      border-bottom: 1px solid #444;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: inherit;
+      text-decoration: none;
+      margin: 0.5rem 1rem;
+      font-weight: bold;
+    }
+    .toggle-btn {
+      cursor: pointer;
+      font-size: 1.2rem;
+      background: none;
+      border: none;
+      color: inherit;
+    }
+    section {
+      padding: 50px 20px;
+    }
+    .container, .card-content, .project-cards, .contact-form {
+      max-width: 1000px;
+      margin: auto;
+    }
+    .card {
+      background-color: var(--card-bg-light);
+      border: 2px solid var(--accent);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+    html[data-theme="dark"] .card {
+      background-color: var(--card-bg-dark);
+    }
+    .project-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card-content {
+      padding: 15px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.75rem;
+      border: 2px solid var(--accent);
+      background: transparent;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      color: inherit;
+    }
+    .contact-form button {
+      padding: 0.75rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    @media(max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .project-cards {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
-<nav>
-  <div><strong>Aditya.dev</strong></div>
-  <div>
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-    <button class="toggle-btn" onclick="toggleTheme()">🌓</button>
-  </div>
-</nav>
+  <nav>
+    <div><strong>Aditya.dev</strong></div>
+    <div>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <button class="toggle-btn" onclick="toggleTheme()">🌓</button>
+    </div>
+  </nav>
 
-<!-- Hero Section -->
-<section class="container" id="home">
-  <div class="left">
-    <span>Hey, I'm Aditya <span class="cursor">|</span></span>
-    <h1>
-      I am a <span class="green">Cybersecurity Enthusiast || Cloud Explorer || Linux Learner</span><br>
-      I love to <span class="green">Build || Secure || Deploy</span>
-    </h1>
-    <p>
-      With expertise in <span class="green">AWS, SQL, Threat Intelligence, Networking</span> and a strong background in Linux and Cybersecurity.
-    </p>
-    <div class="tech-icons">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" />
-      <img src="https://img.icons8.com/color/48/000000/amazon-web-services.png" width="40" alt="AWS" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash" />
+  <section id="education" class="projects">
+    <h2>Education</h2>
+    <div class="card">
+      <div class="card-content">
+        <div class="project-cards">
+          <div class="card"><div class="card-content"><h3>Master of Computer Applications</h3><p>UPES, Dehradun</p><p class="date">2024 - 2026</p></div></div>
+          <div class="card"><div class="card-content"><h3>Professionals in Cyber Security</h3><p>Global Institute of Cyber Technology</p><p class="date">2023 - 2024</p></div></div>
+          <div class="card"><div class="card-content"><h3>Bachelor of Science in IT</h3><p>HNB Garhwal University</p><p class="date">2021 - 2024</p></div></div>
+          <div class="card"><div class="card-content"><h3>Higher Secondary</h3><p>The Aryan School (ISC)</p><p class="date">2020 - 2021</p></div></div>
+        </div>
+      </div>
     </div>
-    <div class="social">
-      <a href="https://linkedin.com/in/kumaraditya766899" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/0x1337adi" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="mailto:kumaraditya766899@gmail.com"><i class="fas fa-envelope"></i></a>
-    </div>
-  </div>
-  <div class="right">
-    <img src="https://images.unsplash.com/photo-1591696205602-2f950c417cb9" alt="Hacker working in dark" />
-  </div>
-</section>
+  </section>
 
-<!-- Services Section -->
-<section id="services" style="padding: 60px 20px; text-align: center;">
-  <h3 style="color: var(--accent);">* Cooperation</h3>
-  <h2>Designing <strong>solutions</strong> customized<br>to meet your <strong>requirements</strong></h2>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1100px; margin: 40px auto;">
+  <section id="skills" class="projects">
+    <h2>Skills</h2>
     <div class="card">
       <div class="card-content">
-        <h4><i class="fas fa-code"></i> API Development</h4>
-        <p>Designing and developing scalable RESTful APIs for web and mobile applications.</p>
+        <div class="project-cards">
+          <div class="card"><div class="card-content"><h3>Frontend Development</h3><p>HTML, CSS, JavaScript, React</p></div></div>
+          <div class="card"><div class="card-content"><h3>Backend Development</h3><p>Node.js, Express</p></div></div>
+          <div class="card"><div class="card-content"><h3>Databases</h3><p>MySQL, MongoDB</p></div></div>
+          <div class="card"><div class="card-content"><h3>Security Tools</h3><p>Metasploit, Burp Suite, Nmap, Wireshark</p></div></div>
+          <div class="card"><div class="card-content"><h3>Cloud & DevOps</h3><p>AWS, Docker, Git, CI/CD</p></div></div>
+          <div class="card"><div class="card-content"><h3>Operating Systems</h3><p>Linux (Debian, RedHat), Windows</p></div></div>
+        </div>
       </div>
     </div>
-    <div class="card">
-      <div class="card-content">
-        <h4><i class="fas fa-laptop-code"></i> Frontend Development</h4>
-        <p>Creating dynamic and interactive web pages using modern JS frameworks.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-content">
-        <h4><i class="fas fa-mobile-alt"></i> Mobile App Development</h4>
-        <p>Building cross-platform mobile applications using Flutter and React Native.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-content">
-        <h4><i class="fas fa-server"></i> DevOps Consulting</h4>
-        <p>Implementing automated pipelines for CI/CD and efficient delivery.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-content">
-        <h4><i class="fas fa-cloud"></i> Cloud Integration</h4>
-        <p>Seamless integration with AWS, Azure, Google Cloud, and more.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-content">
-        <h4><i class="fas fa-database"></i> Database Management</h4>
-        <p>Managing both relational and non-relational DBs for high-performance systems.</p>
-      </div>
-    </div>
-  </div>
-  <p>Excited to take on <strong>new projects</strong> and collaborate.<br>Let’s chat about your ideas. <span style="color: var(--accent);">Reach out!</span></p>
-</section>
+  </section>
 
-<!-- Education Section -->
-<section id="education" class="projects">
-  <h2>Education</h2>
-  <div class="project-cards">
+  <section id="contact" class="projects">
+    <h2>Contact Me</h2>
     <div class="card">
       <div class="card-content">
-        <h3>Master of Computer Applications</h3>
-        <p>UPES, Dehradun</p>
-        <p class="date">2024 - 2026</p>
+        <form class="contact-form" action="https://formspree.io/f/mrbqjwql" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
       </div>
     </div>
-    <div class="card">
-      <div class="card-content">
-        <h3>Bachelor of Science in IT</h3>
-        <p>HNB Garhwal University</p>
-        <p class="date">2021 - 2024</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-content">
-        <h3>Higher Secondary</h3>
-        <p>The Aryan School (ISC)</p>
-        <p class="date">2020 - 2021</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-content">
-        <h3>Professionals in Cyber Security</h3>
-        <p>Global Institute of Cyber Technology</p>
-        <p class="date">2023 - 2024</p>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<script>
-  function toggleTheme() {
-    const html = document.documentElement;
-    const current = html.getAttribute("data-theme");
-    const newTheme = current === "dark" ? "light" : "dark";
-    html.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-  }
-  (function () {
-    const saved = localStorage.getItem("theme");
-    if (saved) document.documentElement.setAttribute("data-theme", saved);
-  })();
-</script>
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute("data-theme");
+      const next = current === "dark" ? "light" : "dark";
+      html.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+    }
+    (function () {
+      const saved = localStorage.getItem("theme");
+      if (saved) document.documentElement.setAttribute("data-theme", saved);
+    })();
+  </script>
 </body>
 </html>
