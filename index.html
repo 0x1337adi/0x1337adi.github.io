@@ -3,26 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aditya Kumar | Cybersecurity Explorer, Cyber Threat Intelligence & Cloud Enthusiast</title>
+  <title>Aditya Kumar | Cybersecurity Expert, Threat Intelligence & Cloud Specialist</title>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
-      /* Modern Color Palette */
-      --bg-dark: #121212;
-      --card-bg-dark: #1e1e1e;
+      /* Modern Cyber Color Palette */
+      --bg-dark: #0a0a0a;
+      --card-bg-dark: #121212;
       --text-dark: #e0e0e0;
-      --border-dark: #333333;
+      --border-dark: #2a2a2a;
       
-      --bg-light: #f8f9fa;
+      --bg-light: #f5f5f5;
       --card-bg-light: #ffffff;
-      --text-light: #333333;
+      --text-light: #222222;
       --border-light: #e0e0e0;
       
-      --accent: #4f46e5;  /* Modern purple-blue */
+      --accent: #4f46e5;  /* Cyber purple-blue */
       --accent-hover: #4338ca;
-      --secondary: #10b981; /* Emerald green */
+      --secondary: #10b981; /* Matrix green */
       --tertiary: #f59e0b; /* Amber */
+      --cyber-red: #ff3e3e;
     }
 
     * {
@@ -37,6 +38,7 @@
       color: var(--text);
       line-height: 1.6;
       transition: background-color 0.3s, color 0.3s;
+      overflow-x: hidden;
     }
 
     html[data-theme="dark"] {
@@ -53,6 +55,18 @@
       --border: var(--border-light);
     }
 
+    /* Cyber Glow Effect */
+    .cyber-glow {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: radial-gradient(circle at center, rgba(79, 70, 229, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
     /* Navigation */
     nav {
       display: flex;
@@ -64,12 +78,25 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      backdrop-filter: blur(5px);
     }
 
     .logo {
       font-weight: 700;
       font-size: 1.3rem;
       color: var(--accent);
+      font-family: 'Fira Code', monospace;
+      letter-spacing: 1px;
+    }
+
+    .logo::after {
+      content: '_';
+      animation: blink 1s infinite step-end;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
 
     .nav-links {
@@ -84,6 +111,7 @@
       transition: color 0.2s;
       font-size: 0.95rem;
       position: relative;
+      font-family: 'Fira Code', monospace;
     }
 
     nav a:hover {
@@ -134,6 +162,7 @@
       align-items: center;
       min-height: 100vh;
       position: relative;
+      overflow: hidden;
     }
 
     .hero-content {
@@ -141,16 +170,25 @@
       align-items: center;
       gap: 3rem;
       width: 100%;
+      position: relative;
     }
 
     .hero-text {
       flex: 1;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-image {
       flex: 1;
       text-align: center;
       position: relative;
+      z-index: 1;
+    }
+
+    .profile-image-container {
+      position: relative;
+      display: inline-block;
     }
 
     .profile-image {
@@ -160,6 +198,28 @@
       object-fit: cover;
       border: 5px solid var(--accent);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    .profile-image-bg {
+      position: absolute;
+      width: 370px;
+      height: 370px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, var(--accent), var(--secondary));
+      top: -15px;
+      left: -15px;
+      z-index: 1;
+      animation: rotate 10s linear infinite;
+      filter: blur(10px);
+      opacity: 0.7;
+    }
+
+    @keyframes rotate {
+      100% {
+        transform: rotate(360deg);
+      }
     }
 
     h1 {
@@ -194,6 +254,23 @@
       color: var(--secondary);
     }
 
+    .tertiary {
+      color: var(--tertiary);
+    }
+
+    /* Typewriter Effect */
+    .typewriter {
+      display: inline-block;
+      position: relative;
+    }
+
+    .typewriter::after {
+      content: '|';
+      position: absolute;
+      right: -8px;
+      animation: blink 1s infinite step-end;
+    }
+
     /* Tech Icons */
     .tech-icons {
       display: flex;
@@ -205,10 +282,12 @@
     .tech-icons img {
       height: 50px;
       transition: transform 0.3s;
+      filter: grayscale(30%);
     }
 
     .tech-icons img:hover {
       transform: scale(1.1);
+      filter: grayscale(0%);
     }
 
     /* Social Links */
@@ -245,6 +324,18 @@
       border: 1px solid var(--border);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--accent), var(--secondary));
     }
 
     /* Sub Cards */
@@ -255,6 +346,7 @@
       border: 1px solid var(--border);
       transition: all 0.3s;
       height: 100%;
+      position: relative;
     }
 
     .sub-card:hover {
@@ -268,6 +360,10 @@
       color: var(--accent);
     }
 
+    .sub-card h3 i {
+      margin-right: 0.5rem;
+    }
+
     .sub-card p {
       color: var(--text);
       opacity: 0.9;
@@ -277,6 +373,13 @@
       color: var(--secondary);
       font-weight: 500;
       margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sub-card .date i {
+      font-size: 0.9rem;
     }
 
     /* Grid Layout */
@@ -411,6 +514,18 @@
       text-align: center;
       padding: 3rem 5%;
       border-top: 1px solid var(--border);
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(to right, var(--accent), var(--secondary));
     }
 
     .footer-links {
@@ -424,10 +539,23 @@
       color: var(--text);
       text-decoration: none;
       transition: color 0.3s;
+      font-family: 'Fira Code', monospace;
     }
 
     .footer-links a:hover {
       color: var(--accent);
+    }
+
+    /* Cyber Terminal Effect */
+    .terminal-effect {
+      position: absolute;
+      bottom: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(79, 70, 229, 0.3) 0%, transparent 70%);
+      filter: blur(30px);
+      z-index: -1;
     }
 
     /* Responsive Design */
@@ -447,6 +575,11 @@
       .profile-image {
         width: 300px;
         height: 300px;
+      }
+      
+      .profile-image-bg {
+        width: 320px;
+        height: 320px;
       }
     }
 
@@ -476,6 +609,11 @@
       .profile-image {
         width: 250px;
         height: 250px;
+      }
+      
+      .profile-image-bg {
+        width: 270px;
+        height: 270px;
       }
       
       .tech-icons {
@@ -513,10 +651,22 @@
         width: 200px;
         height: 200px;
       }
+      
+      .profile-image-bg {
+        width: 220px;
+        height: 220px;
+      }
+      
+      .tech-icons img {
+        height: 40px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Cyber Glow Effect -->
+  <div class="cyber-glow"></div>
+  
   <!-- Navigation -->
   <nav>
     <div class="logo">Aditya.dev</div>
@@ -538,35 +688,41 @@
       <div class="hero-content">
         <div class="hero-text">
           <h1>
+            <span class="typewriter">Hello World!</span><br>
             I'm <span class="accent">Aditya Kumar</span><br>
-            <span class="secondary">Cybersecurity Explorer</span><br>
-            <span>Cyber Threat Intelligence & Cloud Enthusiast</span>
+            <span class="secondary">Cybersecurity Expert</span><br>
+            <span class="tertiary">Threat Intelligence & Cloud Specialist</span>
           </h1>
           <p>
             With expertise in AWS, SQL, Threat Intelligence, and Networking with a strong background in Linux and Cybersecurity.
           </p>
           
           <div class="tech-icons">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
-            <img src="https://img.icons8.com/color/48/000000/amazon-web-services.png" alt="AWS">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" title="Linux">
+            <img src="https://img.icons8.com/color/48/000000/amazon-web-services.png" alt="AWS" title="AWS">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" title="Python">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" title="Git">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash" title="Bash">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" title="Docker">
           </div>
 
           <div class="social-links">
-            <a href="https://linkedin.com/in/kumaraditya766899" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/0x1337adi" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="mailto:kumaraditya766899@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="https://linkedin.com/in/kumaraditya766899" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/0x1337adi" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:kumaraditya766899@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="#" title="Resume"><i class="fas fa-file-pdf"></i></a>
           </div>
         </div>
         
         <div class="hero-image">
-          <!-- Replace with your actual image path -->
-          <img src="your-profile-image.jpg" alt="Aditya Kumar" class="profile-image">
+          <div class="profile-image-container">
+            <div class="profile-image-bg"></div>
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Aditya Kumar" class="profile-image">
+          </div>
         </div>
       </div>
     </div>
+    <div class="terminal-effect"></div>
   </section>
 
   <!-- Education Section -->
@@ -578,24 +734,24 @@
       <div class="section-card">
         <div class="grid">
           <div class="sub-card">
-            <h3>Master of Computer Applications</h3>
+            <h3><i class="fas fa-graduation-cap"></i> Master of Computer Applications</h3>
             <p>UPES, Dehradun</p>
-            <p class="date">2024 - 2026</p>
+            <p class="date"><i class="far fa-calendar-alt"></i> 2024 - 2026</p>
           </div>
            <div class="sub-card">
-            <h3>Professionals in Cybersecurity</h3>
+            <h3><i class="fas fa-shield-alt"></i> Professionals in Cybersecurity</h3>
             <p>Global Institute of Cyber Training</p>
-            <p class="date">2023 - 2024</p>
+            <p class="date"><i class="far fa-calendar-alt"></i> 2023 - 2024</p>
           </div>
           <div class="sub-card">
-            <h3>Bachelor of Science in IT</h3>
+            <h3><i class="fas fa-laptop-code"></i> Bachelor of Science in IT</h3>
             <p>HNB Garhwal University</p>
-            <p class="date">2021 - 2024</p>
+            <p class="date"><i class="far fa-calendar-alt"></i> 2021 - 2024</p>
           </div>
           <div class="sub-card">
-            <h3>Higher Secondary</h3>
+            <h3><i class="fas fa-school"></i> Higher Secondary</h3>
             <p>The Aryan School (ISC)</p>
-            <p class="date">2020 - 2021</p>
+            <p class="date"><i class="far fa-calendar-alt"></i> 2020 - 2021</p>
           </div>
         </div>
       </div>
@@ -651,22 +807,36 @@
             <div style="text-align: center; margin-bottom: 1rem;">
               <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Threat Detection" style="height: 80px; width: auto;">
             </div>
-            <h3>Threat Detection System</h3>
+            <h3><i class="fas fa-bug"></i> Threat Detection System</h3>
             <p>Python-based threat intelligence system using open-source feeds and machine learning algorithms to detect potential security threats.</p>
+            <div style="margin-top: 1rem;">
+              <span style="background: rgba(79, 70, 229, 0.1); color: var(--accent); padding: 0.3rem 0.6rem; border-radius: 50px; font-size: 0.8rem; margin-right: 0.5rem;">Python</span>
+              <span style="background: rgba(16, 185, 129, 0.1); color: var(--secondary); padding: 0.3rem 0.6rem; border-radius: 50px; font-size: 0.8rem; margin-right: 0.5rem;">Machine Learning</span>
+              <span style="background: rgba(245, 158, 11, 0.1); color: var(--tertiary); padding: 0.3rem 0.6rem; border-radius: 50px; font-size: 0.8rem;">Security</span>
+            </div>
           </div>
           <div class="sub-card">
             <div style="text-align: center; margin-bottom: 1rem;">
               <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS Automation" style="height: 50px; width: auto;">
             </div>
-            <h3>AWS Automation</h3>
+            <h3><i class="fas fa-robot"></i> AWS Automation</h3>
             <p>Automated EC2 backup and monitoring system using AWS CLI, Lambda functions, and CloudWatch for efficient cloud resource management.</p>
+            <div style="margin-top: 1rem;">
+              <span style="background: rgba(79, 70, 229, 0.1); color: var(--accent); padding: 0.3rem 0.6rem; border-radius: 50px; font-size: 0.8rem; margin-right: 0.5rem;">AWS</span>
+              <span style="background: rgba(16, 185, 129, 0.1); color: var(--secondary); padding: 0.3rem 0.6rem; border-radius: 50px; font-size: 0.8rem;">Automation</span>
+            </div>
           </div>
           <div class="sub-card">
             <div style="text-align: center; margin-bottom: 1rem;">
               <img src="https://cdn-icons-png.flaticon.com/512/3652/3652191.png" alt="Timetable System" style="height: 80px; width: auto;">
             </div>
-            <h3>Timetable Management System</h3>
+            <h3><i class="fas fa-calendar-alt"></i> Timetable Management System</h3>
             <p>Web-based timetable management system for educational institutions with SQL database backend and responsive frontend interface.</p>
+            <div style="margin-top: 1rem;">
+              <span style="background: rgba(79, 70, 229, 0.1); color: var(--accent); padding: 0.3rem 0.6rem; border-radius: 50px; font-size: 0.8rem; margin-right: 0.5rem;">Web</span>
+              <span style="background: rgba(16, 185, 129, 0.1); color: var(--secondary); padding: 0.3rem 0.6rem; border-radius: 50px; font-size: 0.8rem; margin-right: 0.5rem;">SQL</span>
+              <span style="background: rgba(245, 158, 11, 0.1); color: var(--tertiary); padding: 0.3rem 0.6rem; border-radius: 50px; font-size: 0.8rem;">JavaScript</span>
+            </div>
           </div>
         </div>
       </div>
@@ -780,6 +950,22 @@
         icon.classList.add('fa-sun');
       }
     })();
+    
+    // Typewriter effect
+    const typewriter = document.querySelector('.typewriter');
+    const text = "Hello World!";
+    let i = 0;
+    
+    function typeWriter() {
+      if (i < text.length) {
+        typewriter.innerHTML = text.substring(0, i+1) + '<span class="typewriter-cursor">|</span>';
+        i++;
+        setTimeout(typeWriter, 100);
+      }
+    }
+    
+    // Start the typewriter effect after a small delay
+    setTimeout(typeWriter, 500);
   </script>
 </body>
 </html>
