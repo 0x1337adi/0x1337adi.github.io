@@ -542,6 +542,7 @@
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
     
+    /* Styling for the combined Education & Strengths wrapper - TABLE FORMAT */
     .table-format-wrapper { 
         background-color: var(--card-bg); 
         padding: 1.5rem; 
@@ -562,7 +563,7 @@
         text-align: left !important; 
         margin-bottom: 1rem !important; 
     }
-    .nested-section .section-header h2 {
+    .nested-section .section-header h2 { /* Header for Education/Strengths inside combined card */
         font-size: 1.5rem !important; 
         display: flex !important;
         align-items: center !important;
@@ -574,10 +575,11 @@
         color: var(--accent); 
         font-size: 1.3rem; 
      }
-    .nested-section .section-header h2::after {
+    .nested-section .section-header h2::after { /* No underline for these nested headers */
         display: none !important; 
     }
 
+    /* Timeline Styles - VERY SMALL within combined wrapper */
     .table-format-wrapper #education .timeline {
       max-width: 100%; 
       padding: 0; 
@@ -634,11 +636,13 @@
       box-shadow: 0 2px 6px var(--shadow);
     }
 
+
+    /* Strengths Grid - VERY SMALL within combined wrapper */
     .table-format-wrapper #strengths .grid {
         gap: 0.75rem; 
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr; /* Stack strength cards in their column */
     }
-    .table-format-wrapper #strengths .sub-card {
+    .table-format-wrapper #strengths .sub-card { /* These are the strength cards */
         padding: 0.75rem;
         border-radius: 6px;
     }
