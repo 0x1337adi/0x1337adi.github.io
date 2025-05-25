@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
-      /* Light Mode (Coursera-inspired) */
+      /* Light Mode (Coursera-inspired) - Remains the same */
       --bg-light: #F7F9FA;
       --card-bg-light: #FFFFFF;
       --text-light: #1F2A44;
@@ -20,19 +20,19 @@
       --shadow-light: rgba(0, 0, 0, 0.1);
       --gradient-light: linear-gradient(135deg, #E6F0FA 0%, #FFFFFF 100%);
 
-      /* Dark Mode */
-      --bg-dark: #121212;
-      --card-bg-dark: #1F2A44;
-      --text-dark: #E5E7EB;
-      --border-dark: #374151;
-      --accent-dark: #4CAF50; 
-      --accent-hover-dark: #45A049;
-      --secondary-dark: #60A5FA;
-      --tertiary-dark: #9CA3AF; 
-      --shadow-dark: rgba(0, 255, 0, 0.1);
-      --gradient-dark: linear-gradient(135deg, #2D3748 0%, #1F2A44 100%);
+      /* Dark Mode - Hacker Theme UPDATED */
+      --bg-dark: #0A0A0A; /* Very dark, almost black */
+      --card-bg-dark: #141414; /* Slightly lighter card background */
+      --text-dark: #C8C8C8; /* Light grey for text, good contrast */
+      --border-dark: #004d00; /* Darker green border */
+      --accent-dark: #00FF00; /* Matrix green */
+      --accent-hover-dark: #33FF33; /* Lighter green for hover */
+      --secondary-dark: #00DD00; /* Slightly dimmer green for secondary elements */
+      --tertiary-dark: #009900; /* Darker green for tertiary text/elements, particles */
+      --shadow-dark: rgba(0, 255, 0, 0.18); /* Green shadow, slightly more visible */
+      --gradient-dark: linear-gradient(135deg, #0D0D0D 0%, #171717 100%); /* Dark gradient */
 
-      /* Theme Variables */
+      /* Theme Variables - Default to light mode */
       --bg: var(--bg-light);
       --card-bg: var(--card-bg-light);
       --text: var(--text-light);
@@ -43,6 +43,9 @@
       --tertiary: var(--tertiary-light);
       --shadow: var(--shadow-light);
       --gradient: var(--gradient-light);
+      --bg-rgb: 247, 249, 250; 
+      --text-rgb: 31, 42, 68;
+      --accent-rgb: 0, 85, 102;
     }
 
     * {
@@ -69,23 +72,15 @@
       --accent: var(--accent-dark);
       --accent-hover: var(--accent-hover-dark);
       --secondary: var(--secondary-dark);
-      --tertiary: var(--tertiary-dark);
+      --tertiary: var(--tertiary-dark); 
       --shadow: var(--shadow-dark);
       --gradient: var(--gradient-dark);
+      --bg-rgb: 10, 10, 10; /* For nav transparency - corresponds to #0A0A0A */
+      --text-rgb: 200, 200, 200; /* For contact-info-item icon bg - corresponds to #C8C8C8 */
+      --accent-rgb: 0, 255, 0; /* For form focus shadow - corresponds to #00FF00 */
     }
     
-    html[data-theme="light"] {
-      --bg: var(--bg-light);
-      --card-bg: var(--card-bg-light);
-      --text: var(--text-light);
-      --border: var(--border-light);
-      --accent: var(--accent-light);
-      --accent-hover: var(--accent-hover-light);
-      --secondary: var(--secondary-light);
-      --tertiary: var(--tertiary-light);
-      --shadow: var(--shadow-light);
-      --gradient: var(--gradient-light);
-    }
+    /* No changes to html[data-theme="light"] specific overrides needed here */
 
     #particle-canvas {
       position: fixed;
@@ -108,10 +103,13 @@
         linear-gradient(var(--border) 1px, transparent 1px) 0 0 / 100% 40px,
         linear-gradient(90deg, var(--border) 1px, transparent 1px) 0 0 / 40px 100%,
         transparent; 
-      opacity: 0.08; 
-      transform: translateY(0);
+      opacity: 0.1; /* Slightly more visible grid in dark mode */
       transition: transform 0.1s ease-out, opacity 0.3s;
     }
+    html[data-theme="light"] .cyber-grid-bg {
+        opacity: 0.08; /* Keep light mode grid subtle */
+    }
+
 
     .cyber-glow {
       position: fixed;
@@ -122,8 +120,11 @@
       background: radial-gradient(circle at center, var(--accent) 0%, transparent 70%);
       pointer-events: none;
       z-index: -2; 
-      opacity: 0.03; 
-      transition: opacity 0.3s;
+      opacity: 0.05; /* Slightly more visible glow in dark mode */
+      transition: opacity 0.3s, background 0.3s;
+    }
+     html[data-theme="light"] .cyber-glow {
+        opacity: 0.03;
     }
 
     .binary-animation {
@@ -133,9 +134,12 @@
       width: 100%;
       height: 100%;
       z-index: -4; 
-      opacity: 0.03; 
+      opacity: 0.06; /* Slightly more visible binary rain in dark mode */
       overflow: hidden;
       transition: opacity 0.3s;
+    }
+    html[data-theme="light"] .binary-animation {
+        opacity: 0.03;
     }
 
     .binary-code {
@@ -145,14 +149,19 @@
       font-size: 10px; 
       white-space: nowrap;
       animation: fall linear infinite;
-      text-shadow: 0 0 2px var(--accent); 
-      opacity: 0.7; 
+      text-shadow: 0 0 5px var(--accent); /* Enhanced glow for binary code */
+      opacity: 0.9; /* More solid binary streams */
     }
+     html[data-theme="light"] .binary-code {
+        text-shadow: 0 0 2px var(--accent); 
+        opacity: 0.7; 
+    }
+
 
     @keyframes fall {
       from { transform: translateY(-100px); opacity: 0; }
-      10% { opacity: 0.7; }
-      90% { opacity: 0.7; }
+      10% { opacity: 0.9; } /* Match .binary-code opacity */
+      90% { opacity: 0.9; }
       to { transform: translateY(calc(100vh + 100px)); opacity: 0; }
     }
 
@@ -169,13 +178,6 @@
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px); 
     }
-    html[data-theme="light"] {
-        --bg-rgb: 247, 249, 250; 
-    }
-    html[data-theme="dark"] {
-        --bg-rgb: 18, 18, 18; 
-    }
-
 
     .logo {
       font-weight: 700;
@@ -387,11 +389,20 @@
       height: 45px; 
       transition: transform 0.3s, filter 0.3s;
     }
+     html[data-theme="dark"] .tech-icons img { /* Make icons less stark on dark green theme */
+        filter: brightness(0.9) contrast(1.1) /* Example: adjust as needed */
+               drop-shadow(0 0 2px var(--accent-dark));
+    }
+
 
     .tech-icons img:hover {
       transform: scale(1.2);
       filter: brightness(1.2);
     }
+     html[data-theme="dark"] .tech-icons img:hover {
+        filter: brightness(1.1) contrast(1.2) drop-shadow(0 0 5px var(--accent-dark));
+    }
+
 
     .social-links {
       display: flex;
@@ -437,12 +448,12 @@
     }
 
     .social-links a:hover {
-      color: var(--card-bg); 
+      color: var(--bg); /* Change text to bg color for contrast on accent fill */
       transform: translateY(-5px);
       box-shadow: 0 0 15px var(--shadow);
     }
     .social-links a:hover i {
-        color: var(--card-bg); 
+        color: var(--bg); 
     }
 
     .sub-card { 
@@ -500,6 +511,13 @@
         border-radius: 50px;
         font-size: 0.75rem; 
     }
+     html[data-theme="dark"] .project-tags span, 
+     html[data-theme="dark"] .skill-tags span {
+        background: rgba(0, 255, 0, 0.1); /* Lighter green bg for tags */
+        color: var(--accent-dark);
+        border: 1px solid rgba(0,255,0,0.2);
+    }
+
     .skills-list {
         font-size: 0.85rem; 
         color: var(--text);
@@ -542,7 +560,6 @@
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
     
-    /* Styling for the combined Education & Strengths wrapper - TABLE FORMAT */
     .table-format-wrapper { 
         background-color: var(--card-bg); 
         padding: 1.5rem; 
@@ -563,7 +580,7 @@
         text-align: left !important; 
         margin-bottom: 1rem !important; 
     }
-    .nested-section .section-header h2 { /* Header for Education/Strengths inside combined card */
+    .nested-section .section-header h2 {
         font-size: 1.5rem !important; 
         display: flex !important;
         align-items: center !important;
@@ -575,11 +592,10 @@
         color: var(--accent); 
         font-size: 1.3rem; 
      }
-    .nested-section .section-header h2::after { /* No underline for these nested headers */
+    .nested-section .section-header h2::after {
         display: none !important; 
     }
 
-    /* Timeline Styles - VERY SMALL within combined wrapper */
     .table-format-wrapper #education .timeline {
       max-width: 100%; 
       padding: 0; 
@@ -637,12 +653,11 @@
     }
 
 
-    /* Strengths Grid - VERY SMALL within combined wrapper */
     .table-format-wrapper #strengths .grid {
         gap: 0.75rem; 
-        grid-template-columns: 1fr; /* Stack strength cards in their column */
+        grid-template-columns: 1fr; 
     }
-    .table-format-wrapper #strengths .sub-card { /* These are the strength cards */
+    .table-format-wrapper #strengths .sub-card { 
         padding: 0.75rem;
         border-radius: 6px;
     }
@@ -695,20 +710,12 @@
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background-color: var(--shadow); 
+      background-color: rgba(var(--text-rgb), 0.05); /* Use text-rgb for subtle bg */
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    html[data-theme="dark"] .contact-info-item i {
-        background-color: rgba(var(--text-rgb), 0.1); 
-    }
-    html[data-theme="light"] {
-        --text-rgb: 31, 42, 68; 
-    }
-    html[data-theme="dark"] {
-        --text-rgb: 229, 231, 235; 
-    }
+   
 
 
     .contact-form {
@@ -745,12 +752,7 @@
       border-color: var(--accent);
       box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.3); 
     }
-    html[data-theme="light"] {
-        --accent-rgb: 0, 85, 102; 
-    }
-    html[data-theme="dark"] {
-        --accent-rgb: 76, 175, 80; 
-    }
+    
 
 
     .form-group textarea {
@@ -787,7 +789,7 @@
     .submit-btn {
       padding: 1rem 2rem;
       background-color: var(--accent);
-      color: var(--card-bg); 
+      color: var(--bg); /* Changed to --bg for better contrast on green button */
       border: none;
       border-radius: 8px;
       font-weight: 600;
@@ -837,7 +839,7 @@
       content: '';
       width: 16px;
       height: 16px;
-      border: 2px solid var(--card-bg);
+      border: 2px solid var(--bg); /* Spinner color contrast with button */
       border-top: 2px solid transparent;
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
@@ -898,6 +900,9 @@
       filter: blur(20px);
       z-index: 0; 
       opacity: 0.05; 
+       html[data-theme="dark"] & {
+        opacity: 0.08; /* Slightly more visible in dark mode */
+      }
     }
 
     @media (max-width: 1024px) {
