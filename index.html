@@ -255,22 +255,20 @@
       margin: 0 auto;
     }
 
-    /* Hero Section - MODIFIED */
+    /* Hero Section - MODIFIED for prominent image and "first page" feel */
     .hero {
-      /* min-height: 100vh; */ /* REMOVED THIS LINE to prevent full viewport height always */
-      padding-top: 15vh;      /* ADDED: Substantial top padding */
-      padding-bottom: 15vh;   /* ADDED: Substantial bottom padding */
+      min-height: 90vh; /* Restored substantial min-height */
       position: relative;
       overflow: hidden;
       display: flex;
-      align-items: center; /* Vertically center content within the new padding */
+      align-items: center; /* Vertically center content */
     }
 
     .hero-container {
       width: 100%;
       display: flex;
-      flex-wrap: wrap;
-      gap: 3rem;
+      flex-wrap: wrap; /* Allow wrapping on smaller screens */
+      gap: 2rem; /* Reduced gap slightly */
       align-items: center;
       justify-content: space-between;
       animation: fadeIn 1s ease-in;
@@ -282,27 +280,29 @@
     }
 
     .hero-text {
-      flex: 1;
+      flex: 1 1 45%; /* Allow shrinking, base 45% width */
       min-width: 300px;
       position: relative;
       z-index: 2;
     }
 
     .hero-image-container {
-      flex: 1;
-      min-width: 300px; 
-      max-width: 500px; 
+      flex: 1 1 50%; /* Allow shrinking, base 50% width */
+      min-width: 300px;
+      max-width: 600px; /* Max width for the image container */
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
-      text-align: center;
       z-index: 1;
       animation: fadeIn 1.2s ease-in;
     }
 
     .profile-image {
-      width: 100%; 
-      max-width: 450px; 
-      height: auto; 
-      object-fit: cover;
+      width: 100%; /* Fill its container's width */
+      height: auto; /* Maintain aspect ratio based on width */
+      max-height: 70vh; /* Cap maximum height to prevent it from being too tall */
+      object-fit: cover; /* Cover the area, may crop */
       border-radius: 12px; 
       animation: heroImageGlow 5s ease-in-out infinite alternate; 
     }
@@ -457,21 +457,39 @@
       margin-bottom: 1rem;
       color: var(--accent);
       font-family: 'Inter', sans-serif;
-      font-size: 1.5rem;
+      font-size: 1.5rem; /* Adjusted for potentially longer titles */
+      line-height: 1.3; /* Added for multi-line titles */
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      align-items: flex-start; /* Align icon to top if title wraps */
+      gap: 0.75rem; /* Increased gap slightly */
     }
 
     .sub-card h3 i {
       font-size: 1.3rem;
+      margin-top: 0.2em; /* Align icon better with first line of text */
     }
+
 
     .sub-card p {
       color: var(--text);
       opacity: 0.9;
-      font-size: 1rem;
+      font-size: 0.95rem; /* Slightly smaller for more content */
     }
+    
+    .project-tags {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    .project-tags span {
+        background: var(--shadow);
+        color: var(--accent);
+        padding: 0.3rem 0.6rem;
+        border-radius: 50px;
+        font-size: 0.8rem;
+    }
+
 
     .sub-card .date {
       color: var(--tertiary);
@@ -510,7 +528,7 @@
       border-radius: 8px;
       text-decoration: none;
       font-weight: 500;
-      margin-top: 1rem;
+      margin-top: 1.5rem; /* Increased margin */
       transition: background 0.3s, transform 0.3s, color 0.3s; 
       position: relative; 
       overflow: hidden;
@@ -875,10 +893,8 @@
       section {
         padding: 4rem 5%;
       }
-      /* Ensure hero padding scales down a bit on smaller screens if needed */
       .hero {
-        padding-top: 12vh;
-        padding-bottom: 12vh;
+        min-height: 85vh; /* Adjust for tablets */
       }
       h1 {
         font-size: 2.8rem;
@@ -887,7 +903,10 @@
         font-size: 2.2rem;
       }
       .profile-image {
-        max-width: 400px; 
+        max-height: 65vh; 
+      }
+      .hero-image-container {
+        max-width: 500px; /* Adjust max-width for tablet */
       }
     }
 
@@ -899,26 +918,31 @@
         display: none; 
       }
       .hero {
-        padding-top: 10vh; /* Further adjust hero padding for mobile */
+        min-height: auto; /* Let content define height on mobile */
+        padding-top: 10vh; /* Use padding for spacing */
         padding-bottom: 10vh;
       }
       .hero-container {
         flex-direction: column;
         text-align: center;
       }
+      .hero-text {
+        flex-basis: auto; /* Reset flex-basis */
+      }
       .hero-image-container {
-        min-width: auto; 
+        flex-basis: auto; /* Reset flex-basis */
         max-width: 350px; 
         margin-top: 2rem;
+      }
+      .profile-image {
+         max-height: 50vh; /* Adjust for mobile */
+         max-width: 100%;
       }
       h1 {
         font-size: 2.4rem;
       }
       h2 {
         font-size: 2rem;
-      }
-      .profile-image {
-         max-width: 300px;
       }
       .tech-icons {
         justify-content: center;
@@ -940,14 +964,17 @@
         padding: 3rem 5%;
       }
       .hero {
-        padding-top: 8vh; /* Fine-tune hero padding for very small screens */
+        padding-top: 8vh; 
         padding-bottom: 8vh;
       }
       h1 {
         font-size: 2rem;
       }
       .profile-image {
-        max-width: 280px;
+        max-height: 45vh;
+      }
+      .hero-image-container {
+        max-width: 90%;
       }
       .tech-icons img {
         height: 40px;
@@ -1027,7 +1054,7 @@
         </div>
         
         <div class="hero-image-container">
-          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Aditya Kumar" class="profile-image">
+          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Aditya Kumar" class="profile-image">
         </div>
       </div>
     </div>
@@ -1142,7 +1169,7 @@
     </div>
   </section>
 
-  <!-- Projects Section -->
+  <!-- Projects Section - UPDATED -->
   <section id="projects">
     <div class="container">
       <div class="section-header">
@@ -1151,41 +1178,45 @@
       <div class="grid">
         <div class="sub-card">
           <div style="text-align: center; margin-bottom: 1rem;">
-            <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Threat Detection" style="height: 80px; width: auto;">
+            <img src="https://cdn-icons-png.flaticon.com/512/2305/2305999.png" alt="AWS Hosting" style="height: 70px; width: auto;">
           </div>
-          <h3><i class="fas fa-bug"></i> Advanced Threat Detection</h3>
-          <p>Developed a Python-based threat intelligence platform that aggregates data from multiple open-source feeds and uses machine learning to identify emerging threats with 92% accuracy.</p>
-          <div style="margin-top: 1rem;">
-            <span style="background: var(--shadow); color: var(--accent); padding: 0.3rem 0.6rem; border-radius: 50px; font-size: 0.8rem; margin-right: 0.5rem;">Python</span>
-            <span style="background: var(--shadow); color: var(--secondary); padding: 0.3rem 0.6rem; border-radius: 50px; font-size: 0.8rem; margin-right: 0.5rem;">ML</span>
-            <span style="background: var(--shadow); color: var(--tertiary); padding: 0.3rem 0.6rem; border-radius: 50px; font-size: 0.8rem;">Security</span>
+          <h3><i class="fab fa-aws"></i> AWS Website Hosting (Free Tier)</h3>
+          <p>Deployed and configured a static website on AWS using S3, CloudFront, and Route 53 for DNS, ensuring secure and cost-effective hosting within the free tier.</p>
+          <div class="project-tags">
+            <span>AWS</span>
+            <span>S3</span>
+            <span>CloudFront</span>
+            <span>Hosting</span>
           </div>
-          <a href="https://github.com/0x1337adi/threat-detection" target="_blank" class="project-btn"><i class="fas fa-eye"></i> View Project</a>
+          <a href="#" target="_blank" class="project-btn"><i class="fas fa-eye"></i> View Project</a>
         </div>
         <div class="sub-card">
           <div style="text-align: center; margin-bottom: 1rem;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS Automation" style="height: 50px; width: auto;">
+            <img src="https://cdn-icons-png.flaticon.com/512/3090/3090157.png" alt="IoT Pentesting" style="height: 70px; width: auto;">
           </div>
-          <h3><i class="fas fa-robot"></i> AWS Security Automation</h3>
-          <p>Created an automated security monitoring system for AWS that detects misconfigurations, unauthorized access attempts, and potential vulnerabilities across multiple accounts.</p>
-          <div style="margin-top: 1rem;">
-            <span style="background: var(--shadow); color: var(--accent); padding: 0.3rem 0.6rem; border-radius: 50px; font-size: 0.8rem; margin-right: 0.5rem;">AWS</span>
-            <span style="background: var(--shadow); color: var(--secondary); padding: 0.3rem 0.6rem; border-radius: 50px; font-size: 0.8rem;">Automation</span>
+          <h3><i class="fas fa-microchip"></i> IoT-Based Pentesting Tool</h3>
+          <p>Developed a PoC IoT penetration testing tool (Python & Raspberry Pi) to identify common vulnerabilities like weak credentials and open ports in networked devices.</p>
+          <div class="project-tags">
+            <span>IoT</span>
+            <span>Python</span>
+            <span>Security</span>
+            <span>Pentesting</span>
           </div>
-          <a href="https://github.com/0x1337adi/aws-security" target="_blank" class="project-btn"><i class="fas fa-eye"></i> View Project</a>
+          <a href="#" target="_blank" class="project-btn"><i class="fas fa-eye"></i> View Project</a>
         </div>
         <div class="sub-card">
           <div style="text-align: center; margin-bottom: 1rem;">
-            <img src="https://cdn-icons-png.flaticon.com/512/3652/3652191.png" alt="Authentication System" style="height: 80px; width: auto;">
+            <img src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png" alt="Weather App" style="height: 70px; width: auto;">
           </div>
-          <h3><i class="fas fa-lock"></i> Secure Authentication System</h3>
-          <p>Implemented a multi-factor authentication system with biometric verification, OTP, and hardware token support for high-security environments.</p>
-          <div style="margin-top: 1rem;">
-            <span style="background: var(--shadow); color: var(--accent); padding: 0.3rem 0.6rem; border-radius: 50px; font-size: 0.8rem; margin-right: 0.5rem;">Security</span>
-            <span style="background: var(--shadow); color: var(--secondary); padding: 0.3rem 0.6rem; border-radius: 50px; font-size: 0.8rem;">Auth</span>
-            <span style="background: var(--shadow); color: var(--tertiary); padding: 0.3rem 0.6rem; border-radius: 50px; font-size: 0.8rem;">Web</span>
+          <h3><i class="fas fa-cloud-sun"></i> Responsive Weather App</h3>
+          <p>Built a weather application using JavaScript and a third-party API to display current weather conditions and forecasts for user-specified locations.</p>
+          <div class="project-tags">
+            <span>JavaScript</span>
+            <span>API</span>
+            <span>Frontend</span>
+            <span>Web App</span>
           </div>
-          <a href="https://github.com/0x1337adi/auth-system" target="_blank" class="project-btn"><i class="fas fa-eye"></i> View Project</a>
+          <a href="#" target="_blank" class="project-btn"><i class="fas fa-eye"></i> View Project</a>
         </div>
       </div>
     </div>
