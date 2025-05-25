@@ -87,35 +87,32 @@
       --gradient: var(--gradient-light);
     }
 
-    /* NEW: Particle Canvas */
     #particle-canvas {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1; /* Most prominent background layer */
+      z-index: -1; 
       pointer-events: none;
     }
 
-    /* Parallax Grid Background */
     .cyber-grid-bg {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -3; /* Behind particles and glow */
+      z-index: -3; 
       background: 
         linear-gradient(var(--border) 1px, transparent 1px) 0 0 / 100% 40px,
         linear-gradient(90deg, var(--border) 1px, transparent 1px) 0 0 / 40px 100%,
-        transparent; /* Grid on transparent, body bg will show through */
-      opacity: 0.08; /* Reduced opacity */
+        transparent; 
+      opacity: 0.08; 
       transform: translateY(0);
       transition: transform 0.1s ease-out, opacity 0.3s;
     }
 
-    /* Subtle Glow Effect */
     .cyber-glow {
       position: fixed;
       width: 100%;
@@ -124,20 +121,19 @@
       left: 0;
       background: radial-gradient(circle at center, var(--accent) 0%, transparent 70%);
       pointer-events: none;
-      z-index: -2; /* Behind particles */
-      opacity: 0.03; /* Reduced opacity */
+      z-index: -2; 
+      opacity: 0.03; 
       transition: opacity 0.3s;
     }
 
-    /* Binary Animation */
     .binary-animation {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -4; /* Deepest background layer */
-      opacity: 0.03; /* Reduced opacity */
+      z-index: -4; 
+      opacity: 0.03; 
       overflow: hidden;
       transition: opacity 0.3s;
     }
@@ -146,11 +142,11 @@
       position: absolute;
       color: var(--accent);
       font-family: 'Fira Code', monospace;
-      font-size: 10px; /* Slightly smaller */
+      font-size: 10px; 
       white-space: nowrap;
       animation: fall linear infinite;
-      text-shadow: 0 0 2px var(--accent); /* Reduced glow */
-      opacity: 0.7; /* Individual stream opacity */
+      text-shadow: 0 0 2px var(--accent); 
+      opacity: 0.7; 
     }
 
     @keyframes fall {
@@ -160,26 +156,24 @@
       to { transform: translateY(calc(100vh + 100px)); opacity: 0; }
     }
 
-    /* Navigation */
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1.5rem 5%;
-      background-color: rgba(var(--bg-rgb), 0.8); /* Use RGB for backdrop */
+      background-color: rgba(var(--bg-rgb), 0.8); 
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 100;
       backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px); /* Safari */
+      -webkit-backdrop-filter: blur(10px); 
     }
-    /* Add --bg-rgb to :root for nav transparency */
     html[data-theme="light"] {
-        --bg-rgb: 247, 249, 250; /* Corresponds to #F7F9FA */
+        --bg-rgb: 247, 249, 250; 
     }
     html[data-theme="dark"] {
-        --bg-rgb: 18, 18, 18; /* Corresponds to #121212 */
+        --bg-rgb: 18, 18, 18; 
     }
 
 
@@ -250,10 +244,9 @@
       transform: rotate(15deg);
     }
 
-    /* Sections */
     section {
       padding: 5rem 5%;
-      position: relative; /* Ensure content is above fixed backgrounds */
+      position: relative; 
       z-index: 1;
     }
 
@@ -262,13 +255,15 @@
       margin: 0 auto;
     }
 
-    /* Hero Section */
+    /* Hero Section - MODIFIED */
     .hero {
-      min-height: 100vh;
+      /* min-height: 100vh; */ /* REMOVED THIS LINE to prevent full viewport height always */
+      padding-top: 15vh;      /* ADDED: Substantial top padding */
+      padding-bottom: 15vh;   /* ADDED: Substantial bottom padding */
       position: relative;
       overflow: hidden;
       display: flex;
-      align-items: center;
+      align-items: center; /* Vertically center content within the new padding */
     }
 
     .hero-container {
@@ -295,8 +290,8 @@
 
     .hero-image-container {
       flex: 1;
-      min-width: 300px; /* Adjusted for better flexibility */
-      max-width: 500px; /* Max width for image */
+      min-width: 300px; 
+      max-width: 500px; 
       position: relative;
       text-align: center;
       z-index: 1;
@@ -304,15 +299,14 @@
     }
 
     .profile-image {
-      width: 100%; /* Make image responsive within its container */
-      max-width: 450px; /* Control max size */
-      height: auto; /* Maintain aspect ratio */
+      width: 100%; 
+      max-width: 450px; 
+      height: auto; 
       object-fit: cover;
-      border-radius: 12px; /* NEW: Softer edges */
-      animation: heroImageGlow 5s ease-in-out infinite alternate; /* NEW: Glow animation */
+      border-radius: 12px; 
+      animation: heroImageGlow 5s ease-in-out infinite alternate; 
     }
 
-    /* NEW: Hero image glow animation */
     @keyframes heroImageGlow {
         from {
             box-shadow: 0 0 15px -5px var(--shadow), 0 0 10px -5px var(--accent);
@@ -361,7 +355,6 @@
       color: var(--tertiary);
     }
 
-    /* Typewriter Effect */
     .typewriter {
       display: inline-block;
       position: relative;
@@ -374,7 +367,6 @@
       animation: blink 1s infinite step-end;
     }
 
-    /* Tech Icons */
     .tech-icons {
       display: flex;
       gap: 1.5rem;
@@ -392,7 +384,6 @@
       filter: brightness(1.2);
     }
 
-    /* Social Links */
     .social-links {
       display: flex;
       gap: 1.5rem;
@@ -412,23 +403,23 @@
       box-shadow: 0 0 10px var(--shadow);
       position: relative;
       overflow: hidden;
-      z-index: 1; /* Ensure icons are above link's ::before */
+      z-index: 1; 
     }
     
     .social-links a i {
-        position: relative; /* Ensure icon is above ::before */
+        position: relative; 
         z-index: 2;
     }
 
     .social-links a::before {
       content: '';
       position: absolute;
-      top:0; left:0; /* ensure it covers the whole area */
+      top:0; left:0; 
       width: 0;
       height: 100%;
       background: var(--accent);
       transition: width 0.3s ease;
-      z-index: 1; /* Behind icon, above background */
+      z-index: 1; 
     }
 
     .social-links a:hover::before {
@@ -436,16 +427,14 @@
     }
 
     .social-links a:hover {
-      color: var(--card-bg); /* Text color change on hover */
+      color: var(--card-bg); 
       transform: translateY(-5px);
       box-shadow: 0 0 15px var(--shadow);
     }
     .social-links a:hover i {
-        color: var(--card-bg); /* Ensure icon color changes too */
+        color: var(--card-bg); 
     }
 
-
-    /* Sub Cards */
     .sub-card {
       background: var(--card-bg);
       border-radius: 12px;
@@ -497,7 +486,6 @@
       font-size: 0.9rem;
     }
 
-    /* Skill Meter */
     .skill-meter {
       margin-top: 1rem;
       height: 8px;
@@ -512,20 +500,19 @@
       transition: width 1s ease-in-out;
     }
 
-    /* Project Buttons */
     .project-btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
       padding: 0.8rem 1.5rem;
       background: var(--accent);
-      color: var(--card-bg); /* Ensure text is light on accent bg */
+      color: var(--card-bg); 
       border-radius: 8px;
       text-decoration: none;
       font-weight: 500;
       margin-top: 1rem;
-      transition: background 0.3s, transform 0.3s, color 0.3s; /* Added color transition */
-      position: relative; /* For z-index with ::before */
+      transition: background 0.3s, transform 0.3s, color 0.3s; 
+      position: relative; 
       overflow: hidden;
       z-index: 1;
     }
@@ -544,7 +531,7 @@
         height: 100%;
         background: var(--accent-hover);
         transition: width 0.3s ease;
-        z-index: -1; /* Behind text and icon */
+        z-index: -1; 
     }
 
     .project-btn:hover::before {
@@ -552,20 +539,16 @@
     }
 
     .project-btn:hover {
-      /* background: var(--accent-hover); Now handled by ::before */
-      color: var(--card-bg); /* Keep text color consistent */
+      color: var(--card-bg); 
       transform: translateY(-2px);
     }
 
-
-    /* Grid Layout */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2rem;
     }
 
-    /* Section Headers */
     .section-header {
       margin-bottom: 3rem;
       text-align: center;
@@ -580,7 +563,6 @@
       transform: translateX(-50%);
     }
 
-    /* Timeline Styles */
     .timeline {
       position: relative;
       max-width: 800px;
@@ -651,7 +633,6 @@
       border-color: var(--accent);
     }
 
-    /* Contact Form Styles */
     .contact-container {
       max-width: 1000px;
       margin: 0 auto;
@@ -687,19 +668,19 @@
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background-color: var(--shadow); /* Use shadow as a light bg for icon circle */
+      background-color: var(--shadow); 
       display: flex;
       align-items: center;
       justify-content: center;
     }
     html[data-theme="dark"] .contact-info-item i {
-        background-color: rgba(var(--text-rgb), 0.1); /* Lighter bg for dark mode icon circle */
+        background-color: rgba(var(--text-rgb), 0.1); 
     }
     html[data-theme="light"] {
-        --text-rgb: 31, 42, 68; /* #1F2A44 */
+        --text-rgb: 31, 42, 68; 
     }
     html[data-theme="dark"] {
-        --text-rgb: 229, 231, 235; /* #E5E7EB */
+        --text-rgb: 229, 231, 235; 
     }
 
 
@@ -735,13 +716,13 @@
     .form-group textarea:focus {
       outline: none;
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.3); /* Use accent-rgb for focus shadow */
+      box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.3); 
     }
     html[data-theme="light"] {
-        --accent-rgb: 0, 85, 102; /* #005566 */
+        --accent-rgb: 0, 85, 102; 
     }
     html[data-theme="dark"] {
-        --accent-rgb: 76, 175, 80; /* #4CAF50 */
+        --accent-rgb: 76, 175, 80; 
     }
 
 
@@ -779,7 +760,7 @@
     .submit-btn {
       padding: 1rem 2rem;
       background-color: var(--accent);
-      color: var(--card-bg); /* Ensure text is light */
+      color: var(--card-bg); 
       border: none;
       border-radius: 8px;
       font-weight: 600;
@@ -794,7 +775,7 @@
       overflow: hidden;
       z-index: 1;
     }
-    .submit-btn i, .submit-btn span { /* Assuming text is wrapped in span or direct child */
+    .submit-btn i, .submit-btn span { 
         position: relative;
         z-index: 2;
     }
@@ -807,7 +788,7 @@
       height: 100%;
       background: var(--accent-hover);
       transition: width 0.3s ease;
-      z-index: 1; /* Behind text/icon */
+      z-index: 1; 
     }
 
     .submit-btn:hover::before {
@@ -815,7 +796,6 @@
     }
     
     .submit-btn:hover {
-      /* background-color is now handled by ::before */
       transform: translateY(-2px);
       box-shadow: 0 0 15px var(--shadow);
     }
@@ -841,13 +821,12 @@
       to { transform: rotate(360deg); }
     }
 
-    /* Footer */
     footer {
       text-align: center;
       padding: 3rem 5%;
       border-top: 1px solid var(--border);
       position: relative;
-      z-index: 1; /* Ensure content above backgrounds */
+      z-index: 1; 
     }
 
     footer::before {
@@ -880,7 +859,6 @@
       transform: translateY(-2px);
     }
 
-    /* Terminal Effect */
     .terminal-effect {
       position: absolute;
       bottom: -50px;
@@ -889,26 +867,27 @@
       height: 150px;
       background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
       filter: blur(20px);
-      z-index: 0; /* Above hero's local bg, but below hero content */
-      opacity: 0.05; /* Reduced opacity */
+      z-index: 0; 
+      opacity: 0.05; 
     }
 
-    /* Responsive Adjustments */
     @media (max-width: 1024px) {
       section {
         padding: 4rem 5%;
       }
-      
+      /* Ensure hero padding scales down a bit on smaller screens if needed */
+      .hero {
+        padding-top: 12vh;
+        padding-bottom: 12vh;
+      }
       h1 {
         font-size: 2.8rem;
       }
-      
       h2 {
         font-size: 2.2rem;
       }
-      
       .profile-image {
-        max-width: 400px; /* Adjust responsive image size */
+        max-width: 400px; 
       }
     }
 
@@ -916,46 +895,40 @@
       nav {
         padding: 1rem 5%;
       }
-      
       .nav-links {
-        display: none; /* Consider a mobile menu strategy if this is permanent */
+        display: none; 
       }
-      
+      .hero {
+        padding-top: 10vh; /* Further adjust hero padding for mobile */
+        padding-bottom: 10vh;
+      }
       .hero-container {
         flex-direction: column;
         text-align: center;
       }
-      
       .hero-image-container {
-        min-width: auto; /* Allow it to shrink */
-        max-width: 350px; /* Control size on mobile */
+        min-width: auto; 
+        max-width: 350px; 
         margin-top: 2rem;
       }
-      
       h1 {
         font-size: 2.4rem;
       }
-      
       h2 {
         font-size: 2rem;
       }
-      
       .profile-image {
          max-width: 300px;
       }
-      
       .tech-icons {
         justify-content: center;
       }
-      
       .social-links {
         justify-content: center;
       }
-
       .contact-container {
         grid-template-columns: 1fr;
       }
-      
       .section-header h2::after {
         left: 50%;
         transform: translateX(-50%);
@@ -966,36 +939,33 @@
       section {
         padding: 3rem 5%;
       }
-      
+      .hero {
+        padding-top: 8vh; /* Fine-tune hero padding for very small screens */
+        padding-bottom: 8vh;
+      }
       h1 {
         font-size: 2rem;
       }
-      
       .profile-image {
         max-width: 280px;
       }
-      
       .tech-icons img {
         height: 40px;
       }
     }
 
-    /* Responsive Timeline */
     @media (max-width: 768px) {
       .timeline::before {
         left: 31px;
       }
-      
       .timeline-item {
         width: 100%;
         padding-left: 70px;
         padding-right: 25px;
       }
-      
       .timeline-item:nth-child(even) {
         left: 0;
       }
-      
       .timeline-item:nth-child(odd) .timeline-dot,
       .timeline-item:nth-child(even) .timeline-dot {
         left: 23px;
@@ -1004,15 +974,11 @@
   </style>
 </head>
 <body>
-  <!-- NEW: Particle Canvas -->
   <canvas id="particle-canvas"></canvas>
-  
-  <!-- Background Elements (Order matters for z-index fallback if CSS fails, but z-index overrides) -->
   <div class="cyber-grid-bg"></div>
   <div class="cyber-glow"></div>
   <div class="binary-animation" id="binaryAnimation"></div>
   
-  <!-- Navigation -->
   <nav>
     <div class="logo">Aditya.dev</div>
     <div class="nav-links">
@@ -1024,11 +990,10 @@
       <a href="#contact">Contact</a>
     </div>
     <button class="toggle-btn" onclick="toggleTheme()">
-      <i class="fas fa-sun"></i> <!-- Initial icon, JS will correct if dark -->
+      <i class="fas fa-sun"></i> 
     </button>
   </nav>
 
-  <!-- Hero Section -->
   <section id="home" class="hero">
     <div class="container">
       <div class="hero-container">
@@ -1331,7 +1296,6 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>© 2025 Aditya Kumar. All rights reserved.</p>
     <div class="footer-links">
@@ -1350,7 +1314,6 @@
   </footer>
 
   <script>
-    // Theme toggle function
     function toggleTheme() {
       const html = document.documentElement;
       const currentTheme = html.getAttribute("data-theme");
@@ -1368,9 +1331,8 @@
       }
     }
 
-    // Initialize theme
     (function() {
-      const savedTheme = localStorage.getItem("theme") || "light"; // Default to light
+      const savedTheme = localStorage.getItem("theme") || "light"; 
       document.documentElement.setAttribute("data-theme", savedTheme);
       
       const icon = document.querySelector('.toggle-btn i');
@@ -1383,7 +1345,6 @@
       }
     })();
 
-    // Typewriter effect
     const typewriterElement = document.querySelector('.typewriter');
     if (typewriterElement) {
         const text = "Hello World!";
@@ -1394,47 +1355,41 @@
             i++;
             setTimeout(typeWriter, 100);
           } else {
-            // Optional: remove cursor after typing or keep it blinking
             typewriterElement.innerHTML = text + '<span class="typewriter-cursor" style="animation: blink 1s infinite step-end;">|</span>';
           }
         }
         setTimeout(typeWriter, 500);
     }
 
-
-    // Binary animation
     function createBinaryAnimation() {
       const container = document.getElementById('binaryAnimation');
       if (!container) return;
-      container.innerHTML = ''; // Clear previous if any
+      container.innerHTML = ''; 
       const binaryChars = ['0', '1'];
       
-      for (let i = 0; i < 15; i++) { // Reduced number of streams
+      for (let i = 0; i < 15; i++) { 
         const binary = document.createElement('div');
         binary.className = 'binary-code';
-        // Create a string of random length for more variety
-        const streamLength = Math.floor(Math.random() * 15) + 10; // Length between 10 and 25
+        const streamLength = Math.floor(Math.random() * 15) + 10; 
         binary.textContent = Array(streamLength).fill(0).map(() => binaryChars[Math.floor(Math.random() * binaryChars.length)]).join('');
         
         binary.style.left = `${Math.random() * 100}%`;
-        binary.style.animationDuration = `${10 + Math.random() * 15}s`; // Slower and more varied
-        binary.style.animationDelay = `${Math.random() * 10}s`; // Increased delay randomness
+        binary.style.animationDuration = `${10 + Math.random() * 15}s`; 
+        binary.style.animationDelay = `${Math.random() * 10}s`; 
         
         container.appendChild(binary);
       }
     }
     createBinaryAnimation();
 
-    // Parallax effect for grid (subtle)
     window.addEventListener('scroll', () => {
       const grid = document.querySelector('.cyber-grid-bg');
       if (grid) {
         const scrollY = window.scrollY;
-        grid.style.transform = `translateY(${scrollY * 0.1}px)`; // Reduced parallax effect
+        grid.style.transform = `translateY(${scrollY * 0.1}px)`; 
       }
     });
 
-    // Form validation
     const form = document.getElementById('contactForm');
     if (form) {
         form.addEventListener('submit', (e) => {
@@ -1464,7 +1419,7 @@
           }
 
           const phoneValue = phone.value.trim();
-          const phoneRegex = /^(\+\d{1,3}[- ]?)?\d{10}$/; // Simple 10 digit, optional country code
+          const phoneRegex = /^(\+\d{1,3}[- ]?)?\d{10}$/; 
           if (phoneValue && !phoneRegex.test(phoneValue)) {
             phone.parentElement.classList.add('error');
             isValid = false;
@@ -1476,8 +1431,8 @@
           }
 
           if (!terms.checked) {
-            terms.parentElement.classList.add('error'); // Consider adding error display for checkbox
-            alert("Please agree to the Terms and Privacy Policy."); // Simple alert for checkbox
+            terms.parentElement.classList.add('error'); 
+            alert("Please agree to the Terms and Privacy Policy."); 
             isValid = false;
           }
           
@@ -1485,11 +1440,9 @@
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
             
-            // Simulate form submission for demo; actual submission handled by action attribute
-            // In a real scenario, you might use fetch API here and then reset the form or show success
             setTimeout(() => {
-              // form.submit(); // This will actually submit the form via Formspree
-              alert('Form data is valid and would be submitted!'); // For demo
+              // form.submit(); // Uncomment for actual Formspree submission
+              alert('Form data is valid and would be submitted!'); 
               submitBtn.classList.remove('loading');
               submitBtn.disabled = false;
               form.reset(); 
@@ -1498,7 +1451,6 @@
         });
     }
 
-    // NEW: Particle Animation Script
     const particleCanvas = document.getElementById('particle-canvas');
     if (particleCanvas) {
         const ctx = particleCanvas.getContext('2d');
@@ -1517,17 +1469,17 @@
                 this.directionX = directionX;
                 this.directionY = directionY;
                 this.size = size;
-                this.baseColor = baseColor; // Store base color like #RRGGBB
+                this.baseColor = baseColor; 
             }
 
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-                ctx.fillStyle = this.baseColor + '55'; // Apply 33% alpha (hex 55)
+                ctx.fillStyle = this.baseColor + '55'; 
                 ctx.fill();
             }
 
-            update(particleColor) { // Pass updated base color
+            update(particleColor) { 
                 this.baseColor = particleColor;
                 if (this.x + this.size > particleCanvas.width || this.x - this.size < 0) {
                     this.directionX = -this.directionX;
@@ -1544,39 +1496,39 @@
         function getThemeColorsForParticles() {
             const styles = getComputedStyle(document.documentElement);
             return {
-                particleBaseColor: styles.getPropertyValue('--tertiary').trim(), // e.g., #6B7280
-                lineBaseColor: styles.getPropertyValue('--accent').trim()      // e.g., #005566
+                particleBaseColor: styles.getPropertyValue('--tertiary').trim(), 
+                lineBaseColor: styles.getPropertyValue('--accent').trim()      
             };
         }
 
         function initParticles() {
             particlesArray = [];
             const colors = getThemeColorsForParticles();
-            const numberOfParticles = Math.max(30, (particleCanvas.width * particleCanvas.height) / 12000); // Adjust density, ensure min 30
+            const numberOfParticles = Math.max(30, (particleCanvas.width * particleCanvas.height) / 12000); 
             for (let i = 0; i < numberOfParticles; i++) {
-                const size = Math.random() * 1.5 + 0.5; // Particle size (0.5 to 2)
+                const size = Math.random() * 1.5 + 0.5; 
                 const x = Math.random() * (particleCanvas.width - size * 2) + size;
                 const y = Math.random() * (particleCanvas.height - size * 2) + size;
-                const directionX = (Math.random() * 0.3) - 0.15; // Slower movement (-0.15 to 0.15)
+                const directionX = (Math.random() * 0.3) - 0.15; 
                 const directionY = (Math.random() * 0.3) - 0.15;
                 particlesArray.push(new Particle(x, y, directionX, directionY, size, colors.particleBaseColor));
             }
         }
 
         function connectParticles(lineBaseColor) {
-            const maxDistance = 120; // Max distance for lines
+            const maxDistance = 120; 
             for (let a = 0; a < particlesArray.length; a++) {
-                for (let b = a + 1; b < particlesArray.length; b++) { // Start b from a+1 to avoid self-connection and double lines
+                for (let b = a + 1; b < particlesArray.length; b++) { 
                     const dx = particlesArray[a].x - particlesArray[b].x;
                     const dy = particlesArray[a].y - particlesArray[b].y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
                     if (distance < maxDistance) {
-                        const opacity = 1 - (distance / maxDistance); // Opacity based on distance
-                        const finalAlphaHex = Math.round(opacity * 0.4 * 255).toString(16).padStart(2, '0'); // Max 40% alpha for lines
+                        const opacity = 1 - (distance / maxDistance); 
+                        const finalAlphaHex = Math.round(opacity * 0.4 * 255).toString(16).padStart(2, '0'); 
 
                         ctx.strokeStyle = lineBaseColor + finalAlphaHex;
-                        ctx.lineWidth = 0.3; // Thinner lines
+                        ctx.lineWidth = 0.3; 
                         ctx.beginPath();
                         ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
                         ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
@@ -1591,22 +1543,21 @@
             animationFrameId = requestAnimationFrame(animateParticles);
             ctx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
             
-            const colors = getThemeColorsForParticles(); // Get fresh colors in case theme changed
+            const colors = getThemeColorsForParticles(); 
 
             for (let i = 0; i < particlesArray.length; i++) {
-                particlesArray[i].update(colors.particleBaseColor); // Pass the updated base color
+                particlesArray[i].update(colors.particleBaseColor); 
             }
             connectParticles(colors.lineBaseColor);
         }
 
         window.addEventListener('resize', () => {
-            cancelAnimationFrame(animationFrameId); // Stop previous animation
+            cancelAnimationFrame(animationFrameId); 
             setCanvasDimensions();
-            initParticles(); // Re-initialize particles for new dimensions
-            animateParticles(); // Restart animation
+            initParticles(); 
+            animateParticles(); 
         });
 
-        // Initial setup
         initParticles();
         animateParticles();
     }
@@ -1614,4 +1565,3 @@
   </script>
 </body>
 </html>
-
