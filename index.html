@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aditya Kumar | Cybersecurity Specialist & Ethical Hacker</title>
+  <title>Aditya Kumar | Aspiring Cybersecurity Analyst</title>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
@@ -197,7 +197,7 @@
 
     .nav-links {
       display: flex;
-      gap: 2rem;
+      gap: 1.5rem; /* Adjusted gap for more links */
     }
 
     nav a {
@@ -205,7 +205,7 @@
       text-decoration: none;
       font-weight: 500;
       transition: color 0.2s, transform 0.2s;
-      font-size: 1rem;
+      font-size: 0.95rem; /* Slightly smaller for more links */
       position: relative;
       font-family: 'Inter', sans-serif;
     }
@@ -245,7 +245,7 @@
     }
 
     section {
-      padding: 5rem 5%;
+      padding: 4rem 5%; /* Adjusted padding for consistency */
       position: relative; 
       z-index: 1;
     }
@@ -255,21 +255,23 @@
       margin: 0 auto;
     }
 
-    /* Hero Section - MODIFIED for prominent image and "first page" feel */
+    /* Hero Section - MODIFIED for taller image and PDF content */
     .hero {
-      min-height: 90vh; /* Restored substantial min-height */
+      min-height: 95vh; /* Make hero section very tall */
+      display: flex;
+      align-items: stretch; /* Make children stretch to fill height */
       position: relative;
       overflow: hidden;
-      display: flex;
-      align-items: center; /* Vertically center content */
+      padding-top: 2rem; /* Add some padding if nav is tall */
+      padding-bottom: 2rem;
     }
 
     .hero-container {
       width: 100%;
       display: flex;
-      flex-wrap: wrap; /* Allow wrapping on smaller screens */
-      gap: 2rem; /* Reduced gap slightly */
-      align-items: center;
+      flex-wrap: wrap; 
+      gap: 2.5rem; 
+      align-items: stretch; /* Ensure columns stretch */
       justify-content: space-between;
       animation: fadeIn 1s ease-in;
     }
@@ -280,29 +282,48 @@
     }
 
     .hero-text {
-      flex: 1 1 45%; /* Allow shrinking, base 45% width */
-      min-width: 300px;
+      flex: 1 1 50%; /* Give slightly more space to text if needed */
+      min-width: 320px; /* Min width for text block */
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* Center text content vertically */
       position: relative;
       z-index: 2;
     }
+    .hero-text h1 {
+      font-size: 2.8rem; /* Adjusted for new title */
+      margin-bottom: 1rem;
+    }
+    .hero-text .subtitle {
+        font-size: 1.5rem;
+        color: var(--secondary);
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+    .hero-text p.summary { /* For the summary paragraph */
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+        color: var(--tertiary);
+    }
+
 
     .hero-image-container {
-      flex: 1 1 50%; /* Allow shrinking, base 50% width */
+      flex: 1 1 45%; /* Adjust flex basis for image */
       min-width: 300px;
-      max-width: 600px; /* Max width for the image container */
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
       position: relative;
       z-index: 1;
       animation: fadeIn 1.2s ease-in;
     }
 
     .profile-image {
-      width: 100%; /* Fill its container's width */
-      height: auto; /* Maintain aspect ratio based on width */
-      max-height: 70vh; /* Cap maximum height to prevent it from being too tall */
-      object-fit: cover; /* Cover the area, may crop */
+      width: 100%; 
+      height: 100%; /* Fill the container's stretched height */
+      max-width: 550px; /* Control absolute max width */
+      object-fit: cover; 
       border-radius: 12px; 
       animation: heroImageGlow 5s ease-in-out infinite alternate; 
     }
@@ -315,7 +336,6 @@
             box-shadow: 0 0 25px 0px var(--shadow), 0 0 20px 0px var(--accent);
         }
     }
-
 
     h1 {
       font-size: 3.2rem;
@@ -355,7 +375,7 @@
       color: var(--tertiary);
     }
 
-    .typewriter {
+    .typewriter { /* Can be removed if not used in hero h1 */
       display: inline-block;
       position: relative;
     }
@@ -370,12 +390,12 @@
     .tech-icons {
       display: flex;
       gap: 1.5rem;
-      margin: 2.5rem 0;
+      margin: 1.5rem 0; /* Adjusted margin */
       flex-wrap: wrap;
     }
 
     .tech-icons img {
-      height: 50px;
+      height: 45px; /* Slightly smaller */
       transition: transform 0.3s, filter 0.3s;
     }
 
@@ -386,15 +406,16 @@
 
     .social-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.25rem; /* Adjusted gap */
+      margin-top: 1.5rem; /* Ensure some space */
     }
 
     .social-links a {
       color: var(--text);
-      font-size: 1.5rem;
+      font-size: 1.4rem; /* Slightly smaller */
       transition: all 0.3s;
-      width: 45px;
-      height: 45px;
+      width: 40px; /* Smaller buttons */
+      height: 40px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -438,7 +459,7 @@
     .sub-card {
       background: var(--card-bg);
       border-radius: 12px;
-      padding: 2rem;
+      padding: 1.75rem; /* Adjusted padding */
       border: 1px solid var(--border);
       transition: all 0.3s ease;
       height: 100%;
@@ -457,39 +478,50 @@
       margin-bottom: 1rem;
       color: var(--accent);
       font-family: 'Inter', sans-serif;
-      font-size: 1.5rem; /* Adjusted for potentially longer titles */
-      line-height: 1.3; /* Added for multi-line titles */
+      font-size: 1.4rem; 
+      line-height: 1.3; 
       display: flex;
-      align-items: flex-start; /* Align icon to top if title wraps */
-      gap: 0.75rem; /* Increased gap slightly */
+      align-items: flex-start; 
+      gap: 0.75rem; 
     }
 
     .sub-card h3 i {
-      font-size: 1.3rem;
-      margin-top: 0.2em; /* Align icon better with first line of text */
+      font-size: 1.2rem; /* Adjusted icon size */
+      margin-top: 0.2em; 
     }
 
 
     .sub-card p {
       color: var(--text);
       opacity: 0.9;
-      font-size: 0.95rem; /* Slightly smaller for more content */
+      font-size: 0.9rem; /* Adjusted for more text */
+      line-height: 1.6;
     }
     
-    .project-tags {
+    .project-tags, .skill-tags { /* Reusable class for tags */
         margin-top: 1rem;
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
     }
-    .project-tags span {
+    .project-tags span, .skill-tags span {
         background: var(--shadow);
         color: var(--accent);
         padding: 0.3rem 0.6rem;
         border-radius: 50px;
         font-size: 0.8rem;
     }
-
+    /* For skills listed as simple text in a card */
+    .skills-list {
+        font-size: 0.9rem;
+        color: var(--text);
+        opacity: 0.9;
+        line-height: 1.7;
+    }
+    .skills-list strong {
+        color: var(--accent);
+        font-weight: 600;
+    }
 
     .sub-card .date {
       color: var(--tertiary);
@@ -498,37 +530,25 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-    }
-
-    .sub-card .date i {
       font-size: 0.9rem;
     }
 
-    .skill-meter {
-      margin-top: 1rem;
-      height: 8px;
-      background: var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-
-    .skill-meter-bar {
-      height: 100%;
-      background: var(--accent);
-      transition: width 1s ease-in-out;
+    .sub-card .date i {
+      font-size: 0.8rem;
     }
 
     .project-btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.8rem 1.5rem;
+      padding: 0.7rem 1.2rem; /* Adjusted padding */
       background: var(--accent);
       color: var(--card-bg); 
       border-radius: 8px;
       text-decoration: none;
       font-weight: 500;
-      margin-top: 1.5rem; /* Increased margin */
+      font-size: 0.9rem;
+      margin-top: 1.25rem; 
       transition: background 0.3s, transform 0.3s, color 0.3s; 
       position: relative; 
       overflow: hidden;
@@ -563,12 +583,12 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjusted minmax */
+      gap: 1.75rem; /* Adjusted gap */
     }
 
     .section-header {
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem; /* Adjusted margin */
       text-align: center;
     }
 
@@ -580,6 +600,31 @@
       left: 50%;
       transform: translateX(-50%);
     }
+    
+    /* For Strengths and Languages cards */
+    .strength-item p, .language-item p {
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+    }
+    .language-dots {
+        display: inline-block;
+        margin-left: 0.5rem;
+    }
+    .language-dots .dot {
+        height: 10px;
+        width: 10px;
+        background-color: var(--accent);
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 3px;
+    }
+    .language-dots .dot.empty {
+        background-color: var(--border);
+    }
+
+
+    /* Timeline, Contact, Footer CSS remains largely the same, ensure responsiveness */
+    /* ... (Rest of your CSS from previous version) ... */
 
     .timeline {
       position: relative;
@@ -860,8 +905,9 @@
 
     .footer-links {
       display: flex;
+      flex-wrap: wrap; /* Allow wrapping on small screens */
       justify-content: center;
-      gap: 1.5rem;
+      gap: 1rem; /* Adjusted gap */
       margin-top: 1.5rem;
     }
 
@@ -870,6 +916,7 @@
       text-decoration: none;
       transition: color 0.3s, transform 0.3s;
       font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
     }
 
     .footer-links a:hover {
@@ -891,22 +938,19 @@
 
     @media (max-width: 1024px) {
       section {
-        padding: 4rem 5%;
+        padding: 3.5rem 5%;
       }
       .hero {
-        min-height: 85vh; /* Adjust for tablets */
+        min-height: 90vh; 
       }
-      h1 {
-        font-size: 2.8rem;
+      .hero-text h1 {
+        font-size: 2.5rem;
       }
-      h2 {
-        font-size: 2.2rem;
+       .hero-text .subtitle {
+        font-size: 1.3rem;
       }
       .profile-image {
         max-height: 65vh; 
-      }
-      .hero-image-container {
-        max-width: 500px; /* Adjust max-width for tablet */
       }
     }
 
@@ -918,67 +962,69 @@
         display: none; 
       }
       .hero {
-        min-height: auto; /* Let content define height on mobile */
-        padding-top: 10vh; /* Use padding for spacing */
-        padding-bottom: 10vh;
+        min-height: auto; 
+        padding-top: 3rem; 
+        padding-bottom: 3rem;
+        align-items: center; /* Revert for column layout */
       }
       .hero-container {
         flex-direction: column;
         text-align: center;
+        align-items: center; /* Center items in column */
       }
       .hero-text {
-        flex-basis: auto; /* Reset flex-basis */
+        flex-basis: auto; 
+        justify-content: flex-start; /* Align text to top */
+      }
+       .hero-text h1 {
+        font-size: 2.2rem;
+      }
+       .hero-text .subtitle {
+        font-size: 1.2rem;
       }
       .hero-image-container {
-        flex-basis: auto; /* Reset flex-basis */
+        flex-basis: auto; 
         max-width: 350px; 
         margin-top: 2rem;
+        height: auto; /* Let image define height */
       }
       .profile-image {
-         max-height: 50vh; /* Adjust for mobile */
-         max-width: 100%;
+         max-height: 300px; 
+         width: auto;
+         height: auto; /* Reset height for mobile */
       }
-      h1 {
-        font-size: 2.4rem;
-      }
-      h2 {
-        font-size: 2rem;
-      }
-      .tech-icons {
-        justify-content: center;
-      }
-      .social-links {
+      .tech-icons, .social-links {
         justify-content: center;
       }
       .contact-container {
         grid-template-columns: 1fr;
       }
-      .section-header h2::after {
-        left: 50%;
-        transform: translateX(-50%);
-      }
     }
 
     @media (max-width: 480px) {
       section {
-        padding: 3rem 5%;
+        padding: 2.5rem 5%;
       }
-      .hero {
-        padding-top: 8vh; 
-        padding-bottom: 8vh;
-      }
-      h1 {
+       .hero-text h1 {
         font-size: 2rem;
       }
-      .profile-image {
-        max-height: 45vh;
+       .hero-text .subtitle {
+        font-size: 1.1rem;
       }
-      .hero-image-container {
-        max-width: 90%;
+       .hero-text p.summary {
+        font-size: 0.95rem;
+      }
+      .profile-image {
+        max-height: 250px;
       }
       .tech-icons img {
         height: 40px;
       }
+      .social-links a {
+          width: 38px; height: 38px; font-size: 1.3rem;
+      }
+      .nav-links, .footer-links { gap: 0.8rem; }
+      nav a, .footer-links a { font-size: 0.9rem; }
     }
 
     @media (max-width: 768px) {
@@ -1010,10 +1056,12 @@
     <div class="logo">Aditya.dev</div>
     <div class="nav-links">
       <a href="#home">Home</a>
-      <a href="#education">Education</a>
       <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
       <a href="#projects">Projects</a>
       <a href="#certifications">Certifications</a>
+      <a href="#strengths">Strengths</a>
+      <a href="#languages">Languages</a>
       <a href="#contact">Contact</a>
     </div>
     <button class="toggle-btn" onclick="toggleTheme()">
@@ -1025,15 +1073,10 @@
     <div class="container">
       <div class="hero-container">
         <div class="hero-text">
-          <h1>
-            <span class="typewriter">Hello World!</span><br>
-            I'm <span class="accent">Aditya Kumar</span><br>
-            <span class="secondary">Cybersecurity Specialist</span><br>
-            <span class="tertiary">Ethical Hacker & Threat Analyst</span>
-          </h1>
-          <p>
-            With expertise in penetration testing, threat intelligence, and secure cloud architecture. 
-            Passionate about identifying vulnerabilities and securing digital assets.
+          <h1>ADITYA KUMAR</h1>
+          <p class="subtitle">Aspiring Cybersecurity Analyst | AWS Certified | Skilled in Threat Intelligence, Networking, Linux & Security Tools</p>
+          <p class="summary">
+            Enthusiastic and technically skilled IT graduate with a solid foundation in Cybersecurity and Information Technology. Proficient in networking, Linux, AWS, and cyber threat intelligence, backed by industry certifications. Strong problem-solver and team player with a passion for leveraging cybersecurity tools and open-source intelligence to enhance digital security. Seeking an entry-level role as a Cybersecurity Analyst or IT professional to drive secure, innovative tech solutions.
           </p>
           
           <div class="tech-icons">
@@ -1042,24 +1085,53 @@
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" title="Python">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" title="Git">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash" title="Bash">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" title="Docker">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/metasploit/metasploit-original.svg" alt="Metasploit" title="Metasploit">
           </div>
 
           <div class="social-links">
             <a href="https://linkedin.com/in/kumaraditya766899" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/0x1337adi" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
             <a href="mailto:kumaraditya766899@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-            <a href="#" title="Resume"><i class="fas fa-file-pdf"></i></a>
+            <a href="https://www.credly.com/users/aditya-kumar.c9be8cb7" target="_blank" title="Credly"><i class="fas fa-award"></i></a>
+            <a href="#" title="Resume PDF"><i class="fas fa-file-pdf"></i></a>
           </div>
         </div>
         
         <div class="hero-image-container">
-          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Aditya Kumar" class="profile-image">
+          <img src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Aditya Kumar - Cybersecurity Theme" class="profile-image"> 
         </div>
       </div>
     </div>
     <div class="terminal-effect"></div>
   </section>
+
+  <!-- Skills Section - UPDATED -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header">
+        <h2>Skills</h2>
+      </div>
+      <div class="grid">
+        <div class="sub-card">
+          <h3><i class="fas fa-shield-alt"></i> Cybersecurity & Pentesting</h3>
+          <p class="skills-list">Ethical Hacking, Penetration Testing (Metasploit), OSINT, Incident Response, Network Scanning.</p>
+        </div>
+        <div class="sub-card">
+          <h3><i class="fas fa-cloud"></i> Cloud & Infrastructure</h3>
+          <p class="skills-list">AWS, Linux Administration, Virtualization, Cloud Security, Identity Management.</p>
+        </div>
+        <div class="sub-card">
+          <h3><i class="fas fa-network-wired"></i> Networking & Analysis</h3>
+          <p class="skills-list">Networking, Cyber Threat Intelligence, Log Analysis & Forensics.</p>
+        </div>
+         <div class="sub-card">
+          <h3><i class="fas fa-code-branch"></i> Development & Tools</h3>
+          <p class="skills-list">Version Control (Git), Scripting (Python, Bash).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- Education Section -->
   <section id="education">
@@ -1072,97 +1144,24 @@
           <div class="timeline-dot"></div>
           <div class="timeline-content">
             <h3><i class="fas fa-graduation-cap"></i> Master of Computer Applications</h3>
-            <p>UPES, Dehradun</p>
+            <p>University of Petroleum and Energy Studies, Uttarakhand, India</p>
             <p class="date"><i class="far fa-calendar-alt"></i> 2024 - 2026</p>
           </div>
         </div>
-        
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <h3><i class="fas fa-shield-alt"></i> Professionals in Cybersecurity</h3>
-            <p>Global Institute of Cyber Training</p>
-            <p class="date"><i class="far fa-calendar-alt"></i> 2023 - 2024</p>
-          </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3><i class="fas fa-laptop-code"></i> Bachelor of Science in IT</h3>
-            <p>HNB Garhwal University</p>
+            <h3><i class="fas fa-user-graduate"></i> Bachelor of Science in Information Technology</h3>
+            <p>Hemvati Nandan Bahuguna Garhwal University, Uttarakhand, India</p>
             <p class="date"><i class="far fa-calendar-alt"></i> 2021 - 2024</p>
           </div>
         </div>
-        
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <h3><i class="fas fa-school"></i> Intermediate (ISC)</h3>
-            <p>The Aryan School</p>
-            <p class="date"><i class="far fa-calendar-alt"></i> 2020 - 2021</p>
-          </div>
-        </div>
-        
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3><i class="fas fa-school"></i> High School (ICSE)</h3>
-            <p>The Aryan School</p>
-            <p class="date"><i class="far fa-calendar-alt"></i> 2018 - 2019</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills">
-    <div class="container">
-      <div class="section-header">
-        <h2>Skills</h2>
-      </div>
-      <div class="grid">
-        <div class="sub-card">
-          <h3><i class="fas fa-laptop-code"></i> Penetration Testing</h3>
-          <p>Metasploit, Burp Suite, Nmap, Wireshark, Kali Linux</p>
-          <div class="skill-meter">
-            <div class="skill-meter-bar" style="width: 90%"></div>
-          </div>
-        </div>
-        <div class="sub-card">
-          <h3><i class="fas fa-server"></i> Cloud Security</h3>
-          <p>AWS Security, IAM, CloudTrail, GuardDuty, Security Groups</p>
-          <div class="skill-meter">
-            <div class="skill-meter-bar" style="width: 85%"></div>
-          </div>
-        </div>
-        <div class="sub-card">
-          <h3><i class="fas fa-database"></i> Database Security</h3>
-          <p>SQL Injection Prevention, Database Hardening, Encryption</p>
-          <div class="skill-meter">
-            <div class="skill-meter-bar" style="width: 80%"></div>
-          </div>
-        </div>
-        <div class="sub-card">
-          <h3><i class="fas fa-shield-alt"></i> Threat Intelligence</h3>
-          <p>SIEM, IDS/IPS, Threat Hunting, Vulnerability Assessment</p>
-          <div class="skill-meter">
-            <div class="skill-meter-bar" style="width: 88%"></div>
-          </div>
-        </div>
-        <div class="sub-card">
-          <h3><i class="fas fa-code"></i> Scripting</h3>
-          <p>Python, Bash, PowerShell for security automation</p>
-          <div class="skill-meter">
-            <div class="skill-meter-bar" style="width: 92%"></div>
-          </div>
-        </div>
-        <div class="sub-card">
-          <h3><i class="fas fa-network-wired"></i> Network Security</h3>
-          <p>Firewalls, VPNs, Packet Analysis, Network Hardening</p>
-          <div class="skill-meter">
-            <div class="skill-meter-bar" style="width: 87%"></div>
+            <h3><i class="fas fa-shield-virus"></i> Professional Program in Cyber Security</h3>
+            <p>GICT (Global Institute Of Cyber Technology), Uttarakhand, India</p>
+            <p class="date"><i class="far fa-calendar-alt"></i> 2023 - 2024</p>
           </div>
         </div>
       </div>
@@ -1178,45 +1177,42 @@
       <div class="grid">
         <div class="sub-card">
           <div style="text-align: center; margin-bottom: 1rem;">
-            <img src="https://cdn-icons-png.flaticon.com/512/2305/2305999.png" alt="AWS Hosting" style="height: 70px; width: auto;">
+            <img src="https://cdn-icons-png.flaticon.com/512/2305/2305999.png" alt="AWS Hosting" style="height: 60px; width: auto;">
           </div>
-          <h3><i class="fab fa-aws"></i> AWS Website Hosting (Free Tier)</h3>
-          <p>Deployed and configured a static website on AWS using S3, CloudFront, and Route 53 for DNS, ensuring secure and cost-effective hosting within the free tier.</p>
-          <div class="project-tags">
-            <span>AWS</span>
-            <span>S3</span>
-            <span>CloudFront</span>
-            <span>Hosting</span>
+          <h3><i class="fab fa-aws"></i> Basic Cloud Hosting with AWS Free Tier</h3>
+          <p>Demonstrated understanding of cloud architecture, security best practices, and hands-on experience with AWS management console.</p>
+          <ul style="font-size: 0.9rem; margin-top: 0.5rem; padding-left: 1.2rem; color: var(--text); opacity: 0.9;">
+            <li>Launched and configured a Linux-based EC2 instance with Apache/Nginx.</li>
+            <li>Used Amazon S3 for scalable asset storage.</li>
+            <li>Applied IAM best practices and security group rules for access control.</li>
+            <li>Demonstrated hands-on skills in cloud architecture and AWS security fundamentals.</li>
+          </ul>
+          <div class="project-tags" style="margin-top:0.75rem;">
+            <span>AWS</span> <span>EC2</span> <span>S3</span> <span>IAM</span> <span>Cloud</span>
           </div>
-          <a href="#" target="_blank" class="project-btn"><i class="fas fa-eye"></i> View Project</a>
+          <!-- <a href="#" target="_blank" class="project-btn"><i class="fas fa-eye"></i> View Details</a> -->
         </div>
         <div class="sub-card">
           <div style="text-align: center; margin-bottom: 1rem;">
-            <img src="https://cdn-icons-png.flaticon.com/512/3090/3090157.png" alt="IoT Pentesting" style="height: 70px; width: auto;">
+            <img src="https://cdn-icons-png.flaticon.com/512/3090/3090157.png" alt="IoT Pentesting" style="height: 60px; width: auto;">
           </div>
           <h3><i class="fas fa-microchip"></i> IoT-Based Pentesting Tool</h3>
           <p>Developed a PoC IoT penetration testing tool (Python & Raspberry Pi) to identify common vulnerabilities like weak credentials and open ports in networked devices.</p>
           <div class="project-tags">
-            <span>IoT</span>
-            <span>Python</span>
-            <span>Security</span>
-            <span>Pentesting</span>
+            <span>IoT</span> <span>Python</span> <span>Security</span> <span>Pentesting</span> <span>Raspberry Pi</span>
           </div>
-          <a href="#" target="_blank" class="project-btn"><i class="fas fa-eye"></i> View Project</a>
+          <!-- <a href="#" target="_blank" class="project-btn"><i class="fas fa-eye"></i> View Details</a> -->
         </div>
         <div class="sub-card">
           <div style="text-align: center; margin-bottom: 1rem;">
-            <img src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png" alt="Weather App" style="height: 70px; width: auto;">
+            <img src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png" alt="Weather App" style="height: 60px; width: auto;">
           </div>
           <h3><i class="fas fa-cloud-sun"></i> Responsive Weather App</h3>
           <p>Built a weather application using JavaScript and a third-party API to display current weather conditions and forecasts for user-specified locations.</p>
           <div class="project-tags">
-            <span>JavaScript</span>
-            <span>API</span>
-            <span>Frontend</span>
-            <span>Web App</span>
+            <span>JavaScript</span> <span>API</span> <span>Frontend</span> <span>Web App</span>
           </div>
-          <a href="#" target="_blank" class="project-btn"><i class="fas fa-eye"></i> View Project</a>
+          <!-- <a href="#" target="_blank" class="project-btn"><i class="fas fa-eye"></i> View Details</a> -->
         </div>
       </div>
     </div>
@@ -1230,28 +1226,79 @@
       </div>
       <div class="grid">
         <div class="sub-card">
-          <h3><i class="fas fa-shield-alt"></i> Cyber Threat Intelligence (Foundation Level)</h3>
+          <h3><i class="fas fa-user-shield"></i> Cyber Threat Intelligence (Foundation Level)</h3>
           <p>ArcX</p>
-          <p class="date"><i class="far fa-calendar-alt"></i> Issued on September 29, 2024</p>
+          <p class="date"><i class="far fa-calendar-alt"></i> Awarded on September 29, 2024</p>
         </div>
         <div class="sub-card">
-          <h3><i class="fas fa-cloud"></i> AWS Cloud Practitioner Essentials</h3>
-          <p>AWS</p>
+          <h3><i class="fab fa-aws"></i> AWS Cloud Practitioner Essentials</h3>
+          <p>Amazon Web Services (AWS)</p>
           <p class="date"><i class="far fa-calendar-alt"></i> Completed on September 22, 2024</p>
         </div>
         <div class="sub-card">
-          <h3><i class="fas fa-laptop-code"></i> Cybersecurity Threat Vectors and Mitigation</h3>
+          <h3><i class="fab fa-microsoft"></i> Cybersecurity Threat Vectors and Mitigation</h3>
           <p>Microsoft via Coursera</p>
           <p class="date"><i class="far fa-calendar-alt"></i> Completed on September 13, 2024</p>
         </div>
         <div class="sub-card">
-          <h3><i class="fas fa-satellite"></i> ISRO E-Learning Program Certificate</h3>
-          <p>ISRO</p>
+          <h3><i class="fas fa-satellite-dish"></i> ISRO E-learning Program Certificate</h3>
+          <p>Indian Space Research Organisation (ISRO)</p>
           <p class="date"><i class="far fa-calendar-alt"></i> Issued on January 13, 2025</p>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Strengths Section - NEW -->
+  <section id="strengths">
+    <div class="container">
+      <div class="section-header">
+        <h2>Strengths</h2>
+      </div>
+      <div class="grid">
+        <div class="sub-card strength-item">
+          <h3><i class="fas fa-brain"></i> Analytical Thinking</h3>
+          <p>Skilled at identifying and resolving complex security issues through methodical analysis.</p>
+        </div>
+        <div class="sub-card strength-item">
+          <h3><i class="fas fa-cogs"></i> Adaptability</h3>
+          <p>Quick to learn and apply new tools, technologies, and security practices in dynamic environments.</p>
+        </div>
+        <div class="sub-card strength-item">
+          <h3><i class="fas fa-users"></i> Team Collaboration</h3>
+          <p>Works seamlessly with teams to develop secure, dependable, and forward-thinking IT solutions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Languages Section - NEW -->
+  <section id="languages">
+    <div class="container">
+      <div class="section-header">
+        <h2>Languages</h2>
+      </div>
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); max-width: 600px; margin: 0 auto;">
+        <div class="sub-card language-item">
+          <h3><i class="fas fa-language"></i> English</h3>
+          <p>Native Proficiency
+            <span class="language-dots">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </span>
+          </p>
+        </div>
+        <div class="sub-card language-item">
+          <h3><i class="fas fa-language"></i> Hindi</h3>
+          <p>Native Proficiency
+            <span class="language-dots">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- Contact Section -->
   <section id="contact">
@@ -1265,7 +1312,7 @@
             <i class="fas fa-phone"></i>
             <div>
               <p>Phone</p>
-              <p>+91-76689XXXXX</p>
+              <p>+91-7668993087</p> <!-- Updated from PDF -->
             </div>
           </div>
           <div class="contact-info-item">
@@ -1276,17 +1323,17 @@
             </div>
           </div>
           <div class="contact-info-item">
-            <i class="fab fa-github"></i>
+            <i class="fab fa-linkedin"></i> <!-- Changed from Github to match PDF order -->
             <div>
-              <p>Github</p>
-              <p>0x1337adi</p>
+              <p>LinkedIn</p>
+              <p>linkedin.com/in/kumaraditya766899</p>
             </div>
           </div>
           <div class="contact-info-item">
             <i class="fas fa-map-marker-alt"></i>
             <div>
-              <p>Address</p>
-              <p>Dehradun | Uttarakhand</p>
+              <p>Location</p>
+              <p>Uttarakhand, India</p> <!-- Updated from PDF -->
             </div>
           </div>
         </div>
@@ -1328,23 +1375,28 @@
   </section>
 
   <footer>
-    <p>© 2025 Aditya Kumar. All rights reserved.</p>
+    <p>© <span id="currentYear"></span> Aditya Kumar. All rights reserved.</p>
     <div class="footer-links">
       <a href="#home">Home</a>
-      <a href="#education">Education</a>
       <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
       <a href="#projects">Projects</a>
       <a href="#certifications">Certifications</a>
+      <a href="#strengths">Strengths</a>
+      <a href="#languages">Languages</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="social-links" style="justify-content: center; margin-top: 1.5rem;">
-      <a href="https://linkedin.com/in/kumaraditya766899" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/0x1337adi" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="mailto:kumaraditya766899@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://linkedin.com/in/kumaraditya766899" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/0x1337adi" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="mailto:kumaraditya766899@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.credly.com/users/aditya-kumar.c9be8cb7" target="_blank" title="Credly"><i class="fas fa-award"></i></a>
     </div>
   </footer>
 
   <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
     function toggleTheme() {
       const html = document.documentElement;
       const currentTheme = html.getAttribute("data-theme");
@@ -1375,22 +1427,11 @@
         icon.classList.add('fa-sun');
       }
     })();
+    
+    // No typewriter for static title from PDF
+    // const typewriterElement = document.querySelector('.typewriter');
+    // if (typewriterElement) { ... }
 
-    const typewriterElement = document.querySelector('.typewriter');
-    if (typewriterElement) {
-        const text = "Hello World!";
-        let i = 0;
-        function typeWriter() {
-          if (i < text.length) {
-            typewriterElement.innerHTML = text.substring(0, i+1) + '<span class="typewriter-cursor">|</span>';
-            i++;
-            setTimeout(typeWriter, 100);
-          } else {
-            typewriterElement.innerHTML = text + '<span class="typewriter-cursor" style="animation: blink 1s infinite step-end;">|</span>';
-          }
-        }
-        setTimeout(typeWriter, 500);
-    }
 
     function createBinaryAnimation() {
       const container = document.getElementById('binaryAnimation');
