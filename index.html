@@ -8,19 +8,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
-      /* Light Mode (INE-inspired) */
-      --bg-light: #FFFFFF;
-      --card-bg-light: #FFFFFF;
-      --text-light: #1A1A1A;
-      --border-light: #E5E7EB;
-      --accent-light: #00C4B4;
-      --accent-hover-light: #00A89A;
-      --secondary-light: #007BFF;
-      --tertiary-light: #6B7280; 
-      --shadow-light: rgba(0, 0, 0, 0.08);
-      --gradient-light: none; /* Removed gradient for cleaner look */
+      /* Light Mode (Duller, less flashy) */
+      --bg-light: #F5F5F5; /* Softer off-white background */
+      --card-bg-light: #EDEDED; /* Muted card background */
+      --text-light: #333333; /* Darker, less stark text */
+      --border-light: #D1D5DB; /* Softer border color */
+      --accent-light: #4B9A8A; /* Muted teal accent */
+      --accent-hover-light: #3B7A6A; /* Darker muted teal for hover */
+      --secondary-light: #5A8CCF; /* Softer blue secondary color */
+      --tertiary-light: #6B7280; /* Unchanged tertiary for consistency */
+      --shadow-light: rgba(0, 0, 0, 0.05); /* Lighter shadow */
+      --gradient-light: none; /* Keep gradient disabled */
 
-      /* Dark Mode (INE-inspired) */
+      /* Dark Mode (Unchanged) */
       --bg-dark: #1A1E21;
       --card-bg-dark: #25282A;
       --text-dark: #D3D3D3;
@@ -43,9 +43,9 @@
       --tertiary: var(--tertiary-light);
       --shadow: var(--shadow-light);
       --gradient: var(--gradient-light);
-      --bg-rgb: 255, 255, 255; 
-      --text-rgb: 26, 26, 26;
-      --accent-rgb: 0, 196, 180;
+      --bg-rgb: 245, 245, 245; /* Updated for light mode */
+      --text-rgb: 51, 51, 51; /* Updated for light mode */
+      --accent-rgb: 75, 154, 138; /* Updated for light mode */
     }
 
     * {
@@ -101,11 +101,11 @@
         linear-gradient(var(--border) 1px, transparent 1px) 0 0 / 100% 40px,
         linear-gradient(90deg, var(--border) 1px, transparent 1px) 0 0 / 40px 100%,
         transparent; 
-      opacity: 0.1;
+      opacity: 0.05;
       transition: transform 0.1s ease-out, opacity 0.3s;
     }
     html[data-theme="light"] .cyber-grid-bg {
-        opacity: 0.08;
+        opacity: 0.05;
     }
 
     .cyber-glow {
@@ -117,11 +117,11 @@
       background: radial-gradient(circle at center, var(--accent) 0%, transparent 70%);
       pointer-events: none;
       z-index: -2; 
-      opacity: 0.05;
+      opacity: 0.02;
       transition: opacity 0.3s, background 0.3s;
     }
     html[data-theme="light"] .cyber-glow {
-        opacity: 0.03;
+        opacity: 0.02;
     }
 
     .binary-animation {
@@ -131,12 +131,12 @@
       width: 100%;
       height: 100%;
       z-index: -4; 
-      opacity: 0.06;
+      opacity: 0.02;
       overflow: hidden;
       transition: opacity 0.3s;
     }
     html[data-theme="light"] .binary-animation {
-        opacity: 0.03;
+        opacity: 0.02;
     }
 
     .binary-code {
@@ -146,12 +146,12 @@
       font-size: 10px; 
       white-space: nowrap;
       animation: fall linear infinite;
-      text-shadow: 0 0 5px var(--accent);
-      opacity: 0.9;
+      text-shadow: 0 0 1px var(--accent);
+      opacity: 0.5;
     }
     html[data-theme="light"] .binary-code {
-        text-shadow: 0 0 2px var(--accent); 
-        opacity: 0.7; 
+        text-shadow: 0 0 1px var(--accent); 
+        opacity: 0.5; 
     }
 
     @keyframes fall {
@@ -326,10 +326,10 @@
 
     @keyframes heroImageGlow {
         from {
-            box-shadow: 0 0 15px -5px var(--shadow), 0 0 10px -5px var(--accent);
+            box-shadow: 0 0 10px -5px var(--shadow), 0 0 8px -5px var(--accent);
         }
         to {
-            box-shadow: 0 0 25px 0px var(--shadow), 0 0 20px 0px var(--accent);
+            box-shadow: 0 0 15px -2px var(--shadow), 0 0 12px -2px var(--accent);
         }
     }
 
@@ -386,6 +386,9 @@
     html[data-theme="dark"] .tech-icons img {
         filter: brightness(0.9) contrast(1.1) drop-shadow(0 0 2px var(--accent-dark));
     }
+    html[data-theme="light"] .tech-icons img {
+      filter: brightness(0.85) contrast(1);
+    }
 
     .tech-icons img:hover {
       transform: scale(1.2);
@@ -393,6 +396,9 @@
     }
     html[data-theme="dark"] .tech-icons img:hover {
         filter: brightness(1.1) contrast(1.2) drop-shadow(0 0 5px var(--accent-dark));
+    }
+    html[data-theme="light"] .tech-icons img:hover {
+      filter: brightness(1) contrast(1.1);
     }
 
     .social-links {
@@ -936,8 +942,9 @@
       height: 150px;
       background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
       filter: blur(20px);
+     0px);
       z-index: 0; 
-      opacity: 0.05; 
+      opacity: 0.03; 
     }
     html[data-theme="dark"] .terminal-effect {
         opacity: 0.08;
@@ -1079,7 +1086,7 @@
   <div class="binary-animation" id="binaryAnimation"></div>
   
   <nav>
-    <div class="logo">Aditya.dev</div>
+    <div class="logo">0x1337</div>
     <div class="nav-links">
       <a href="#home">Home</a>
       <a href="#skills">Skills</a>
@@ -1101,6 +1108,7 @@
           <p class="subtitle">Aspiring Cybersecurity Analyst | AWS Certified | Skilled in Threat Intelligence, Networking, Linux & Security Tools</p>
           <p class="summary">
             Enthusiastic and technically skilled IT graduate with a solid foundation in Cybersecurity and Information Technology. Proficient in networking, Linux, AWS, and cyber threat intelligence, backed by industry certifications. Strong problem-solver and team player with a passion for leveraging cybersecurity tools and open-source intelligence to enhance digital security. Seeking an entry-level role as a Cybersecurity Analyst or IT professional to drive secure, innovative tech solutions.
+          "Passionate about defending digital landscapes through intelligent security solutions."
           </p>
           
           <div class="tech-icons">
@@ -1267,23 +1275,23 @@
             <li>Focused on identifying insecure configurations and open ports.</li>
           </ul>
           <div class="project-tags">
-            <span>IoT</span> <span>Python</span> <span>Security</span> <span>Pentesting</span> <span>Esp 8255</span> <span>Networking</span>
+            <span>IoT</span> <span>Python</span> <span>Security</span> <span>Pentesting</span> <span>Esp 8266</span> <span>Networking</span>
           </div>
         </div>
         <div class="sub-card">
           <div style="text-align: center; margin-bottom: 1rem;">
             <img src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png" alt="Weather App Icon" style="height: 60px; width: auto;">
           </div>
-          <h3><i class="fas fa-cloud-sun"></i> Responsive Weather App</h3>
-          <p>Built a user-friendly, responsive weather application using modern JavaScript and a third-party weather API to provide real-time meteorological data and forecasts.</p>
+          <h3><i class="fas fa-cloud-sun"></i>Chasing Horizons (A Travel blog)</h3>
+          <p>Created a travel blog platform to share adventures, featuring a clean UI with a parallax background, post creation, and local storage for persistence.</p>
           <ul>
-            <li>Integrated with OpenWeatherMap API for fetching weather information.</li>
-            <li>Displayed current temperature, humidity, wind speed, and conditions.</li>
-            <li>Included a multi-day forecast feature.</li>
-            <li>Ensured responsive design for optimal viewing on various devices.</li>
+            <li>Designed a responsive layout with animations for an engaging user experience.</li>
+            <li>Implemented post creation and storage using localStorage for persistence.</li>
+            <li>Added a parallax scrolling effect for an immersive background experience.</li>
+            <li>Styled with a travel-inspired amber theme for visual appeal.</li>
           </ul>
           <div class="project-tags">
-            <span>JavaScript</span> <span>API</span> <span>Frontend</span> <span>HTML</span> <span>CSS</span> <span>Web App</span>
+            <span>HTML</span> <span>CSS</span> <span>JavaScript</span> <span>LocalStorage</span> <span>Parallax</span> <span>Frontend</span>
           </div>
         </div>
       </div>
@@ -1658,3 +1666,5 @@
   </script>
 </body>
 </html>
+
+
