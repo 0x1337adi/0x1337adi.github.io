@@ -9,16 +9,19 @@
   <style>
     :root {
       /* Light Mode (Duller, less flashy) */
-      --bg-light: #F5F5F5; /* Softer off-white background */
-      --card-bg-light: #EDEDED; /* Muted card background */
-      --text-light: #333333; /* Darker, less stark text */
-      --border-light: #D1D5DB; /* Softer border color */
-      --accent-light: #4B9A8A; /* Muted teal accent */
-      --accent-hover-light: #3B7A6A; /* Darker muted teal for hover */
-      --secondary-light: #5A8CCF; /* Softer blue secondary color */
-      --tertiary-light: #6B7280; /* Unchanged tertiary for consistency */
-      --shadow-light: rgba(0, 0, 0, 0.05); /* Lighter shadow */
-      --gradient-light: none; /* Keep gradient disabled */
+      --bg-light: #F5F5F5;
+      --card-bg-light: #EDEDED;
+      --text-light: #333333;
+      --border-light: #D1D5DB;
+      --accent-light: #4B9A8A;
+      --accent-hover-light: #3B7A6A;
+      --secondary-light: #5A8CCF;
+      --tertiary-light: #6B7280;
+      --shadow-light: rgba(0, 0, 0, 0.05);
+      --gradient-light: none;
+      --bg-rgb: 245, 245, 245;
+      --text-rgb: 51, 51, 51;
+      --accent-rgb: 75, 154, 138;
 
       /* Dark Mode (Unchanged) */
       --bg-dark: #1A1E21;
@@ -43,9 +46,9 @@
       --tertiary: var(--tertiary-light);
       --shadow: var(--shadow-light);
       --gradient: var(--gradient-light);
-      --bg-rgb: 245, 245, 245; /* Updated for light mode */
-      --text-rgb: 51, 51, 51; /* Updated for light mode */
-      --accent-rgb: 75, 154, 138; /* Updated for light mode */
+      --bg-rgb: 245, 245, 245;
+      --text-rgb: 51, 51, 51;
+      --accent-rgb: 75, 154, 138;
     }
 
     * {
@@ -72,7 +75,7 @@
       --accent: var(--accent-dark);
       --accent-hover: var(--accent-hover-dark);
       --secondary: var(--secondary-dark);
-      --tertiary: var(--tertiary-dark); 
+      --tertiary: var(--tertiary-dark);
       --shadow: var(--shadow-dark);
       --gradient: var(--gradient-dark);
       --bg-rgb: 26, 30, 33;
@@ -86,7 +89,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1; 
+      z-index: -1;
       pointer-events: none;
     }
 
@@ -96,11 +99,11 @@
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -3; 
-      background: 
+      z-index: -3;
+      background:
         linear-gradient(var(--border) 1px, transparent 1px) 0 0 / 100% 40px,
         linear-gradient(90deg, var(--border) 1px, transparent 1px) 0 0 / 40px 100%,
-        transparent; 
+        transparent;
       opacity: 0.05;
       transition: transform 0.1s ease-out, opacity 0.3s;
     }
@@ -116,7 +119,7 @@
       left: 0;
       background: radial-gradient(circle at center, var(--accent) 0%, transparent 70%);
       pointer-events: none;
-      z-index: -2; 
+      z-index: -2;
       opacity: 0.02;
       transition: opacity 0.3s, background 0.3s;
     }
@@ -130,7 +133,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -4; 
+      z-index: -4;
       opacity: 0.02;
       overflow: hidden;
       transition: opacity 0.3s;
@@ -143,15 +146,15 @@
       position: absolute;
       color: var(--accent);
       font-family: 'Fira Code', monospace;
-      font-size: 10px; 
+      font-size: 10px;
       white-space: nowrap;
       animation: fall linear infinite;
       text-shadow: 0 0 1px var(--accent);
       opacity: 0.5;
     }
     html[data-theme="light"] .binary-code {
-        text-shadow: 0 0 1px var(--accent); 
-        opacity: 0.5; 
+        text-shadow: 0 0 1px var(--accent);
+        opacity: 0.5;
     }
 
     @keyframes fall {
@@ -166,13 +169,13 @@
       justify-content: space-between;
       align-items: center;
       padding: 1.5rem 5%;
-      background-color: rgba(var(--bg-rgb), 0.8); 
+      background-color: rgba(var(--bg-rgb), 0.8);
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 100;
       backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px); 
+      -webkit-backdrop-filter: blur(10px);
     }
 
     .logo {
@@ -195,7 +198,7 @@
 
     .nav-links {
       display: flex;
-      gap: 1.5rem; 
+      gap: 1.5rem;
     }
 
     nav a {
@@ -203,7 +206,7 @@
       text-decoration: none;
       font-weight: 500;
       transition: color 0.2s, transform 0.2s;
-      font-size: 0.95rem; 
+      font-size: 0.95rem;
       position: relative;
       font-family: 'Roboto', sans-serif;
     }
@@ -243,8 +246,8 @@
     }
 
     section {
-      padding: 4rem 5%; 
-      position: relative; 
+      padding: 4rem 5%;
+      position: relative;
       z-index: 1;
     }
 
@@ -254,21 +257,21 @@
     }
 
     .hero {
-      min-height: 95vh; 
+      min-height: 95vh;
       display: flex;
-      align-items: stretch; 
+      align-items: stretch;
       position: relative;
       overflow: hidden;
-      padding-top: 2rem; 
+      padding-top: 2rem;
       padding-bottom: 2rem;
     }
 
     .hero-container {
       width: 100%;
       display: flex;
-      flex-wrap: wrap; 
-      gap: 2.5rem; 
-      align-items: stretch; 
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      align-items: stretch;
       justify-content: space-between;
       animation: fadeIn 1s ease-in;
     }
@@ -279,16 +282,16 @@
     }
 
     .hero-text {
-      flex: 1 1 50%; 
-      min-width: 320px; 
+      flex: 1 1 50%;
+      min-width: 320px;
       display: flex;
       flex-direction: column;
-      justify-content: center; 
+      justify-content: center;
       position: relative;
       z-index: 2;
     }
     .hero-text h1 {
-      font-size: 2.8rem; 
+      font-size: 2.8rem;
       margin-bottom: 1rem;
     }
     .hero-text .subtitle {
@@ -297,7 +300,7 @@
         font-weight: 600;
         margin-bottom: 1.5rem;
     }
-    .hero-text p.summary { 
+    .hero-text p.summary {
         font-size: 1rem;
         line-height: 1.7;
         margin-bottom: 2rem;
@@ -305,23 +308,23 @@
     }
 
     .hero-image-container {
-      flex: 1 1 45%; 
+      flex: 1 1 45%;
       min-width: 300px;
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
       z-index: 1;
       animation: fadeIn 1.2s ease-in;
     }
 
     .profile-image {
-      width: 100%; 
-      height: 100%; 
-      max-width: 550px; 
-      object-fit: cover; 
-      border-radius: 12px; 
-      animation: heroImageGlow 5s ease-in-out infinite alternate; 
+      width: 100%;
+      height: 100%;
+      max-width: 550px;
+      object-fit: cover;
+      border-radius: 12px;
+      animation: heroImageGlow 5s ease-in-out infinite alternate;
     }
 
     @keyframes heroImageGlow {
@@ -333,14 +336,14 @@
         }
     }
 
-    h1 { 
+    h1 {
       font-size: 3.2rem;
       margin-bottom: 1.5rem;
       line-height: 1.3;
       font-family: 'Roboto', sans-serif;
     }
 
-    .section-header h2 { 
+    .section-header h2 {
       font-size: 2.5rem;
       margin-bottom: 3rem;
       position: relative;
@@ -356,7 +359,7 @@
       background: var(--accent);
       bottom: -15px;
       left: 50%;
-      transform: translateX(-50%); 
+      transform: translateX(-50%);
       border-radius: 2px;
     }
 
@@ -375,12 +378,12 @@
     .tech-icons {
       display: flex;
       gap: 1.5rem;
-      margin: 1.5rem 0; 
+      margin: 1.5rem 0;
       flex-wrap: wrap;
     }
 
     .tech-icons img {
-      height: 45px; 
+      height: 45px;
       transition: transform 0.3s, filter 0.3s;
     }
     html[data-theme="dark"] .tech-icons img {
@@ -403,15 +406,15 @@
 
     .social-links {
       display: flex;
-      gap: 1.25rem; 
-      margin-top: 1.5rem; 
+      gap: 1.25rem;
+      margin-top: 1.5rem;
     }
 
     .social-links a {
       color: var(--text);
-      font-size: 1.4rem; 
+      font-size: 1.4rem;
       transition: all 0.3s;
-      width: 40px; 
+      width: 40px;
       height: 40px;
       border-radius: 50%;
       display: flex;
@@ -421,23 +424,23 @@
       box-shadow: 0 0 10px var(--shadow);
       position: relative;
       overflow: hidden;
-      z-index: 1; 
+      z-index: 1;
     }
-    
+
     .social-links a i {
-        position: relative; 
+        position: relative;
         z-index: 2;
     }
 
     .social-links a::before {
       content: '';
       position: absolute;
-      top:0; left:0; 
+      top:0; left:0;
       width: 0;
       height: 100%;
       background: var(--accent);
       transition: width 0.3s ease;
-      z-index: 1; 
+      z-index: 1;
     }
 
     .social-links a:hover::before {
@@ -450,7 +453,7 @@
       box-shadow: 0 0 15px var(--shadow);
     }
     .social-links a:hover i {
-        color: var(--bg); 
+        color: var(--bg);
     }
 
     .resume-btn {
@@ -500,10 +503,10 @@
       box-shadow: 0 0 15px var(--shadow);
     }
 
-    .sub-card { 
+    .sub-card {
       background: var(--card-bg);
       border-radius: 12px;
-      padding: 1.75rem; 
+      padding: 1.75rem;
       border: 1px solid var(--border);
       transition: all 0.3s ease;
       height: 100%;
@@ -519,42 +522,42 @@
     }
 
     .sub-card h3 {
-      margin-bottom: 0.8rem; 
+      margin-bottom: 0.8rem;
       color: var(--accent);
       font-family: 'Roboto', sans-serif;
-      font-size: 1.3rem;  
-      line-height: 1.3; 
+      font-size: 1.3rem;
+      line-height: 1.3;
       display: flex;
-      align-items: flex-start; 
-      gap: 0.75rem; 
+      align-items: flex-start;
+      gap: 0.75rem;
     }
 
     .sub-card h3 i {
-      font-size: 1.1rem; 
-      margin-top: 0.2em; 
+      font-size: 1.1rem;
+      margin-top: 0.2em;
     }
 
     .sub-card p {
       color: var(--text);
       opacity: 0.9;
-      font-size: 0.85rem; 
-      line-height: 1.5; 
+      font-size: 0.85rem;
+      line-height: 1.5;
     }
 
-    .project-tags, .skill-tags { 
-        margin-top: 0.8rem; 
+    .project-tags, .skill-tags {
+        margin-top: 0.8rem;
         display: flex;
         flex-wrap: wrap;
-        gap: 0.4rem; 
+        gap: 0.4rem;
     }
     .project-tags span, .skill-tags span {
         background: var(--shadow);
         color: var(--accent);
-        padding: 0.25rem 0.5rem; 
+        padding: 0.25rem 0.5rem;
         border-radius: 50px;
-        font-size: 0.75rem; 
+        font-size: 0.75rem;
     }
-    html[data-theme="dark"] .project-tags span, 
+    html[data-theme="dark"] .project-tags span,
     html[data-theme="dark"] .skill-tags span {
         background: rgba(0, 196, 180, 0.1);
         color: var(--accent-dark);
@@ -562,7 +565,7 @@
     }
 
     .skills-list {
-        font-size: 0.85rem; 
+        font-size: 0.85rem;
         color: var(--text);
         opacity: 0.9;
         line-height: 1.6;
@@ -575,14 +578,14 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 0.85rem; 
+      font-size: 0.85rem;
     }
 
     .sub-card .date i {
-      font-size: 0.75rem; 
+      font-size: 0.75rem;
     }
-    .sub-card ul { 
-        font-size: 0.85rem; 
+    .sub-card ul {
+        font-size: 0.85rem;
         margin-top: 0.5rem;
         padding-left: 1.2rem;
         color: var(--text);
@@ -595,119 +598,119 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-      gap: 1.75rem; 
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.75rem;
     }
-    .grid.certifications-grid { 
+    .grid.certifications-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 
-    .table-format-wrapper { 
-        background-color: var(--card-bg); 
-        padding: 1.5rem; 
-        border-radius: 12px; 
-        box-shadow: 0 6px 20px var(--shadow); 
+    .table-format-wrapper {
+        background-color: var(--card-bg);
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px var(--shadow);
         border: 1px solid var(--border);
-        margin-top: 1rem; 
+        margin-top: 1rem;
         display: grid;
-        grid-template-columns: 1fr 1fr; 
-        gap: 2rem; 
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
     }
 
     .nested-section {
-        margin-bottom: 0; 
+        margin-bottom: 0;
     }
 
-    .nested-section .section-header { 
-        text-align: left !important; 
-        margin-bottom: 1rem !important; 
+    .nested-section .section-header {
+        text-align: left !important;
+        margin-bottom: 1rem !important;
     }
     .nested-section .section-header h2 {
-        font-size: 1.5rem !important; 
+        font-size: 1.5rem !important;
         display: flex !important;
         align-items: center !important;
-        gap: 0.5rem !important; 
-        margin-bottom: 0 !important; 
-        color: var(--text); 
+        gap: 0.5rem !important;
+        margin-bottom: 0 !important;
+        color: var(--text);
     }
     .nested-section .section-header h2 i {
-        color: var(--accent); 
-        font-size: 1.3rem; 
+        color: var(--accent);
+        font-size: 1.3rem;
     }
     .nested-section .section-header h2::after {
-        display: none !important; 
+        display: none !important;
     }
 
     .table-format-wrapper #education .timeline {
-      max-width: 100%; 
-      padding: 0; 
-      margin: 0; 
+      max-width: 100%;
+      padding: 0;
+      margin: 0;
       position: relative;
     }
     .table-format-wrapper #education .timeline::before {
       content: '';
       position: absolute;
-      width: 1px; 
+      width: 1px;
       background-color: var(--border);
       top: 0;
       bottom: 0;
-      left: 6px; 
+      left: 6px;
     }
     .table-format-wrapper #education .timeline-item {
-      padding: 3px 0px 3px 15px; 
-      margin-bottom: 0.3rem; 
-      width: 100%; 
-      left: 0 !important; 
+      padding: 3px 0px 3px 15px;
+      margin-bottom: 0.3rem;
+      width: 100%;
+      left: 0 !important;
       position: relative;
     }
     .table-format-wrapper #education .timeline-dot {
-      width: 6px; 
-      height: 6px; 
+      width: 6px;
+      height: 6px;
       background-color: var(--accent);
       border-radius: 50%;
       position: absolute;
-      top: 8px; 
-      left: 0px !important; 
+      top: 8px;
+      left: 0px !important;
       box-shadow: 0 0 2px var(--shadow);
     }
     .table-format-wrapper #education .timeline-content {
-      border-radius: 4px; 
-      padding: 0.4rem; 
-      margin-left: 12px; 
-      box-shadow: 0 1px 2px var(--shadow); 
+      border-radius: 4px;
+      padding: 0.4rem;
+      margin-left: 12px;
+      box-shadow: 0 1px 2px var(--shadow);
       background: var(--card-bg);
     }
     .table-format-wrapper #education .timeline-content h3 {
-        font-size: 0.75rem; 
-        margin-bottom: 0.15rem; 
+        font-size: 0.75rem;
+        margin-bottom: 0.15rem;
         line-height: 1.2;
     }
     .table-format-wrapper #education .timeline-content h3 i {
-        font-size: 0.65rem; 
+        font-size: 0.65rem;
         margin-top: 0.1em;
     }
-    .table-format-wrapper #education .timeline-content p { 
-        font-size: 0.65rem; 
-        line-height: 1.2; 
-        margin-bottom: 0.1rem; 
+    .table-format-wrapper #education .timeline-content p {
+        font-size: 0.65rem;
+        line-height: 1.2;
+        margin-bottom: 0.1rem;
     }
     .table-format-wrapper #education .timeline-content .date {
-        font-size: 0.6rem; 
+        font-size: 0.6rem;
         margin-top: 0.15rem;
     }
     .table-format-wrapper #education .timeline-content .date i {
-        font-size: 0.55rem; 
+        font-size: 0.55rem;
     }
     .table-format-wrapper #education .timeline-content:hover {
-      transform: translateY(-2px); 
+      transform: translateY(-2px);
       box-shadow: 0 2px 4px var(--shadow);
     }
 
     .table-format-wrapper #strengths .grid {
-        gap: 0.75rem; 
-        grid-template-columns: 1fr; 
+        gap: 0.75rem;
+        grid-template-columns: 1fr;
     }
-    .table-format-wrapper #strengths .sub-card { 
+    .table-format-wrapper #strengths .sub-card {
         padding: 0.75rem;
         border-radius: 6px;
     }
@@ -797,7 +800,7 @@
     .form-group textarea:focus {
       outline: none;
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.3); 
+      box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.3);
     }
 
     .form-group textarea {
@@ -849,7 +852,7 @@
       overflow: hidden;
       z-index: 1;
     }
-    .submit-btn i, .submit-btn span { 
+    .submit-btn i, .submit-btn span {
         position: relative;
         z-index: 2;
     }
@@ -862,13 +865,13 @@
       height: 100%;
       background: var(--accent-hover);
       transition: width 0.3s ease;
-      z-index: 1; 
+      z-index: 1;
     }
 
     .submit-btn:hover::before {
       width: 100%;
     }
-    
+
     .submit-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 0 15px var(--shadow);
@@ -899,7 +902,7 @@
       padding: 3rem 5%;
       border-top: 1px solid var(--border);
       position: relative;
-      z-index: 1; 
+      z-index: 1;
     }
 
     footer::before {
@@ -915,9 +918,9 @@
 
     .footer-links {
       display: flex;
-      flex-wrap: wrap; 
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 1rem; 
+      gap: 1rem;
       margin-top: 1.5rem;
     }
 
@@ -942,8 +945,8 @@
       height: 150px;
       background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
       filter: blur(20px);
-      z-index: 0; 
-      opacity: 0.03; 
+      z-index: 0;
+      opacity: 0.03;
     }
     html[data-theme="dark"] .terminal-effect {
         opacity: 0.08;
@@ -954,7 +957,7 @@
         padding: 3.5rem 5%;
       }
       .hero {
-        min-height: 90vh; 
+        min-height: 90vh;
       }
       .hero-text h1 {
         font-size: 2.5rem;
@@ -963,24 +966,24 @@
         font-size: 1.3rem;
       }
       .profile-image {
-        max-height: 65vh; 
+        max-height: 65vh;
       }
-      .table-format-wrapper { 
+      .table-format-wrapper {
         padding: 2rem;
       }
     }
-    @media (max-width: 991px) { 
+    @media (max-width: 991px) {
         .table-format-wrapper {
-            grid-template-columns: 1fr; 
+            grid-template-columns: 1fr;
         }
         .table-format-wrapper #education .timeline::before {
-          left: 6px; 
+          left: 6px;
         }
         .table-format-wrapper #education .timeline-item {
-          padding-left: 15px; 
+          padding-left: 15px;
         }
         .table-format-wrapper #education .timeline-dot {
-          left: 0px !important; 
+          left: 0px !important;
         }
     }
 
@@ -989,22 +992,22 @@
         padding: 1rem 5%;
       }
       .nav-links {
-        display: none; 
+        display: none;
       }
       .hero {
-        min-height: auto; 
-        padding-top: 3rem; 
+        min-height: auto;
+        padding-top: 3rem;
         padding-bottom: 3rem;
-        align-items: center; 
+        align-items: center;
       }
       .hero-container {
         flex-direction: column;
         text-align: center;
-        align-items: center; 
+        align-items: center;
       }
       .hero-text {
-        flex-basis: auto; 
-        justify-content: flex-start; 
+        flex-basis: auto;
+        justify-content: flex-start;
       }
       .hero-text h1 {
         font-size: 2.2rem;
@@ -1013,15 +1016,15 @@
         font-size: 1.2rem;
       }
       .hero-image-container {
-        flex-basis: auto; 
-        max-width: 350px; 
+        flex-basis: auto;
+        max-width: 350px;
         margin-top: 2rem;
-        height: auto; 
+        height: auto;
       }
       .profile-image {
-         max-height: 300px; 
+         max-height: 300px;
          width: auto;
-         height: auto; 
+         height: auto;
       }
       .tech-icons, .social-links {
         justify-content: center;
@@ -1035,7 +1038,6 @@
       .nested-section .section-header h2 {
         font-size: 1.6rem !important;
       }
-      
     }
 
     @media (max-width: 480px) {
@@ -1062,7 +1064,7 @@
       }
       .nav-links, .footer-links { gap: 0.8rem; }
       nav a, .footer-links a { font-size: 0.9rem; }
-      .grid.certifications-grid, .grid { 
+      .grid.certifications-grid, .grid {
         grid-template-columns: 1fr;
       }
       .table-format-wrapper {
@@ -1083,7 +1085,7 @@
   <div class="cyber-grid-bg"></div>
   <div class="cyber-glow"></div>
   <div class="binary-animation" id="binaryAnimation"></div>
-  
+
   <nav>
     <div class="logo">0x1337</div>
     <div class="nav-links">
@@ -1095,7 +1097,7 @@
       <a href="#contact">Contact</a>
     </div>
     <button class="toggle-btn" onclick="toggleTheme()">
-      <i class="fas fa-sun"></i> 
+      <i class="fas fa-sun"></i>
     </button>
   </nav>
 
@@ -1109,7 +1111,7 @@
             Enthusiastic and technically skilled IT graduate with a solid foundation in Cybersecurity and Information Technology. Proficient in networking, Linux, AWS, and cyber threat intelligence, backed by industry certifications. Strong problem-solver and team player with a passion for leveraging cybersecurity tools and open-source intelligence to enhance digital security. Seeking an entry-level role as a Cybersecurity Analyst or IT professional to drive secure, innovative tech solutions.
           "Passionate about defending digital landscapes through intelligent security solutions."
           </p>
-          
+
           <div class="tech-icons">
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" title="Linux">
             <img src="https://img.icons8.com/color/48/000000/amazon-web-services.png" alt="AWS" title="AWS">
@@ -1126,9 +1128,9 @@
             <a href="https://www.credly.com/users/aditya-kumar.c9be8cb7" target="_blank" title="Credly"><i class="fas fa-award"></i></a>
           </div>
         </div>
-        
+
         <div class="hero-image-container">
-          <img src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Aditya Kumar - Cybersecurity Theme" class="profile-image"> 
+          <img src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Aditya Kumar - Cybersecurity Theme" class="profile-image">
         </div>
       </div>
     </div>
@@ -1168,7 +1170,7 @@
   <section id="education_strengths_table">
     <div class="container">
       <div class="table-format-wrapper">
-        <div id="education" class="nested-section"> 
+        <div id="education" class="nested-section">
           <div class="section-header">
             <h2><i class="fas fa-graduation-cap"></i> Education</h2>
           </div>
@@ -1201,7 +1203,7 @@
               <div class="timeline-dot"></div>
               <div class="timeline-content">
                 <h3><i class="fas fa-school"></i> Intermediate (ISC)</h3>
-                <p>The Aryan School, Dehradun</p> 
+                <p>The Aryan School, Dehradun</p>
                 <p class="date"><i class="far fa-calendar-alt"></i> 2020 - 2021</p>
               </div>
             </div>
@@ -1437,7 +1439,7 @@
       const newTheme = currentTheme === "dark" ? "light" : "dark";
       html.setAttribute("data-theme", newTheme);
       localStorage.setItem("theme", newTheme);
-      
+
       const icon = document.querySelector('.toggle-btn i');
       if (newTheme === "dark") {
         icon.classList.remove('fa-sun');
@@ -1449,9 +1451,9 @@
     }
 
     (function() {
-      const savedTheme = localStorage.getItem("theme") || "light"; 
+      const savedTheme = localStorage.getItem("theme") || "light";
       document.documentElement.setAttribute("data-theme", savedTheme);
-      
+
       const icon = document.querySelector('.toggle-btn i');
       if (savedTheme === 'dark') {
         icon.classList.remove('fa-sun');
@@ -1461,23 +1463,23 @@
         icon.classList.add('fa-sun');
       }
     })();
-    
+
     function createBinaryAnimation() {
       const container = document.getElementById('binaryAnimation');
       if (!container) return;
-      container.innerHTML = ''; 
+      container.innerHTML = '';
       const binaryChars = ['0', '1'];
-      
-      for (let i = 0; i < 15; i++) { 
+
+      for (let i = 0; i < 15; i++) {
         const binary = document.createElement('div');
         binary.className = 'binary-code';
-        const streamLength = Math.floor(Math.random() * 15) + 10; 
+        const streamLength = Math.floor(Math.random() * 15) + 10;
         binary.textContent = Array(streamLength).fill(0).map(() => binaryChars[Math.floor(Math.random() * binaryChars.length)]).join('');
-        
+
         binary.style.left = `${Math.random() * 100}%`;
-        binary.style.animationDuration = `${10 + Math.random() * 15}s`; 
-        binary.style.animationDelay = `${Math.random() * 10}s`; 
-        
+        binary.style.animationDuration = `${10 + Math.random() * 15}s`;
+        binary.style.animationDelay = `${Math.random() * 10}s`;
+
         container.appendChild(binary);
       }
     }
@@ -1487,180 +1489,207 @@
       const grid = document.querySelector('.cyber-grid-bg');
       if (grid) {
         const scrollY = window.scrollY;
-        grid.style.transform = `translateY(${scrollY * 0.1}px)`; 
+        grid.style.transform = `translateY(${scrollY * 0.1}px)`;
       }
     });
 
     const form = document.getElementById('contactForm');
     if (form) {
-        form.addEventListener('submit', (e) => {
-          e.preventDefault();
-          let isValid = true;
-          
-          const name = document.getElementById('name');
-          const email = document.getElementById('email');
-          const phone = document.getElementById('phone');
-          const message = document.getElementById('message');
-          const terms = document.getElementById('terms');
-          const submitBtn = form.querySelector('.submit-btn');
-          
-          document.querySelectorAll('.form-group').forEach(group => {
-            group.classList.remove('error');
-          });
-          
-          if (!name.value.trim()) {
-            name.parentElement.classList.add('error');
-            isValid = false;
-          }
-          
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailRegex.test(email.value)) {
-            email.parentElement.classList.add('error');
-            isValid = false;
-          }
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let isValid = true;
 
-          const phoneValue = phone.value.trim();
-          const phoneRegex = /^(\+\d{1,3}[-.\s]?\d{10})$/;
-          if (phoneValue && !phoneRegex.test(phoneValue)) {
-            phone.parentElement.classList.add('error');
-            isValid = false;
-          }
-          
-          if (!message.value.trim()) {
-            message.parentElement.classList.add('error');
-            isValid = false;
-          }
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const phone = document.getElementById('phone');
+        const message = document.getElementById('message');
+        const terms = document.getElementById('terms');
+        const submitBtn = form.querySelector('.submit-btn');
 
-          if (!terms.checked) {
-            terms.parentElement.classList.add('error'); 
-            alert("Please agree to the Terms and Privacy Policy."); 
-            isValid = false;
-          }
-          
-          if (isValid) {
-            submitBtn.classList.add('loading');
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-              // form.submit(); // Uncomment for actual Formspree submission
-              alert('Form data is valid and would be submitted!'); 
-              submitBtn.classList.remove('loading');
-              submitBtn.disabled = false;
-              form.reset(); 
-            }, 1500);
-          }
+        // Reset error states
+        document.querySelectorAll('.form-group').forEach(group => {
+          group.classList.remove('error');
         });
+
+        // Validate name
+        if (!name.value.trim()) {
+          name.parentElement.classList.add('error');
+          isValid = false;
+        }
+
+        // Validate email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email.value)) {
+          email.parentElement.classList.add('error');
+          isValid = false;
+        }
+
+        // Validate phone (optional)
+        const phoneValue = phone.value.trim();
+        const phoneRegex = /^(\+\d{1,3}[-.\s]?\d{10})$/;
+        if (phoneValue && !phoneRegex.test(phoneValue)) {
+          phone.parentElement.classList.add('error');
+          isValid = false;
+        }
+
+        // Validate message
+        if (!message.value.trim()) {
+          message.parentElement.classList.add('error');
+          isValid = false;
+        }
+
+        // Validate terms checkbox
+        if (!terms.checked) {
+          terms.parentElement.classList.add('error');
+          alert("Please agree to the Terms and Privacy Policy.");
+          isValid = false;
+        }
+
+        // If valid, submit the form
+        if (isValid) {
+          submitBtn.classList.add('loading');
+          submitBtn.disabled = true;
+
+          // Create FormData object
+          const formData = new FormData(form);
+
+          // Submit the form to Formspree using fetch
+          fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          })
+          .then(response => {
+            if (response.ok) {
+              alert('Message sent successfully!');
+              form.reset();
+            } else {
+              throw new Error('Form submission failed');
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            alert('There was an error sending your message. Please try again later.');
+          })
+          .finally(() => {
+            submitBtn.classList.remove('loading');
+            submitBtn.disabled = false;
+          });
+        }
+      });
     }
 
     const particleCanvas = document.getElementById('particle-canvas');
     if (particleCanvas) {
-        const ctx = particleCanvas.getContext('2d');
-        let particlesArray;
+      const ctx = particleCanvas.getContext('2d');
+      let particlesArray;
 
-        function setCanvasDimensions() {
-            particleCanvas.width = window.innerWidth;
-            particleCanvas.height = window.innerHeight;
+      function setCanvasDimensions() {
+        particleCanvas.width = window.innerWidth;
+        particleCanvas.height = window.innerHeight;
+      }
+      setCanvasDimensions();
+
+      class Particle {
+        constructor(x, y, directionX, directionY, size, baseColor) {
+          this.x = x;
+          this.y = y;
+          this.directionX = directionX;
+          this.directionY = directionY;
+          this.size = size;
+          this.baseColor = baseColor;
         }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+          ctx.fillStyle = this.baseColor + '55';
+          ctx.fill();
+        }
+
+        update(particleColor) {
+          this.baseColor = particleColor;
+          if (this.x + this.size > particleCanvas.width || this.x - this.size < 0) {
+            this.directionX = -this.directionX;
+          }
+          if (this.y + this.size > particleCanvas.height || this.y - this.size < 0) {
+            this.directionY = -this.directionY;
+          }
+          this.x += this.directionX;
+          this.y += this.directionY;
+          this.draw();
+        }
+      }
+
+      function getThemeColorsForParticles() {
+        const styles = getComputedStyle(document.documentElement);
+        return {
+          particleBaseColor: styles.getPropertyValue('--tertiary').trim(),
+          lineBaseColor: styles.getPropertyValue('--accent').trim()
+        };
+      }
+
+      function initParticles() {
+        particlesArray = [];
+        const colors = getThemeColorsForParticles();
+        const numberOfParticles = Math.max(30, (particleCanvas.width * particleCanvas.height) / 12000);
+        for (let i = 0; i < numberOfParticles; i++) {
+          const size = Math.random() * 1.5 + 0.5;
+          const x = Math.random() * (particleCanvas.width - size * 2) + size;
+          const y = Math.random() * (particleCanvas.height - size * 2) + size;
+          const directionX = (Math.random() * 0.3) - 0.15;
+          const directionY = (Math.random() * 0.3) - 0.15;
+          particlesArray.push(new Particle(x, y, directionX, directionY, size, colors.particleBaseColor));
+        }
+      }
+
+      function connectParticles(lineBaseColor) {
+        const maxDistance = 120;
+        for (let a = 0; a < particlesArray.length; a++) {
+          for (let b = a + 1; b < particlesArray.length; b++) {
+            const dx = particlesArray[a].x - particlesArray[b].x;
+            const dy = particlesArray[a].y - particlesArray[b].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < maxDistance) {
+              const opacity = 1 - (distance / maxDistance);
+              const finalAlphaHex = Math.round(opacity * 0.4 * 255).toString(16).padStart(2, '0');
+
+              ctx.strokeStyle = lineBaseColor + finalAlphaHex;
+              ctx.lineWidth = 0.3;
+              ctx.beginPath();
+              ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+              ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+              ctx.stroke();
+            }
+          }
+        }
+      }
+
+      let animationFrameId;
+      function animateParticles() {
+        animationFrameId = requestAnimationFrame(animateParticles);
+        ctx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+
+        const colors = getThemeColorsForParticles();
+
+        for (let i = 0; i < particlesArray.length; i++) {
+          particlesArray[i].update(colors.particleBaseColor);
+        }
+        connectParticles(colors.lineBaseColor);
+      }
+
+      window.addEventListener('resize', () => {
+        cancelAnimationFrame(animationFrameId);
         setCanvasDimensions();
-
-        class Particle {
-            constructor(x, y, directionX, directionY, size, baseColor) {
-                this.x = x;
-                this.y = y;
-                this.directionX = directionX;
-                this.directionY = directionY;
-                this.size = size;
-                this.baseColor = baseColor; 
-            }
-
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-                ctx.fillStyle = this.baseColor + '55'; 
-                ctx.fill();
-            }
-
-            update(particleColor) { 
-                this.baseColor = particleColor;
-                if (this.x + this.size > particleCanvas.width || this.x - this.size < 0) {
-                    this.directionX = -this.directionX;
-                }
-                if (this.y + this.size > particleCanvas.height || this.y - this.size < 0) {
-                    this.directionY = -this.directionY;
-                }
-                this.x += this.directionX;
-                this.y += this.directionY;
-                this.draw();
-            }
-        }
-
-        function getThemeColorsForParticles() {
-            const styles = getComputedStyle(document.documentElement);
-            return {
-                particleBaseColor: styles.getPropertyValue('--tertiary').trim(), 
-                lineBaseColor: styles.getPropertyValue('--accent').trim()      
-            };
-        }
-
-        function initParticles() {
-            particlesArray = [];
-            const colors = getThemeColorsForParticles();
-            const numberOfParticles = Math.max(30, (particleCanvas.width * particleCanvas.height) / 12000); 
-            for (let i = 0; i < numberOfParticles; i++) {
-                const size = Math.random() * 1.5 + 0.5; 
-                const x = Math.random() * (particleCanvas.width - size * 2) + size;
-                const y = Math.random() * (particleCanvas.height - size * 2) + size;
-                const directionX = (Math.random() * 0.3) - 0.15; 
-                const directionY = (Math.random() * 0.3) - 0.15;
-                particlesArray.push(new Particle(x, y, directionX, directionY, size, colors.particleBaseColor));
-            }
-        }
-
-        function connectParticles(lineBaseColor) {
-            const maxDistance = 120; 
-            for (let a = 0; a < particlesArray.length; a++) {
-                for (let b = a + 1; b < particlesArray.length; b++) { 
-                    const dx = particlesArray[a].x - particlesArray[b].x;
-                    const dy = particlesArray[a].y - particlesArray[b].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < maxDistance) {
-                        const opacity = 1 - (distance / maxDistance); 
-                        const finalAlphaHex = Math.round(opacity * 0.4 * 255).toString(16).padStart(2, '0'); 
-
-                        ctx.strokeStyle = lineBaseColor + finalAlphaHex;
-                        ctx.lineWidth = 0.3; 
-                        ctx.beginPath();
-                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-        
-        let animationFrameId;
-        function animateParticles() {
-            animationFrameId = requestAnimationFrame(animateParticles);
-            ctx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
-            
-            const colors = getThemeColorsForParticles(); 
-
-            for (let i = 0; i < particlesArray.length; i++) {
-                particlesArray[i].update(colors.particleBaseColor); 
-            }
-            connectParticles(colors.lineBaseColor);
-        }
-
-        window.addEventListener('resize', () => {
-            cancelAnimationFrame(animationFrameId); 
-            setCanvasDimensions();
-            initParticles(); 
-            animateParticles(); 
-        });
-
         initParticles();
         animateParticles();
+      });
+
+      initParticles();
+      animateParticles();
     }
   </script>
 </body>
