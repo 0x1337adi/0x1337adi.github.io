@@ -3,44 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aditya Kumar - Cybersecurity Analyst Portfolio">
   <title>Aditya Kumar | Cybersecurity Analyst</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Roboto:wght@400;500;600;700&family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Roboto:wght@400;500;600;700&family=Orbitron:wght@400;500;700&family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <style>
     :root {
-      /* Light Mode */
-      --bg-light: #F0F2F5;
-      --bg-alt-light: #E5E8EC;
-      --card-bg-light: #D9DDE4;
-      --text-light: #1F252D;
-      --border-light: #B0B8C2;
-      --accent-light: #3B82F6;
-      --accent-alt-light: #60A5FA;
-      --accent-hover-light: #2563EB;
-      --secondary-light: #64748B;
-      --tertiary-light: #94A3B8;
-      --shadow-light: rgba(0, 0, 0, 0.15);
-      --neon-light: #4ADE80;
+      /* Light Mode (Premium Grok-Inspired Theme) */
+      --bg-light: #F0F2F5; /* Crisp light grey */
+      --bg-alt-light: #E5E8EC; /* Subtle secondary grey */
+      --card-bg-light: #D9DDE4; /* Soft grey for cards */
+      --text-light: #1F252D; /* Deep grey text */
+      --border-light: #B0B8C2; /* Light grey border */
+      --accent-light: #3B82F6; /* Vibrant blue primary */
+      --accent-alt-light: #60A5FA; /* Lighter blue secondary */
+      --accent-hover-light: #2563EB; /* Darker blue for hover */
+      --secondary-light: #64748B; /* Slate grey-blue */
+      --tertiary-light: #94A3B8; /* Muted grey for tertiary */
+      --shadow-light: rgba(0, 0, 0, 0.15); /* Soft shadow */
+      --neon-light: #4ADE80; /* Subtle neon green accent */
       --gradient-light: linear-gradient(135deg, #F0F2F5 0%, #E5E8EC 100%);
       --bg-rgb: 240, 242, 245;
       --text-rgb: 31, 37, 45;
       --accent-rgb: 59, 130, 246;
 
-      /* Dark Mode */
-      --bg-dark: #1A2028;
-      --bg-alt-dark: #242A33;
-      --card-bg-dark: #2E3540;
-      --text-dark: #E6EBF0;
-      --border-dark: #4A5568;
-      --accent-dark: #60A5FA;
-      --accent-alt-dark: #93C5FD;
-      --accent-hover-dark: #3B82F6;
-      --secondary-dark: #718096;
-      --tertiary-dark: #A0AEC0;
-      --shadow-dark: rgba(96, 165, 250, 0.3);
-      --neon-dark: #34D399;
+      /* Dark Mode (Premium Grok-Inspired Theme) */
+      --bg-dark: #1A2028; /* Deep dark grey */
+      --bg-alt-dark: #242A33; /* Secondary dark grey */
+      --card-bg-dark: #2E3540; /* Medium grey for cards */
+      --text-dark: #E6EBF0; /* Light grey text */
+      --border-dark: #4A5568; /* Medium grey border */
+      --accent-dark: #60A5FA; /* Bright blue primary */
+      --accent-alt-dark: #93C5FD; /* Lighter blue secondary */
+      --accent-hover-dark: #3B82F6; /* Darker blue for hover */
+      --secondary-dark: #718096; /* Grey-blue secondary */
+      --tertiary-dark: #A0AEC0; /* Muted grey for tertiary */
+      --shadow-dark: rgba(96, 165, 250, 0.3); /* Blue-tinted shadow */
+      --neon-dark: #34D399; /* Neon green accent */
       --gradient-dark: linear-gradient(135deg, #1A2028 0%, #242A33 100%);
 
       /* Theme Variables */
@@ -96,18 +94,6 @@
       --bg-rgb: 26, 32, 40;
       --text-rgb: 230, 235, 240;
       --accent-rgb: 96, 165, 250;
-    }
-
-    /* Scroll Progress Bar */
-    .progress-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 4px;
-      background: var(--neon);
-      z-index: 1000;
-      transition: width 0.2s ease;
     }
 
     /* Custom Cursor */
@@ -192,6 +178,7 @@
       z-index: -4;
       opacity: 0.015;
       overflow: hidden;
+      transition: opacity 0.3s;
     }
 
     .data-stream-code {
@@ -292,7 +279,7 @@
       width: 100%;
     }
 
-    .toggle-btn, .voice-btn {
+    .toggle-btn {
       background: none;
       border: none;
       color: var(--text);
@@ -301,10 +288,9 @@
       transition: color 0.3s, transform 0.3s;
       position: relative;
       padding: 0.5rem;
-      margin-left: 1rem;
     }
 
-    .toggle-btn:hover, .voice-btn:hover {
+    .toggle-btn:hover {
       color: var(--neon);
       transform: scale(1.1);
       text-shadow: 0 0 10px rgba(var(--neon-dark), 0.6);
@@ -314,14 +300,6 @@
       padding: 5rem 5%;
       position: relative;
       z-index: 1;
-      background: var(--bg);
-      transition: transform 0.5s ease-out;
-    }
-
-    section.parallax {
-      background-attachment: fixed;
-      background-size: cover;
-      background-position: center;
     }
 
     .container {
@@ -337,7 +315,6 @@
       overflow: hidden;
       padding-top: 3rem;
       padding-bottom: 3rem;
-      background: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
     }
 
     .hero-container {
@@ -363,10 +340,6 @@
       justify-content: center;
       position: relative;
       z-index: 2;
-      background: rgba(var(--bg-rgb), 0.8);
-      padding: 2rem;
-      border-radius: 16px;
-      backdrop-filter: blur(10px);
     }
 
     .hero-text h1 {
@@ -440,22 +413,11 @@
       border: 1px solid var(--border);
       box-shadow: 0 0 15px var(--shadow);
       transition: transform 0.3s, box-shadow 0.3s;
-      loading: lazy;
     }
 
     .profile-image:hover {
       transform: scale(1.02);
       box-shadow: 0 0 25px rgba(var(--accent-rgb), 0.5);
-    }
-
-    #globe-canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      opacity: 0.3;
     }
 
     h1 {
@@ -488,9 +450,17 @@
       box-shadow: 0 0 8px var(--neon);
     }
 
-    .accent { color: var(--accent); }
-    .secondary { color: var(--secondary); }
-    .tertiary { color: var(--tertiary); }
+    .accent {
+      color: var(--accent);
+    }
+
+    .secondary {
+      color: var(--secondary);
+    }
+
+    .tertiary {
+      color: var(--tertiary);
+    }
 
     .tech-icons {
       display: flex;
@@ -503,7 +473,6 @@
       height: 50px;
       transition: transform 0.3s, filter 0.3s, box-shadow 0.3s;
       will-change: transform, box-shadow;
-      loading: lazy;
     }
 
     .tech-icons img:hover {
@@ -580,7 +549,9 @@
       align-items: center;
       gap: 0.6rem;
       font-family: 'Roboto', sans-serif;
-      position: relative =.8px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
       text-decoration: none;
       margin-top: 2rem;
     }
@@ -620,16 +591,8 @@
       height: 100%;
       position: relative;
       box-shadow: 0 6px 15px var(--shadow);
-      will-change: transform, opacity;
+      will-change: transform, box-shadow;
       perspective: 1000px;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    .sub-card.visible {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     .sub-card:hover {
@@ -675,7 +638,6 @@
       border-radius: 50px;
       font-size: 0.8rem;
       transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
-      cursor: pointer;
     }
 
     .project-tags span:hover, .skill-tags span:hover {
@@ -726,32 +688,6 @@
 
     .grid.certifications-grid {
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-
-    .filter-controls {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 2rem;
-      justify-content: center;
-    }
-
-    .filter-btn {
-      padding: 0.6rem 1.2rem;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 50px;
-      color: var(--text);
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: background 0.3s, border-color 0.3s, transform 0.3s;
-    }
-
-    .filter-btn.active, .filter-btn:hover {
-      background: var(--neon);
-      border-color: var(--neon);
-      color: var(--bg);
-      transform: translateY(-3px);
     }
 
     .table-format-wrapper {
@@ -816,14 +752,6 @@
       width: 100%;
       left: 0 !important;
       position: relative;
-      opacity: 0;
-      transform: translateX(-50px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    .table-format-wrapper #education .timeline-item.visible {
-      opacity: 1;
-      transform: translateX(0);
     }
 
     .table-format-wrapper #education .timeline-dot {
@@ -1006,14 +934,14 @@
       display: block;
     }
 
-    .form-group-checkbox {
+    .checkbox-group {
       display: flex;
       align-items: center;
       gap: 0.6rem;
       margin-top: 1.2rem;
     }
 
-    .form-group-checkbox input {
+    .checkbox-group input {
       width: auto;
     }
 
@@ -1028,7 +956,7 @@
       height: 18px;
       border: 2px solid var(--bg);
       border-top: 2px solid transparent;
-      border-radius: 1;
+      border-radius: 50%;
       animation: spin 0.8s linear infinite;
       margin-left: 0.6rem;
     }
@@ -1037,133 +965,9 @@
       to { transform: rotate(360deg); }
     }
 
-    /* Chatbot */
-    .chatbot {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 300px;
-      background: var(--card-bg);
-      border-radius: 16px;
-      box-shadow: 0 8px 20px var(--shadow);
-      z-index: 1000;
-      display: none;
-      flex-direction: column;
-      max-height: 400px;
-      overflow: hidden;
-    }
-
-    .chatbot.active {
-      display: flex;
-    }
-
-    .chatbot-header {
-      background: var(--accent);
-      color: var(--bg);
-      padding: 1rem;
-      font-family: 'Exo 2', sans-serif;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .chatbot-header h3 {
-      font-size: 1rem;
-    }
-
-    .chatbot-close {
-      background: none;
-      border: none;
-      color: var(--bg);
-      font-size: 1.2rem;
-      cursor: pointer;
-    }
-
-    .chatbot-body {
-      padding: 1rem;
-      flex-grow: 1;
-      overflow-y: auto;
-      background: var(--bg-alt);
-    }
-
-    .chatbot-message {
-      margin-bottom: 1rem;
-      padding: 0.8rem;
-      border-radius: 8px;
-      font-size: 0.9rem;
-    }
-
-    .chatbot-message.user {
-      background: var(--accent);
-      color: var(--bg);
-      margin-left: 10%;
-    }
-
-    .chatbot-message.bot {
-      background: var(--card-bg);
-      color: var(--text);
-      margin-right: 10%;
-    }
-
-    .chatbot-input {
-      display: flex;
-      padding: 1rem;
-      background: var(--card-bg);
-      border-top: 1px solid var(--border);
-    }
-
-    .chatbot-input input {
-      flex-grow: 1;
-      padding: 0.8rem;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: var(--bg-alt);
-      color: var(--text);
-      font-family: 'Roboto', sans-serif;
-    }
-
-    .chatbot-input button {
-      background: var(--neon);
-      border: none;
-      color: var(--bg);
-      padding: 0.8rem 1rem;
-      border-radius: 8px;
-      margin-left: 0.5rem;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-
-    .chatbot-input button:hover {
-      transform: scale(1.1);
-    }
-
-    .chatbot-toggle {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--neon);
-      color: var(--bg);
-      border: none;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      cursor: inherit;
-      box-shadow: 0 0 10px rgba(var(--neon-dark), 0.5);
-      z-index: 999;
-      transition: transform 0.3s;
-    }
-
-    .chatbot-toggle:hover {
-      transform: scale(1.1);
-    }
-
     footer {
       text-align: center;
-      padding: 4px 5%;
+      padding: 4rem 5%;
       border-top: 1px solid var(--border);
       position: relative;
       z-index: 1;
@@ -1224,155 +1028,146 @@
       .hero {
         min-height: 90vh;
       }
-      .topic-text h1 {
-        font-title: 2rem;
+      .hero-text h1 {
+        font-size: 2.8rem;
       }
-      .topic-text .subtitle {
+      .hero-text .subtitle {
         font-size: 1.4rem;
       }
-      .profile-pic {
+      .profile-image {
         max-height: 70vh;
       }
-      .contact-container {
-        grid-template-columns: auto;
+    }
+
+    @media (max-width: 991px) {
+      .table-format-wrapper {
+        grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width: 991.98px) {
-      .table-format {
-        grid-template-columns: auto;
+    @media (max-width: 768px) {
+      nav {
+        padding: 1.2rem 5%;
       }
-    }
-
-    @media (max-width: 767.98px) {
-      .nav-bar {
-        padding: 1rem 2.5%;
-      }
-      .links-nav {
+      .nav-links {
         display: none;
       }
       .hero {
         min-height: auto;
         padding-top: 4rem;
-        bottom-padding: 4px;
+        padding-bottom: 4rem;
         align-items: center;
       }
-      .hero-content {
+      .hero-container {
         flex-direction: column;
-        text-align-items: center;
+        text-align: center;
+        align-items: center;
       }
-      .topic-text h1 {
-        font-title: 2rem;
+      .hero-text h1 {
+        font-size: 2.5rem;
       }
-      .topic-text .subtitle {
-        font-size: 1rem;
+      .hero-text .subtitle {
+        font-size: 1.3rem;
       }
-      .topic-image-container {
-        max-width: auto;
-        top-margin: auto;
+      .hero-image-container {
+        max-width: 400px;
+        margin-top: 2.5rem;
       }
-      .image {
-        max-height: auto;
+      .profile-image {
+        max-height: 350px;
       }
       .tech-icons, .social-links {
         justify-content: center;
       }
-      .bot {
-        width: 90%;
-        right: 5%;
+      .contact-container {
+        grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width: 479.98px) {
+    @media (max-width: 480px) {
       section {
-          padding: 3rem 5%;
+        padding: 3rem 5%;
       }
-      .topic-text h1 {
-          font-size: 2rem;
+      .hero-text h1 {
+        font-size: 2.2rem;
       }
-      .topic-text .title {
-          font-size: 1rem;
+      .hero-text .subtitle {
+        font-size: 1.2rem;
       }
-      .topic-text p .summary {
-          font-size: 1rem;
+      .hero-text p.summary {
+        font-size: 1rem;
       }
-      .profile-img {
-          max-width: auto;
+      .profile-image {
+        max-height: 300px;
       }
       .tech-icons img {
-          height: auto;
+        height: 45px;
       }
       .social-links a {
-          width: auto;
-          height: auto;
-          font-size: auto;
+        width: 40px;
+        height: 40px;
+        font-size: 1.4rem;
       }
       .grid.certifications-grid, .grid {
-          width: auto;
+        grid-template-columns: 1fr;
       }
-  }
-
+    }
   </style>
 </head>
 <body>
-  <div class="progress-bar" id="progressBar"></div>
   <div class="custom-cursor" id="cursor"></div>
-  <canvas id="light-canvas"></canvas>
-  <div class="cyber-grid"></div>
+  <canvas id="particle-canvas"></canvas>
+  <div class="cyber-grid-bg"></div>
   <div class="cyber-glow"></div>
-  <div class="data-stream" data-stream-id="dataStream"></div>
+  <div class="data-stream" id="dataStream"></div>
 
-  <nav class="nav-bar">
+  <nav>
     <div class="logo">ADITYA KUMAR</div>
-    <div class="links-nav">
+    <div class="nav-links">
       <a href="#home">Home</a>
       <a href="#skills">Skills</a>
-      <a href="#education_strengths_table">Education</a>
+      <a href="#education_strengths_table">Education & Strengths</a>
       <a href="#projects">Projects</a>
-      <a href="#certifications">Certificates</a>
-      <a href="#connect">Connect</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
     </div>
-    <button class="theme-btn" onclick="themeToggle()" label="Toggle theme">
+    <button class="toggle-btn" onclick="toggleTheme()">
       <i class="fas fa-sun"></i>
-    </button>
-    <button class="voice-btn" onclick="voiceToggle()" label="Toggle voice">
-      <i class="fas fa-mic"></i>
     </button>
   </nav>
 
   <section id="home" class="hero">
-    <canvas id="globeCanvas"></canvas>
     <div class="container">
-      <div class="hero-content">
-        <div class="topic-text">
+      <div class="hero-container">
+        <div class="hero-text">
           <h1>ADITYA KUMAR</h1>
-          <p class="title" id="typingTitle"></p>
+          <p class="subtitle" id="typingSubtitle"></p>
           <p class="summary">
-            Dynamic IT graduate with expertise in Cybersecurity and Information Technology. Proficient in networking, Linux, python, and cyber threats, supported by industry-recognized certifications. A proactive problem-solver and collaborative team member, passionate about leveraging advanced cybersecurity tools and OSINT to identify vulnerabilities. Aspiring to excel as a Cybersecurity Analyst, delivering cutting-edge, secure tech solutions.
+            Dynamic IT graduate with expertise in Cybersecurity and Information Technology. Proficient in networking, Linux, AWS, and cyber threat intelligence, supported by industry-recognized certifications. A proactive problem-solver and collaborative team member, passionate about leveraging advanced cybersecurity tools and OSINT to fortify digital ecosystems. Aspiring to excel as a Cybersecurity Analyst, delivering cutting-edge, secure tech solutions.
             <br>"Crafting resilient digital futures with intelligent security."
           </p>
 
           <div class="tech-icons">
-            <img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/linux/linux-original.svg" alt="Linux" title="Linux">
-            <img src="https://img.icons8.com/color/108/amazon-web-services.png" alt="AWS" title="AWS">
-            <img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/python/python-original.svg" alt="Python" title="Python">
-            <img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/git/git-original.svg" alt="Git" title="Git">
-            <img src="https://cdn.jsdelivr.net/npm/devicon@2.15.1/icons/bash/bash-original.svg" alt="Bash" title="Bash">
-            <img src="https://img.icons8.com/fluency/108/metro.png" alt="Metasploit" title="Metasploit">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" title="Linux">
+            <img src="https://img.icons8.com/color/48/000000/amazon-web-services.png" alt="AWS" title="AWS">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" title="Python">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" title="Git">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash" title="Bash">
+            <img src="https://img.icons8.com/fluency/48/metasploit.png" alt="Metasploit" title="Metasploit">
           </div>
 
           <div class="social-links">
-            <a href="https://linkedin.com/in/kumaraditya766899" target="_blank" title="LinkedIn" label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/0x1337adi" target="_blank" title="GitHub" label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="mailto:kumaraditya766899@gmail.com" title="Email" label="Email"><i class="fas fa-envelope"></i></a>
-            <a href="https://www.credly.com/users/aditya-kumar.c9" target="_blank" title="Credly" label="Credly"><i class="fas fa-award"></i></a>
+            <a href="https://linkedin.com/in/kumaraditya766899" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/0x1337adi" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:kumaraditya766899@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.credly.com/users/aditya-kumar.c9be8cb7" target="_blank" title="Credly"><i class="fas fa-award"></i></a>
           </div>
 
-          <a href="#" class="resume-btn" label="Download Resume"><i class="fas fa-file"></i><span>Download Resume</span></a>
+          <a href="#" class="resume-btn"><i class="fas fa-file-alt"></i><span>Download Resume</span></a>
         </div>
 
-        <div class="topic-image-container">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a.png?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Profile Picture" class="profile-img">
+        <div class="hero-image-container">
+          <img src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Aditya Kumar - Cybersecurity Theme" class="profile-image">
         </div>
       </div>
     </div>
@@ -1381,39 +1176,39 @@
 
   <section id="skills">
     <div class="container">
-      <div class="header">
+      <div class="section-header">
         <h2>Skills</h2>
       </div>
       <div class="grid">
-        <div class="card">
-          <h3><i class="fas fa-shield"></i> Cybersecurity & Pentesting</h3>
-          <p class="skills-list">Ethical Hacking, Penetration Testing (Metasploit), OSINT, Incident Response, Network Scanning</p>
+        <div class="sub-card">
+          <h3><i class="fas fa-shield-alt"></i> Cybersecurity & Pentesting</h3>
+          <p class="skills-list">Ethical Hacking, Penetration Testing (Metasploit), OSINT, Incident Response, Network Scanning.</p>
         </div>
-        <div class="card">
+        <div class="sub-card">
           <h3><i class="fas fa-cloud"></i> Cloud & Infrastructure</h3>
-          <p class="skills-list">AWS, Linux, Virtualization, Cloud Security</p>
+          <p class="skills-list">AWS, Linux Administration, Virtualization, Cloud Security, Identity Management.</p>
         </div>
-        <div class="card">
-          <h3><i class="fas fa-network"></i> Networking</h3>
-          <p class="skills-list">Networking, Cyber Threat Intelligence, Log Analysis</p>
+        <div class="sub-card">
+          <h3><i class="fas fa-network-wired"></i> Networking & Analysis</h3>
+          <p class="skills-list">Networking, Cyber Threat Intelligence, Log Analysis & Forensics.</p>
         </div>
-        <div class="card">
-          <h3><i class="fas fa-code"></i> Development</h3>
-          <p class="skills-list">Version Control (Git), Scripting (Python, Bash)</p>
+        <div class="sub-card">
+          <h3><i class="fas fa-code-branch"></i> Development & Tools</h3>
+          <p class="skills-list">Version Control (Git), Scripting (Python, Bash).</p>
         </div>
-        <div class="card">
-          <h3><i class="fas fa-globe"></i> Web Development</h3>
-          <p class="skills-list">HTML, CSS, JavaScript, Node.js</p>
+        <div class="sub-card">
+          <h3><i class="fas fa-code"></i> Web Development</h3>
+          <p class="skills-list">HTML, CSS, JavaScript, Node.js, Express Server.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="education_strengths">
+  <section id="education_strengths_table">
     <div class="container">
-      <div class="table-format">
-        <div id="education" class="section">
-          <div class="header">
+      <div class="table-format-wrapper">
+        <div id="education" class="nested-section">
+          <div class="section-header">
             <h2><i class="fas fa-graduation-cap"></i> Education</h2>
           </div>
           <div class="timeline">
@@ -1422,60 +1217,60 @@
               <div class="timeline-content">
                 <h3><i class="fas fa-graduation-cap"></i> Master of Computer Applications</h3>
                 <p>University of Petroleum and Energy Studies, Uttarakhand, India</p>
-                <p class="date"><i class="far fa-calendar"></i> 2024 - 2026</p>
+                <p class="date"><i class="far fa-calendar-alt"></i> 2024 - 2026</p>
               </div>
             </div>
             <div class="timeline-item">
               <div class="timeline-dot"></div>
               <div class="timeline-content">
-                <h3><i class="fas fa-user"></i> Bachelor of Science in Information Technology</h3>
-                <p>Hemvati Nandan Bahuguna Garhwal, Uttarakhand, India</p>
-                <p class="date"><i class="far fa-calendar"></i> 2021 - 2024</p>
+                <h3><i class="fas fa-user-graduate"></i> Bachelor of Science in Information Technology</h3>
+                <p>Hemvati Nandan Bahuguna Garhwal University, Uttarakhand, India</p>
+                <p class="date"><i class="far fa-calendar-alt"></i> 2021 - 2024</p>
               </div>
             </div>
             <div class="timeline-item">
               <div class="timeline-dot"></div>
-              <div class="content-timeline">
-                <h3><i class="fas fa-shield"></i> Professional Program in Cybersecurity</h3>
-                <p>GICT (Global Institute of Cyber Technology), Uttarakhand, India</p>
-                <p class="date"><i class="far fa-calendar"></i> 2023 - 2024</p>
+              <div class="timeline-content">
+                <h3><i class="fas fa-shield-virus"></i> Professional Program in Cyber Security</h3>
+                <p>GICT (Global Institute Of Cyber Technology), Uttarakhand, India</p>
+                <p class="date"><i class="far fa-calendar-alt"></i> 2023 - 2024</p>
               </div>
             </div>
             <div class="timeline-item">
-              <div class="dot-timeline"></div>
-              <div class="content-timeline">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
                 <h3><i class="fas fa-school"></i> Intermediate (ISC)</h3>
-                <p>The Aryan School, Dehradun, India</p>
-                <p class="date"><i class="far fa-calendar"></i> 2020 - 2021</p>
+                <p>The Aryan School, Dehradun</p>
+                <p class="date"><i class="far fa-calendar-alt"></i> 2020 - 2021</p>
               </div>
             </div>
             <div class="timeline-item">
               <div class="timeline-dot"></div>
               <div class="timeline-content">
                 <h3><i class="fas fa-school"></i> High School (ICSE)</h3>
-                <p>The Aryan School, Dehradun, India</p>
-                <p class="date"><i class="far fa-calendar"></i> 2018 - 2020</p>
+                <p>The Aryan School, Dehradun</p>
+                <p class="date"><i class="far fa-calendar-alt"></i> 2018 - 2019</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div id="strengths" class="section">
-          <div class="header">
+        <div id="strengths" class="nested-section">
+          <div class="section-header">
             <h2><i class="fas fa-star"></i> Strengths</h2>
-            <div class="grid">
-              <div class="card">
-                <h3><i class="fas fa-brain"></i> Analytical Thinking</h3>
-                <p>Skilled at identifying and identifying vulnerabilities in complex systems through methodical analysis.</p>
-              </div>
-              <div class="card">
-                <h3><i class="fas fa-cogs"></i> Adaptability</h3>
-                <p>Quick to learn and apply new tools, technologies, and practices in dynamic environments.</p>
-              </div>
-              <div class="card">
-                <h3><i class="fas fa-users"></i> Team Collaboration</h3>
-                <p>Works seamlessly with teams to develop secure, dependable IT solutions.</p>
-              </div>
+          </div>
+          <div class="grid">
+            <div class="sub-card strength-item">
+              <h3><i class="fas fa-brain"></i> Analytical Thinking</h3>
+              <p>Skilled at identifying and resolving complex security issues through methodical analysis.</p>
+            </div>
+            <div class="sub-card strength-item">
+              <h3><i class="fas fa-cogs"></i> Adaptability</h3>
+              <p>Quick to learn and apply new tools, technologies, and security practices in dynamic environments.</p>
+            </div>
+            <div class="sub-card strength-item">
+              <h3><i class="fas fa-users"></i> Team Collaboration</h3>
+              <p>Works seamlessly with teams to develop secure, dependable, and forward-thinking IT solutions.</p>
             </div>
           </div>
         </div>
@@ -1485,18 +1280,12 @@
 
   <section id="projects">
     <div class="container">
-      <div class="header">
+      <div class="section-header">
         <h2>Projects</h2>
       </div>
-      <div class="filter-controls">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="AWS">AWS</button>
-        <button class="filter-btn" data-filter="Python">Python</button>
-        <button class="filter-btn" data-filter="Frontend">Frontend</button>
-      </div>
-      <div class="grid" id="projectGrid">
-        <div class="card" data-tags="AWS,Cloud">
-          <div style="text-align: center; margin-bottom: 1rem;">
+      <div class="grid">
+        <div class="sub-card">
+          <div style="text-align: center; margin-bottom: 1.2rem;">
             <img src="https://cdn-icons-png.flaticon.com/512/2305/2305999.png" alt="AWS Cloud Hosting" style="height: 70px; width: auto;">
           </div>
           <h3><i class="fab fa-aws"></i> Basic Cloud Hosting with AWS Free Tier</h3>
@@ -1511,33 +1300,33 @@
             <span>AWS</span> <span>EC2</span> <span>S3</span> <span>IAM</span> <span>CloudFront</span> <span>Cloud</span>
           </div>
         </div>
-        <div class="card" data-tags="Python,Security">
-          <div style="text-align: center; margin-bottom: 1rem;">
+        <div class="sub-card">
+          <div style="text-align: center; margin-bottom: 1.2rem;">
             <img src="https://cdn-icons-png.flaticon.com/512/3090/3090157.png" alt="IoT Pentesting Tool" style="height: 70px; width: auto;">
           </div>
           <h3><i class="fas fa-microchip"></i> IoT-Based Pentesting Tool</h3>
           <p>Developed a Python-based IoT penetration testing tool on Raspberry Pi to identify vulnerabilities in smart devices.</p>
           <ul>
-            <li>Network scanning and service enumeration scripts.</li>
-            <li>Automated detection of weak credentials.</li>
-            <li>Modular framework for vulnerability checks.</li>
-            <li>Focused on insecure configurations.</li>
+            <li>Created scripts for network scanning and service enumeration.</li>
+            <li>Automated detection of weak credentials on IoT protocols.</li>
+            <li>Built a modular framework for vulnerability checks.</li>
+            <li>Focused on insecure configurations and open ports.</li>
           </ul>
           <div class="project-tags">
-            <span>IoT</span> <span>Python</span> <span>Security</span> <span>Pentesting</span> <span>Esp8266</span> <span>Networking</span>
+            <span>IoT</span> <span>Python</span> <span>Security</span> <span>Pentesting</span> <span>Esp 8266</span> <span>Networking</span>
           </div>
         </div>
-        <div class="card" data-tags="Frontend">
-          <div style="text-align: center; margin-bottom: 1rem;">
+        <div class="sub-card">
+          <div style="text-align: center; margin-bottom: 1.2rem;">
             <img src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png" alt="Weather App Icon" style="height: 70px; width: auto;">
           </div>
           <h3><i class="fas fa-cloud-sun"></i> Chasing Horizons (A Travel Blog)</h3>
           <p>Built a travel blog platform with a responsive UI, parallax effects, and local storage for post persistence.</p>
           <ul>
-            <li>Responsive layout with animations.</li>
-            <li>Post creation with localStorage persistence.</li>
-            <li>Parallax scrolling for visuals.</li>
-            <li>Travel-inspired theme.</li>
+            <li>Designed a responsive layout with engaging animations.</li>
+            <li>Implemented post creation with localStorage persistence.</li>
+            <li>Added parallax scrolling for immersive visuals.</li>
+            <li>Styled with a vibrant, travel-inspired theme.</li>
           </ul>
           <div class="project-tags">
             <span>HTML</span> <span>CSS</span> <span>JavaScript</span> <span>LocalStorage</span> <span>Parallax</span> <span>Frontend</span>
@@ -1549,74 +1338,74 @@
 
   <section id="certifications">
     <div class="container">
-      <div class="header">
+      <div class="section-header">
         <h2>Certifications</h2>
       </div>
-      <div class="grid certificates">
-        <div class="card">
+      <div class="grid certifications-grid">
+        <div class="sub-card">
           <h3><i class="fab fa-google"></i> Google Cybersecurity Professional Certificate</h3>
           <p>Google via Coursera</p>
-          <p class="date"><i class="far fa-calendar"></i> May 28, 2025</p>
+          <p class="date"><i class="far fa-calendar-alt"></i> May 28, 2025</p>
         </div>
-        <div class="card">
-          <h3><i class="fas fa-user-shield"></i> IBM Security Analyst Fundamentals</h3>
+        <div class="sub-card">
+          <h3><i class="fas fa-user-shield"></i> IBM Security Analyst Fundamentals Specialization</h3>
           <p>IBM via Coursera</p>
-          <p class="date"><i class="far fa-calendar"></i> May 25, 2025</p>
+          <p class="date"><i class="far fa-calendar-alt"></i> May 25, 2025</p>
         </div>
-        <div class="card">
+        <div class="sub-card">
           <h3><i class="fab fa-microsoft"></i> Microsoft Cybersecurity Analyst Professional Certificate</h3>
           <p>Microsoft via Coursera</p>
-          <p class="date"><i class="far fa-calendar"></i> May 31, 2025</p>
+          <p class="date"><i class="far fa-calendar-alt"></i> May 31, 2025</p>
         </div>
-        <div class="card">
+        <div class="sub-card">
           <h3><i class="fas fa-user-shield"></i> Cyber Threat Intelligence (Foundation Level)</h3>
           <p>ArcX</p>
-          <p class="date"><i class="far fa-calendar"></i> September 29, 2024</p>
+          <p class="date"><i class="far fa-calendar-alt"></i> September 29, 2024</p>
         </div>
-        <div class="card">
+        <div class="sub-card">
           <h3><i class="fab fa-aws"></i> AWS Cloud Practitioner Essentials</h3>
           <p>Amazon Web Services (AWS)</p>
-          <p class="date"><i class="far fa-calendar"></i> September 22, 2024</p>
+          <p class="date"><i class="far fa-calendar-alt"></i> September 22, 2024</p>
         </div>
-        <div class="card">
+        <div class="sub-card">
           <h3><i class="fas fa-satellite-dish"></i> ISRO E-learning Program Certificate</h3>
           <p>Indian Space Research Organisation (ISRO)</p>
-          <p class="date"><i class="far fa-calendar"></i> January 13, 2025</p>
+          <p class="date"><i class="far fa-calendar-alt"></i> January 13, 2025</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="connect">
+  <section id="contact">
     <div class="container">
-      <div class="header">
+      <div class="section-header">
         <h2>Let's Connect</h2>
       </div>
       <div class="contact-container">
         <div class="contact-info">
-          <div class="contact-item">
+          <div class="contact-info-item">
             <i class="fas fa-phone"></i>
             <div>
               <p>Phone</p>
               <p>+91-7668XXXXXX</p>
             </div>
           </div>
-          <div class="contact-item">
+          <div class="contact-info-item">
             <i class="fas fa-envelope"></i>
             <div>
               <p>Email</p>
-              <p>aditya766@email.com</p>
+              <p>kumaraditya766899@gmail.com</p>
             </div>
           </div>
-          <div class="contact-item">
+          <div class="contact-info-item">
             <i class="fab fa-linkedin"></i>
             <div>
               <p>LinkedIn</p>
               <p>linkedin.com/in/kumaraditya766899</p>
             </div>
           </div>
-          <div class="contact-item">
-            <i class="fas fa-map-marker"></i>
+          <div class="contact-info-item">
+            <i class="fas fa-map-marker-alt"></i>
             <div>
               <p>Location</p>
               <p>Uttarakhand, India</p>
@@ -1626,12 +1415,12 @@
         <form class="contact-form" id="contactForm" action="https://formspree.io/f/mrbqjwql" method="POST">
           <div class="form-group">
             <label for="name">Name *</label>
-            <input type="text" id="name" name="name" placeholder="Your Name" required label="Name">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
             <span class="error-message">Please enter your name</span>
           </div>
           <div class="form-group">
             <label for="email">Email *</label>
-            <input type="email" id="email" name="email" placeholder="Your Email" required label="Email">
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
             <span class="error-message">Please enter a valid email</span>
           </div>
           <div class="form-group">
@@ -1645,14 +1434,14 @@
           </div>
           <div class="form-group">
             <label for="message">Content *</label>
-            <textarea id="message" name="message" placeholder="Write your message here" required label="Message"></textarea>
+            <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
             <span class="error-message">Please enter your message</span>
           </div>
-          <div class="form-group-checkbox">
-            <input type="checkbox" id="terms" name="terms" required label="Terms">
+          <div class="checkbox-group">
+            <input type="checkbox" id="terms" name="terms" required>
             <label for="terms">I agree to the Terms and Privacy Policy</label>
           </div>
-          <button type="submit" class="submit-btn" label="Send Message">
+          <button type="submit" class="submit-btn">
             <i class="fas fa-paper-plane"></i><span>Send Message</span>
           </button>
         </form>
@@ -1660,41 +1449,28 @@
     </div>
   </section>
 
-  <div class="bot" id="chatbot">
-    <div class="bot-header">
-      <h3>Grok Assistant</h3>
-      <button class="bot-close" onclick="toggleBot()" label="Close bot"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="bot-body" id="botBody"></div>
-    <div class="bot-input">
-      <input type="text" id="botInput" placeholder="Ask about my portfolio..." label="Bot input">
-      <button onclick="sendBotMessage()" label="Send message"><i class="fas fa-paper-plane"></i></button>
-    </div>
-  </div>
-  <button class="bot-toggle" onclick="toggleBot()" label="Toggle bot"><i class="fas fa-robot"></i></button>
-
   <footer>
     <p>© <span id="currentYear"></span> Aditya Kumar. All rights reserved.</p>
     <div class="footer-links">
       <a href="#home">Home</a>
       <a href="#skills">Skills</a>
-      <a href="#education_strengths_table">Education</a>
+      <a href="#education_strengths_table">Education & Strengths</a>
       <a href="#projects">Projects</a>
-      <a href="#certifications">Certificates</a>
-      <a href="#connect">Connect</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
     </div>
     <div class="social-links" style="justify-content: center; margin-top: 2rem;">
-      <a href="https://linkedin.com/in/kumaraditya766899" target="_blank" title="LinkedIn" label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/0x1337adi" target="_blank" title="GitHub" label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="mailto:aditya766@email.com" title="Email" label="Email"><i class="fas fa-envelope"></i></a>
-      <a href="https://www.credly.com/users/aditya-kumar.c9" target="_blank" title="Credly" label="Credly"><i class="fas fa-award"></i></a>
+      <a href="https://linkedin.com/in/kumaraditya766899" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/0x1337adi" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="mailto:kumaraditya766899@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.credly.com/users/aditya-kumar.c9be8cb7" target="_blank" title="Credly"><i class="fas fa-award"></i></a>
     </div>
   </footer>
 
   <script>
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-    // Custom Cursor
+    // Custom Cursor with Trailing Effect
     const cursor = document.getElementById('cursor');
     const trails = [];
     let mouseX = 0, mouseY = 0;
@@ -1718,267 +1494,326 @@
         trails.shift();
       }, 500);
 
-      const interactive = e.target.closest('a, button, .card, .tech-icons img, .contact-item');
-      cursor.classList.toggle('interactive', !!interactive);
+      const interactive = e.target.closest('a, button, .sub-card, .tech-icons img, .contact-info-item');
+      if (interactive) {
+        cursor.classList.add('interactive');
+      } else {
+        cursor.classList.remove('interactive');
+      }
     });
 
-    // Touch Support
-    document.addEventListener('touchmove', (e) => {
-      const touch = e.touches[0];
-      mouseX = touch.clientX;
-      mouseY = touch.clientY;
-    });
-
-    // Typing Effect
+    // Typing Effect with Glitch
     const subtitleText = "Cybersecurity Analyst | AWS Certified | Expert in Threat Intelligence & Security Tools";
-    const subtitleElement = document.getElementById('typingTitle');
+    const subtitleElement = document.getElementById('typingSubtitle');
     let charIndex = 0;
+    let glitchInterval;
 
     function typeSubtitle() {
       if (charIndex < subtitleText.length) {
         subtitleElement.textContent += subtitleText.charAt(charIndex);
         charIndex++;
-        setTimeout(typeSubtitle, 50);
-      } else {
-        subtitleElement.classList.add('glitch');
-        setTimeout(() => subtitleElement.classList.remove('glitch'), 300);
-      }
-    }
-    typeSubtitle();
-
-    // Theme Toggle
-    function themeToggle() {
-      const html = document.documentElement;
-      const toggleBtn = document.querySelector('.theme-btn i');
-      const isDark = html.dataset.theme === 'dark';
-      html.dataset.theme = isDark ? 'light' : 'dark';
-      toggleBtn.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
-      localStorage.setItem('theme', html.dataset.theme);
-    }
-
-    if (localStorage.getItem('theme') === 'dark') themeToggle();
-
-    // Particles
-    const particleCanvas = document.getElementById('light-canvas');
-    const particleCtx = particleCanvas.getContext('2d');
-    let particles = [];
-
-    function resizeCanvas() {
-      particleCanvas.width = window.innerWidth;
-      particleCanvas.height = window.innerHeight;
-    }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * particleCanvas.width;
-        this.y = Math.random() * particleCanvas.height;
-        this.size = Math.random() * 2 + 1;
-        this.speedX = Math.random() * 0.5 - 0.25;
-        this.speedY = Math.random() * 0.5 - 0.25;
-        this.color = `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.6)`;
-      }
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x < 0 || this.x > particleCanvas.width) this.speedX *= -1;
-        if (this.y < 0 || this.y > particleCanvas.height) this.speedY *= -1;
-        const dx = mouseX - this.x;
-        const dy = mouseY - this.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < 100) {
-          this.speedX += dx / 1000;
-          this.speedY += dy / 1000;
+        if (Math.random() < 0.1) {
+          subtitleElement.classList.add('glitch');
+          setTimeout(() => subtitleElement.classList.remove('glitch'), 300);
         }
-      }
-      draw() {
-        particleCtx.beginPath();
-        particleCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        particleCtx.fillStyle = this.color;
-        particleCtx.fill();
+        setTimeout(typeSubtitle, 60);
+      } else {
+        subtitleElement.style.borderRight = 'none';
+        clearInterval(glitchInterval);
       }
     }
 
-    function initParticles() {
-      particles = [];
-      for (let i = 0; i < 100; i++) particles.push(new Particle());
-    }
-    initParticles();
+    window.addEventListener('load', () => {
+      subtitleElement.textContent = '';
+      typeSubtitle();
+      glitchInterval = setInterval(() => {
+        if (Math.random() < 0.05) {
+          subtitleElement.classList.add('glitch');
+          setTimeout(() => subtitleElement.classList.remove('glitch'), 300);
+        }
+      }, 2000);
+    });
 
-    function animateParticles() {
-      particleCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
-      particles.forEach(p => {
-        p.update();
-        p.draw();
-      });
-      particles.forEach((p1, i) => {
-        particles.slice(i + 1).forEach(p2 => {
-          const dx = p1.x - p2.x;
-          const dy = p1.y - p2.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance < 80) {
-            particleCtx.beginPath();
-            particleCtx.moveTo(p1.x, p1.y);
-            particleCtx.lineTo(p2.x, p2.y);
-            particleCtx.strokeStyle = `rgba(100, 255, 150, ${1 - distance / 80})`;
-            particleCtx.stroke();
-          }
-        });
-      });
-      requestAnimationFrame(animateParticles);
-    }
-    animateParticles();
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute("data-theme");
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      html.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
 
-    // Data Stream
-    const dataStream = document.getElementById('dataStream');
+      const icon = document.querySelector('.toggle-btn i');
+      icon.classList.toggle('fa-sun');
+      icon.classList.toggle('fa-moon');
+    }
+
+    (function() {
+      const savedTheme = localStorage.getItem("theme") || "light";
+      document.documentElement.setAttribute("data-theme", savedTheme);
+      const icon = document.querySelector('.toggle-btn i');
+      if (savedTheme === 'dark') {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+      }
+    })();
+
     function createDataStream() {
-      const code = document.createElement('div');
-      code.className = 'data-stream-code';
-      code.textContent = Math.random().toString(36).slice(2, 10);
-      code.style.left = `${Math.random() * 100}vw`;
-      code.style.animationDuration = `${Math.random() * 5 + 5}s`;
-      dataStream.appendChild(code);
-      setTimeout(() => code.remove(), 10000);
+      const container = document.getElementById('dataStream');
+      if (!container) return;
+      container.innerHTML = '';
+      const glyphs = '0123456789ABCDEFαβγ∆∑π∞⊥∮'.split('');
+      const streamCount = 30;
+
+      for (let i = 0; i < streamCount; i++) {
+        const stream = document.createElement('div');
+        stream.className = 'data-stream-code';
+        const streamLength = Math.floor(Math.random() * 20) + 15;
+        stream.textContent = Array(streamLength).fill(0).map(() => {
+          return glyphs[Math.floor(Math.random() * glyphs.length)];
+        }).join('');
+
+        stream.style.left = `${Math.random() * 100}%`;
+        stream.style.animationDuration = `${6 + Math.random() * 10}s`;
+        stream.style.animationDelay = `${Math.random() * 5}s`;
+        stream.style.fontSize = `${8 + Math.random() * 4}px`;
+
+        container.appendChild(stream);
+      }
     }
-    setInterval(createDataStream, 500);
+    createDataStream();
 
-    // 3D Globe
-    const globeCanvas = document.getElementById('globeCanvas');
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, globeCanvas.width / globeCanvas.height, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas: globeCanvas, alpha: true });
-    const nodes = [];
+    window.addEventListener('scroll', () => {
+      const grid = document.querySelector('.cyber-grid-bg');
+      if (grid) {
+        const scrollY = window.scrollY;
+        grid.style.transform = `translateY(${scrollY * 0.08}px)`;
+      }
+    });
 
-    function resizeGlobe() {
-      globeCanvas.width = window.innerWidth;
-      globeCanvas.height = window.innerHeight;
-      renderer.setSize(globeCanvas.width, globeCanvas.height);
-      camera.aspect = globeCanvas.width / globeCanvas.height;
-      camera.updateProjectionMatrix();
-    }
-    resizeGlobe();
-    window.addEventListener('resize', resizeGlobe);
+    // 3D Tilt Effect for Cards
+    const cards = document.querySelectorAll('.sub-card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const tiltX = (y - centerY) / centerY * 10;
+        const tiltY = (centerX - x) / centerX * 10;
 
-    const geometry = new THREE.SphereGeometry(5, 32, 32);
-    const material = new THREE.MeshBasicMaterial({ color: 0x60A5FA, wireframe: true });
-    const sphere = new THREE.Mesh(geometry, material);
-    scene.add(sphere);
-
-    for (let i = 0; i < 50; i++) {
-      const nodeGeometry = new THREE.SphereGeometry(0.1, 8, 8);
-      const nodeMaterial = new THREE.MeshBasicMaterial({ color: 0x34D399 });
-      const node = new THREE.Mesh(nodeGeometry, nodeMaterial);
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos(2 * Math.random() - 1);
-      node.position.set(
-        5.2 * Math.sin(phi) * Math.cos(theta),
-        5.2 * Math.sin(phi) * Math.sin(theta),
-        5.2 * Math.cos(phi)
-      );
-      scene.add(node);
-      nodes.push(node);
-    }
-
-    camera.position.z = 10;
-    function animateGlobe() {
-      sphere.rotation.y += 0.005;
-      nodes.forEach(node => {
-        node.scale.set(1 + Math.sin(Date.now() * 0.002) * 0.2, 1 + Math.sin(Date.now() * 0.002) * 0.2, 1 + Math.sin(Date.now() * 0.002) * 0.2);
+        card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
       });
-      renderer.render(scene, camera);
-      requestAnimationFrame(animateGlobe);
-    }
-    animateGlobe();
 
-    // Scroll Progress
-    const progressBar = document.getElementById('progressBar');
-    function updateProgress() {
-      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const progress = (scrollTop / scrollHeight) * 100;
-      progressBar.style.width = `${progress}%`;
-    }
-    window.addEventListener('scroll', updateProgress);
-
-    // Intersection Observer for Animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.card, .timeline-item').forEach(item => observer.observe(item));
-
-    // Project Filter
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('#projectGrid .card');
-
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        const filter = button.dataset.filter;
-
-        projectCards.forEach(card => {
-          const tags = card.dataset.tags.split(',');
-          card.style.display = (filter === 'all' || tags.includes(filter)) ? 'block' : 'none';
-        });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
       });
     });
 
-    // Form Validation
-    const contactForm = document.getElementById('contactForm');
-    contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const submitBtn = contactForm.querySelector('.submit-btn');
-      submitBtn.classList.add('loading');
+    const form = document.getElementById('contactForm');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let isValid = true;
 
-      const formData = new FormData(contactForm);
-      const name = formData.get('name').trim();
-      const email = formData.get('email').trim();
-      const phone = formData.get('phone').trim();
-      const message = formData.get('message').trim();
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const phone = document.getElementById('phone');
+        const message = document.getElementById('message');
+        const terms = document.getElementById('terms');
+        const submitBtn = form.querySelector('.submit-btn');
 
-      let isValid = true;
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      const phoneRegex = /^(\+\d{1,3}[- ]?)?\d{10}$/;
+        document.querySelectorAll('.form-group').forEach(group => {
+          group.classList.remove('error');
+        });
 
-      contactForm.querySelectorAll('.form-group').forEach(group => group.classList.remove('error'));
+        if (!name.value.trim()) {
+          name.parentElement.classList.add('error');
+          isValid = false;
+        }
 
-      if (!name) {
-        contactForm.querySelector('#name').parentElement.classList.add('error');
-        isValid = false;
-      }
-      if (!email || !emailRegex.test(email)) {
-        contactForm.querySelector('#email').parentElement.classList.add('error');
-        isValid = false;
-      }
-      if (phone && !phoneRegex.test(phone)) {
-        contactForm.querySelector('#phone').parentElement.classList.add('error');
-        isValid = false;
-      }
-      if (!message) {
-        contactForm.querySelector('#message').parentElement.classList.add('error');
-        isValid = false;
-      }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email.value)) {
+          email.parentElement.classList.add('error');
+          isValid = false;
+        }
 
-      if (isValid) {
-        try {
-          const response = await fetch(contactForm.action, {
+        const phoneValue = phone.value.trim();
+        const phoneRegex = /^(\d{10}|\+\d{1,3}[-.\s]?\d{10})$/;
+        if (phoneValue && !phoneRegex.test(phoneValue)) {
+          phone.parentElement.classList.add('error');
+          isValid = false;
+        }
+
+        if (!message.value.trim()) {
+          message.parentElement.classList.add('error');
+          isValid = false;
+        }
+
+        if (!terms.checked) {
+          terms.parentElement.classList.add('error');
+          alert("Please agree to the Terms and Privacy Policy.");
+          isValid = false;
+        }
+
+        if (isValid) {
+          submitBtn.classList.add('loading');
+          submitBtn.disabled = true;
+
+          const formData = new FormData(form);
+          fetch(form.action, {
             method: 'POST',
             body: formData,
             headers: { 'Accept': 'application/json' }
+          })
+          .then(response => {
+            if (response.ok) {
+              alert('Message sent successfully!');
+              form.reset();
+            } else {
+              throw new Error('Form submission failed');
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            alert('There was an error sending your message. Please try again later.');
+          })
+          .finally(() => {
+            submitBtn.classList.remove('loading');
+            submitBtn.disabled = false;
           });
-          if (response.ok) {
-            contactForm.reset();
-            alert('Message sent successfully!');
+        }
+      });
+    }
+
+    const particleCanvas = document.getElementById('particle-canvas');
+    if (particleCanvas) {
+      const ctx = particleCanvas.getContext('2d');
+      let particlesArray;
+
+      function setCanvasDimensions() {
+        particleCanvas.width = window.innerWidth;
+        particleCanvas.height = window.innerHeight;
+      }
+      setCanvasDimensions();
+
+      class Particle {
+        constructor(x, y, directionX, directionY, size, baseColor) {
+          this.x = x;
+          this.y = y;
+          this.directionX = directionX;
+          this.directionY = directionY;
+          this.size = size;
+          this.baseColor = baseColor;
+          this.baseDirectionX = directionX;
+          this.baseDirectionY = directionY;
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+          ctx.fillStyle = this.baseColor + '88';
+          ctx.shadowColor = this.baseColor;
+          ctx.shadowBlur = 8;
+          ctx.fill();
+        }
+
+        update(particleColor) {
+          this.baseColor = particleColor;
+
+          const dx = mouseX - this.x;
+          const dy = mouseY - this.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          const maxDistance = 100;
+
+          if (distance < maxDistance) {
+            const force = (maxDistance - distance) / maxDistance;
+            this.directionX -= (dx / distance) * force * 2;
+            this.directionY -= (dy / distance) * force * 2;
           } else {
-            alert('Failed to send message. Please try again.');
+            this.directionX += (this.baseDirectionX - this.directionX) * 0.1;
+            this.directionY += (this.baseDirectionY - this.directionY) * 0.1;
           }
-        } catch (error) {
-          alert('An error occurred. Please try again.');
+
+          if (this.x + this.size > particleCanvas.width || this.x - this.size < 0) {
+            this.directionX = -this.directionX;
+          }
+          if (this.y + this.size > particleCanvas.height || this.y - this.size < 0) {
+            this.directionY = -this.directionY;
+          }
+
+          this.x += this.directionX;
+          this.y += this.directionY;
+          this.draw();
         }
       }
-      submitBtn.classList.remove('loading');
-    });
+
+      function getThemeColorsForParticles() {
+        const styles = getComputedStyle(document.documentElement);
+        return {
+          particleBaseColor: styles.getPropertyValue('--neon').trim(),
+          lineBaseColor: styles.getPropertyValue('--accent').trim()
+        };
+      }
+
+      function initParticles() {
+        particlesArray = [];
+        const colors = getThemeColorsForParticles();
+        const numberOfParticles = Math.max(50, (particleCanvas.width * particleCanvas.height) / 8000);
+        for (let i = 0; i < numberOfParticles; i++) {
+          const size = Math.random() * 2 + 0.8;
+          const x = Math.random() * (particleCanvas.width - size * 2) + size;
+          const y = Math.random() * (particleCanvas.height - size * 2) + size;
+          const directionX = (Math.random() * 0.5) - 0.25;
+          const directionY = (Math.random() * 0.5) - 0.25;
+          particlesArray.push(new Particle(x, y, directionX, directionY, size, colors.particleBaseColor));
+        }
+      }
+
+      function connectParticles(lineBaseColor) {
+        const maxDistance = 150;
+        for (let a = 0; a < particlesArray.length; a++) {
+          for (let b = a + 1; b < particlesArray.length; b++) {
+            const dx = particlesArray[a].x - particlesArray[b].x;
+            const dy = particlesArray[a].y - particlesArray[b].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < maxDistance) {
+              const opacity = 1 - (distance / maxDistance);
+              const finalAlphaHex = Math.round(opacity * 0.4 * 255).toString(16).padStart(2, '0');
+
+              ctx.strokeStyle = lineBaseColor + finalAlphaHex;
+              ctx.lineWidth = 0.5;
+              ctx.beginPath();
+              ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+              ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+              ctx.stroke();
+            }
+          }
+        }
+      }
+
+      let animationFrameId;
+      function animateParticles() {
+        animationFrameId = requestAnimationFrame(animateParticles);
+        ctx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+
+        const colors = getThemeColorsForParticles();
+        for (let i = 0; i < particlesArray.length; i++) {
+          particlesArray[i].update(colors.particleBaseColor);
+        }
+        connectParticles(colors.lineBaseColor);
+      }
+
+      window.addEventListener('resize', () => {
+        cancelAnimationFrame(animationFrameId);
+        setCanvasDimensions();
+        initParticles();
+        animateParticles();
+      });
+
+      initParticles();
+      animateParticles();
+    }
+  </script>
+</body>
+</html>
