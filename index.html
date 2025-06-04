@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aditya Kumar | Cybersecurity Analyst</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Roboto:wght@400;500;600;700&family=Exo+2:wght@400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&family=Exo+2:wght@400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
@@ -45,7 +45,7 @@
     }
 
     body {
-      font-family: 'Roboto', sans-serif;
+      font-family: "Proxima Nova", "Montserrat", sans-serif;
       background: var(--bg);
       color: var(--text);
       overflow-x: hidden;
@@ -256,7 +256,7 @@
       }
     }
     .hero-tagline {
-      font-family: 'Roboto', sans-serif;
+      font-family: "Proxima Nova", "Montserrat", sans-serif;
       font-size: 1.125rem;
       font-weight: 500;
       color: var(--accent-alt);
@@ -866,14 +866,54 @@
       resize: vertical;
     }
     .contact-form .checkbox {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      position: relative;
+      margin-top: 1.5rem;
+      opacity: 0;
+      transform: translateX(-20px);
+      animation: slideIn 0.5s ease-out forwards;
+      animation-delay: 0.6s;
     }
     .contact-form .checkbox label {
       color: var(--text-alt);
-      font-family: 'Fira Code', monospace;
+      font-family: "Proxima Nova", "Montserrat", sans-serif;
       font-size: 1rem;
+      display: block;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    .contact-form .checkbox input {
+      appearance: none;
+      width: 1.5rem; /* Increased size for better visibility */
+      height: 1.5rem;
+      border: 2px solid var(--border);
+      border-radius: 0.25rem;
+      background: var(--card-bg);
+      cursor: pointer;
+      transition: border-color 0.3s ease, background 0.3s ease, transform 0.2s ease;
+    }
+    .contact-form .checkbox input:checked {
+      border-color: var(--neon);
+      background: var(--neon);
+      position: relative;
+      transform: scale(1.1); /* Subtle scale animation when checked */
+    }
+    .contact-form .checkbox input:checked::after {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      color: var(--card-bg);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.9rem; /* Adjusted for larger checkbox */
+    }
+    .contact-form .checkbox input:hover {
+      border-color: var(--accent);
+    }
+    .contact-form .checkbox:hover label {
+      color: var(--text);
     }
     .contact-form button {
       display: flex;
