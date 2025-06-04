@@ -65,6 +65,7 @@
       transition: background-color 0.3s, color 0.3s;
       overflow-x: hidden;
       position: relative;
+      font-size: 1.1rem; /* Increased base font size */
     }
 
     html[data-theme="dark"] {
@@ -101,30 +102,35 @@
       height: 100%;
       z-index: -3;
       background:
-        linear-gradient(var(--border) 1px, transparent 1px) 0 0 / 100% 40px,
-        linear-gradient(90deg, var(--border) 1px, transparent 1px) 0 0 / 40px 100%,
+        linear-gradient(var(--border) 1px, transparent 1px) 0 0 / 100% 50px,
+        linear-gradient(90deg, var(--border) 1px, transparent 1px) 0 0 / 50px 100%,
         transparent;
-      opacity: 0.05;
+      opacity: 0.1; /* Increased opacity for visibility */
       transition: transform 0.1s ease-out, opacity 0.3s;
-    }
-    html[data-theme="light"] .cyber-grid-bg {
-        opacity: 0.05;
+      animation: gridPulse 10s ease-in-out infinite; /* Added subtle animation */
     }
 
-    .cyber-glow {
-      position: fixed;
-      width: 100%;
-      height: 100%;
+    @keyframes gridPulse {
+      0%, 100% { opacity: 0.1; }
+      50% { opacity: 0.15; }
+    }
+
+    html[data-theme="light"] .cyber-grid-bg {
+      opacity: 0.1;
+    }
+
+    .hero-background {
+      position: absolute;
       top: 0;
       left: 0;
-      background: radial-gradient(circle at center, var(--accent) 0%, transparent 70%);
-      pointer-events: none;
+      width: 100%;
+      height: 100%;
       z-index: -2;
-      opacity: 0.02;
-      transition: opacity 0.3s, background 0.3s;
-    }
-    html[data-theme="light"] .cyber-glow {
-        opacity: 0.02;
+      background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.1) 0%, transparent 70%), url('https://www.transparenttextures.com/patterns/circuit-board.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.3; /* Subtle professional background */
+      transition: opacity 0.3s;
     }
 
     .binary-animation {
@@ -134,27 +140,29 @@
       width: 100%;
       height: 100%;
       z-index: -4;
-      opacity: 0.02;
+      opacity: 0.05; /* Increased opacity for enhanced effect */
       overflow: hidden;
       transition: opacity 0.3s;
     }
+
     html[data-theme="light"] .binary-animation {
-        opacity: 0.02;
+      opacity: 0.05;
     }
 
     .binary-code {
       position: absolute;
       color: var(--accent);
       font-family: 'Fira Code', monospace;
-      font-size: 10px;
+      font-size: 12px; /* Slightly larger binary code */
       white-space: nowrap;
       animation: fall linear infinite;
-      text-shadow: 0 0 1px var(--accent);
-      opacity: 0.5;
+      text-shadow: 0 0 2px var(--accent); /* Enhanced glow */
+      opacity: 0.6;
     }
+
     html[data-theme="light"] .binary-code {
-        text-shadow: 0 0 1px var(--accent);
-        opacity: 0.5;
+      text-shadow: 0 0 2px var(--accent);
+      opacity: 0.6;
     }
 
     @keyframes fall {
@@ -180,7 +188,7 @@
 
     .logo {
       font-weight: 700;
-      font-size: 1.5rem;
+      font-size: 1.8rem; /* Increased font size */
       color: var(--accent);
       font-family: 'Fira Code', monospace;
       letter-spacing: 1px;
@@ -206,7 +214,7 @@
       text-decoration: none;
       font-weight: 500;
       transition: color 0.2s, transform 0.2s;
-      font-size: 0.95rem;
+      font-size: 1.1rem; /* Increased font size */
       position: relative;
       font-family: 'Roboto', sans-serif;
     }
@@ -236,7 +244,7 @@
       border: none;
       color: var(--text);
       cursor: pointer;
-      font-size: 1.2rem;
+      font-size: 1.4rem; /* Increased font size */
       transition: color 0.3s, transform 0.3s;
     }
 
@@ -290,21 +298,24 @@
       position: relative;
       z-index: 2;
     }
+
     .hero-text h1 {
-      font-size: 2.8rem;
+      font-size: 3.2rem; /* Increased font size */
       margin-bottom: 1rem;
     }
+
     .hero-text .subtitle {
-        font-size: 1.5rem;
-        color: var(--secondary);
-        font-weight: 600;
-        margin-bottom: 1.5rem;
+      font-size: 1.8rem; /* Increased font size */
+      color: var(--secondary);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
     }
+
     .hero-text p.summary {
-        font-size: 1rem;
-        line-height: 1.7;
-        margin-bottom: 2rem;
-        color: var(--tertiary);
+      font-size: 1.2rem; /* Increased font size */
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      color: var(--tertiary);
     }
 
     .hero-image-container {
@@ -328,23 +339,23 @@
     }
 
     @keyframes heroImageGlow {
-        from {
-            box-shadow: 0 0 10px -5px var(--shadow), 0 0 8px -5px var(--accent);
-        }
-        to {
-            box-shadow: 0 0 15px -2px var(--shadow), 0 0 12px -2px var(--accent);
-        }
+      from {
+        box-shadow: 0 0 10px -5px var(--shadow), 0 0 8px -5px var(--accent);
+      }
+      to {
+        box-shadow: 0 0 15px -2px var(--shadow), 0 0 12px -2px var(--accent);
+      }
     }
 
     h1 {
-      font-size: 3.2rem;
+      font-size: 3.5rem; /* Increased font size */
       margin-bottom: 1.5rem;
       line-height: 1.3;
       font-family: 'Roboto', sans-serif;
     }
 
     .section-header h2 {
-      font-size: 2.5rem;
+      font-size: 2.8rem; /* Increased font size */
       margin-bottom: 3rem;
       position: relative;
       display: inline-block;
@@ -383,12 +394,14 @@
     }
 
     .tech-icons img {
-      height: 45px;
+      height: 50px; /* Slightly larger icons */
       transition: transform 0.3s, filter 0.3s;
     }
+
     html[data-theme="dark"] .tech-icons img {
-        filter: brightness(0.9) contrast(1.1) drop-shadow(0 0 2px var(--accent-dark));
+      filter: brightness(0.9) contrast(1.1) drop-shadow(0 0 2px var(--accent-dark));
     }
+
     html[data-theme="light"] .tech-icons img {
       filter: brightness(0.85) contrast(1);
     }
@@ -397,9 +410,11 @@
       transform: scale(1.2);
       filter: brightness(1.2);
     }
+
     html[data-theme="dark"] .tech-icons img:hover {
-        filter: brightness(1.1) contrast(1.2) drop-shadow(0 0 5px var(--accent-dark));
+      filter: brightness(1.1) contrast(1.2) drop-shadow(0 0 5px var(--accent-dark));
     }
+
     html[data-theme="light"] .tech-icons img:hover {
       filter: brightness(1) contrast(1.1);
     }
@@ -412,7 +427,7 @@
 
     .social-links a {
       color: var(--text);
-      font-size: 1.4rem;
+      font-size: 1.6rem; /* Increased font size */
       transition: all 0.3s;
       width: 40px;
       height: 40px;
@@ -428,14 +443,15 @@
     }
 
     .social-links a i {
-        position: relative;
-        z-index: 2;
+      position: relative;
+      z-index: 2;
     }
 
     .social-links a::before {
       content: '';
       position: absolute;
-      top:0; left:0;
+      top: 0;
+      left: 0;
       width: 0;
       height: 100%;
       background: var(--accent);
@@ -452,8 +468,9 @@
       transform: translateY(-5px);
       box-shadow: 0 0 15px var(--shadow);
     }
+
     .social-links a:hover i {
-        color: var(--bg);
+      color: var(--bg);
     }
 
     .resume-btn {
@@ -475,6 +492,7 @@
       z-index: 1;
       text-decoration: none;
       margin-top: 1.5rem;
+      font-size: 1.2rem; /* Increased font size */
     }
 
     .resume-btn i, .resume-btn span {
@@ -525,7 +543,7 @@
       margin-bottom: 0.8rem;
       color: var(--accent);
       font-family: 'Roboto', sans-serif;
-      font-size: 1.3rem;
+      font-size: 1.5rem; /* Increased font size */
       line-height: 1.3;
       display: flex;
       align-items: flex-start;
@@ -533,42 +551,44 @@
     }
 
     .sub-card h3 i {
-      font-size: 1.1rem;
+      font-size: 1.3rem; /* Increased font size */
       margin-top: 0.2em;
     }
 
     .sub-card p {
       color: var(--text);
       opacity: 0.9;
-      font-size: 0.85rem;
+      font-size: 1rem; /* Increased font size */
       line-height: 1.5;
     }
 
     .project-tags, .skill-tags {
-        margin-top: 0.8rem;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.4rem;
+      margin-top: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
     }
+
     .project-tags span, .skill-tags span {
-        background: var(--shadow);
-        color: var(--accent);
-        padding: 0.25rem 0.5rem;
-        border-radius: 50px;
-        font-size: 0.75rem;
+      background: var(--shadow);
+      color: var(--accent);
+      padding: 0.25rem 0.5rem;
+      border-radius: 50px;
+      font-size: 0.9rem; /* Increased font size */
     }
+
     html[data-theme="dark"] .project-tags span,
     html[data-theme="dark"] .skill-tags span {
-        background: rgba(0, 196, 180, 0.1);
-        color: var(--accent-dark);
-        border: 1px solid rgba(0, 196, 180, 0.2);
+      background: rgba(0, 196, 180, 0.1);
+      color: var(--accent-dark);
+      border: 1px solid rgba(0, 196, 180, 0.2);
     }
 
     .skills-list {
-        font-size: 0.85rem;
-        color: var(--text);
-        opacity: 0.9;
-        line-height: 1.6;
+      font-size: 1rem; /* Increased font size */
+      color: var(--text);
+      opacity: 0.9;
+      line-height: 1.6;
     }
 
     .sub-card .date {
@@ -578,22 +598,24 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 0.85rem;
+      font-size: 1rem; /* Increased font size */
     }
 
     .sub-card .date i {
-      font-size: 0.75rem;
+      font-size: 0.9rem; /* Increased font size */
     }
+
     .sub-card ul {
-        font-size: 0.85rem;
-        margin-top: 0.5rem;
-        padding-left: 1.2rem;
-        color: var(--text);
-        opacity: 0.9;
-        line-height: 1.5;
+      font-size: 1rem; /* Increased font size */
+      margin-top: 0.5rem;
+      padding-left: 1.2rem;
+      color: var(--text);
+      opacity: 0.9;
+      line-height: 1.5;
     }
+
     .sub-card ul li {
-        margin-bottom: 0.25rem;
+      margin-bottom: 0.25rem;
     }
 
     .grid {
@@ -601,44 +623,48 @@
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.75rem;
     }
+
     .grid.certifications-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 
     .table-format-wrapper {
-        background-color: var(--card-bg);
-        padding: 1.5rem;
-        border-radius: 12px;
-        box-shadow: 0 6px 20px var(--shadow);
-        border: 1px solid var(--border);
-        margin-top: 1rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
+      background-color: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px var(--shadow);
+      border: 1px solid var(--border);
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
     }
 
     .nested-section {
-        margin-bottom: 0;
+      margin-bottom: 0;
     }
 
     .nested-section .section-header {
-        text-align: left !important;
-        margin-bottom: 1rem !important;
+      text-align: left !important;
+      margin-bottom: 1rem !important;
     }
+
     .nested-section .section-header h2 {
-        font-size: 1.5rem !important;
-        display: flex !important;
-        align-items: center !important;
-        gap: 0.5rem !important;
-        margin-bottom: 0 !important;
-        color: var(--text);
+      font-size: 1.8rem !important; /* Increased font size */
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.5rem !important;
+      margin-bottom: 0 !important;
+      color: var(--text);
     }
+
     .nested-section .section-header h2 i {
-        color: var(--accent);
-        font-size: 1.3rem;
+      color: var(--accent);
+      font-size: 1.5rem; /* Increased font size */
     }
+
     .nested-section .section-header h2::after {
-        display: none !important;
+      display: none !important;
     }
 
     .table-format-wrapper #education .timeline {
@@ -647,6 +673,7 @@
       margin: 0;
       position: relative;
     }
+
     .table-format-wrapper #education .timeline::before {
       content: '';
       position: absolute;
@@ -656,6 +683,7 @@
       bottom: 0;
       left: 6px;
     }
+
     .table-format-wrapper #education .timeline-item {
       padding: 3px 0px 3px 15px;
       margin-bottom: 0.3rem;
@@ -663,6 +691,7 @@
       left: 0 !important;
       position: relative;
     }
+
     .table-format-wrapper #education .timeline-dot {
       width: 6px;
       height: 6px;
@@ -673,6 +702,7 @@
       left: 0px !important;
       box-shadow: 0 0 2px var(--shadow);
     }
+
     .table-format-wrapper #education .timeline-content {
       border-radius: 4px;
       padding: 0.4rem;
@@ -680,51 +710,61 @@
       box-shadow: 0 1px 2px var(--shadow);
       background: var(--card-bg);
     }
+
     .table-format-wrapper #education .timeline-content h3 {
-        font-size: 0.75rem;
-        margin-bottom: 0.15rem;
-        line-height: 1.2;
+      font-size: 0.9rem; /* Increased font size */
+      margin-bottom: 0.15rem;
+      line-height: 1.2;
     }
+
     .table-format-wrapper #education .timeline-content h3 i {
-        font-size: 0.65rem;
-        margin-top: 0.1em;
+      font-size: 0.8rem; /* Increased font size */
+      margin-top: 0.1em;
     }
+
     .table-format-wrapper #education .timeline-content p {
-        font-size: 0.65rem;
-        line-height: 1.2;
-        margin-bottom: 0.1rem;
+      font-size: 0.8rem; /* Increased font size */
+      line-height: 1.2;
+      margin-bottom: 0.1rem;
     }
+
     .table-format-wrapper #education .timeline-content .date {
-        font-size: 0.6rem;
-        margin-top: 0.15rem;
+      font-size: 0.75rem; /* Increased font size */
+      margin-top: 0.15rem;
     }
+
     .table-format-wrapper #education .timeline-content .date i {
-        font-size: 0.55rem;
+      font-size: 0.7rem; /* Increased font size */
     }
+
     .table-format-wrapper #education .timeline-content:hover {
       transform: translateY(-2px);
       box-shadow: 0 2px 4px var(--shadow);
     }
 
     .table-format-wrapper #strengths .grid {
-        gap: 0.75rem;
-        grid-template-columns: 1fr;
+      gap: 0.75rem;
+      grid-template-columns: 1fr;
     }
+
     .table-format-wrapper #strengths .sub-card {
-        padding: 0.75rem;
-        border-radius: 6px;
+      padding: 0.75rem;
+      border-radius: 6px;
     }
+
     .table-format-wrapper #strengths .sub-card h3 {
-        font-size: 0.85rem;
-        margin-bottom: 0.3rem;
-        gap: 0.5rem;
+      font-size: 1rem; /* Increased font size */
+      margin-bottom: 0.3rem;
+      gap: 0.5rem;
     }
+
     .table-format-wrapper #strengths .sub-card h3 i {
-        font-size: 0.75rem;
+      font-size: 0.9rem; /* Increased font size */
     }
+
     .table-format-wrapper #strengths .sub-card p {
-        font-size: 0.75rem;
-        line-height: 1.3;
+      font-size: 0.9rem; /* Increased font size */
+      line-height: 1.3;
     }
 
     .contact-container {
@@ -758,7 +798,7 @@
 
     .contact-info-item i {
       color: var(--accent);
-      font-size: 1.5rem;
+      font-size: 1.8rem; /* Increased font size */
       width: 50px;
       height: 50px;
       border-radius: 50%;
@@ -783,6 +823,7 @@
     .form-group label {
       font-weight: 600;
       color: var(--accent);
+      font-size: 1.1rem; /* Increased font size */
     }
 
     .form-group input,
@@ -794,6 +835,7 @@
       color: var(--text);
       font-family: 'Roboto', sans-serif;
       transition: border-color 0.3s, box-shadow 0.3s;
+      font-size: 1.1rem; /* Increased font size */
     }
 
     .form-group input:focus,
@@ -834,6 +876,10 @@
       width: auto;
     }
 
+    .checkbox-group label {
+      font-size: 1rem; /* Increased font size */
+    }
+
     .submit-btn {
       padding: 1rem 2rem;
       background-color: var(--accent);
@@ -851,16 +897,19 @@
       position: relative;
       overflow: hidden;
       z-index: 1;
+      font-size: 1.2rem; /* Increased font size */
     }
+
     .submit-btn i, .submit-btn span {
-        position: relative;
-        z-index: 2;
+      position: relative;
+      z-index: 2;
     }
 
     .submit-btn::before {
       content: '';
       position: absolute;
-      top:0; left:0;
+      top: 0;
+      left: 0;
       width: 0;
       height: 100%;
       background: var(--accent-hover);
@@ -916,6 +965,10 @@
       background: var(--accent);
     }
 
+    footer p {
+      font-size: 1.1rem; /* Increased font size */
+    }
+
     .footer-links {
       display: flex;
       flex-wrap: wrap;
@@ -929,7 +982,7 @@
       text-decoration: none;
       transition: color 0.3s, transform 0.3s;
       font-family: 'Roboto', sans-serif;
-      font-size: 0.9rem;
+      font-size: 1rem; /* Increased font size */
     }
 
     .footer-links a:hover {
@@ -948,95 +1001,125 @@
       z-index: 0;
       opacity: 0.03;
     }
+
     html[data-theme="dark"] .terminal-effect {
-        opacity: 0.08;
+      opacity: 0.08;
     }
 
     @media (max-width: 1024px) {
       section {
         padding: 3.5rem 5%;
       }
+
       .hero {
         min-height: 90vh;
       }
+
       .hero-text h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem; /* Adjusted for responsiveness */
       }
+
       .hero-text .subtitle {
-        font-size: 1.3rem;
+        font-size: 1.6rem; /* Adjusted for responsiveness */
       }
+
+      .hero-text p.summary {
+        font-size: 1.1rem; /* Adjusted for responsiveness */
+      }
+
       .profile-image {
         max-height: 65vh;
       }
+
       .table-format-wrapper {
         padding: 2rem;
       }
     }
+
     @media (max-width: 991px) {
-        .table-format-wrapper {
-            grid-template-columns: 1fr;
-        }
-        .table-format-wrapper #education .timeline::before {
-          left: 6px;
-        }
-        .table-format-wrapper #education .timeline-item {
-          padding-left: 15px;
-        }
-        .table-format-wrapper #education .timeline-dot {
-          left: 0px !important;
-        }
+      .table-format-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .table-format-wrapper #education .timeline::before {
+        left: 6px;
+      }
+
+      .table-format-wrapper #education .timeline-item {
+        padding-left: 15px;
+      }
+
+      .table-format-wrapper #education .timeline-dot {
+        left: 0px !important;
+      }
     }
 
     @media (max-width: 768px) {
       nav {
         padding: 1rem 5%;
       }
+
       .nav-links {
         display: none;
       }
+
       .hero {
         min-height: auto;
         padding-top: 3rem;
         padding-bottom: 3rem;
         align-items: center;
       }
+
       .hero-container {
         flex-direction: column;
         text-align: center;
         align-items: center;
       }
+
       .hero-text {
         flex-basis: auto;
         justify-content: flex-start;
       }
+
       .hero-text h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem; /* Adjusted for responsiveness */
       }
+
       .hero-text .subtitle {
-        font-size: 1.2rem;
+        font-size: 1.4rem; /* Adjusted for responsiveness */
       }
+
+      .hero-text p.summary {
+        font-size: 1rem; /* Adjusted for responsiveness */
+      }
+
       .hero-image-container {
         flex-basis: auto;
         max-width: 350px;
         margin-top: 2rem;
         height: auto;
       }
+
       .profile-image {
-         max-height: 300px;
-         width: auto;
-         height: auto;
+        max-height: 300px;
+        width: auto;
+        height: auto;
       }
+
       .tech-icons, .social-links {
         justify-content: center;
       }
+
       .contact-container {
         grid-template-columns: 1fr;
       }
+
       .table-format-wrapper {
         padding: 1.5rem;
       }
+
       .nested-section .section-header h2 {
-        font-size: 1.6rem !important;
+        font-size: 1.6rem !important; /* Adjusted for responsiveness */
       }
     }
 
@@ -1044,37 +1127,55 @@
       section {
         padding: 2.5rem 5%;
       }
+
       .hero-text h1 {
-        font-size: 2rem;
+        font-size: 2.2rem; /* Adjusted for responsiveness */
       }
+
       .hero-text .subtitle {
-        font-size: 1.1rem;
+        font-size: 1.3rem; /* Adjusted for responsiveness */
       }
+
       .hero-text p.summary {
-        font-size: 0.95rem;
+        font-size: 0.95rem; /* Adjusted for responsiveness */
       }
+
       .profile-image {
         max-height: 250px;
       }
+
       .tech-icons img {
         height: 40px;
       }
+
       .social-links a {
-          width: 38px; height: 38px; font-size: 1.3rem;
+        width: 38px;
+        height: 38px;
+        font-size: 1.3rem;
       }
-      .nav-links, .footer-links { gap: 0.8rem; }
-      nav a, .footer-links a { font-size: 0.9rem; }
+
+      .nav-links, .footer-links {
+        gap: 0.8rem;
+      }
+
+      nav a, .footer-links a {
+        font-size: 0.9rem;
+      }
+
       .grid.certifications-grid, .grid {
         grid-template-columns: 1fr;
       }
+
       .table-format-wrapper {
         padding: 1rem;
       }
+
       .nested-section .section-header h2 {
         font-size: 1.3rem !important;
         gap: 0.4rem !important;
       }
-      .nested-section .section-header h2 i{
+
+      .nested-section .section-header h2 i {
         font-size: 1.1rem !important;
       }
     }
@@ -1083,11 +1184,10 @@
 <body>
   <canvas id="particle-canvas"></canvas>
   <div class="cyber-grid-bg"></div>
-  <div class="cyber-glow"></div>
   <div class="binary-animation" id="binaryAnimation"></div>
 
   <nav>
-    <div class="logo"></div>
+    <div class="logo">Aditya Kumar</div>
     <div class="nav-links">
       <a href="#home">Home</a>
       <a href="#skills">Skills</a>
@@ -1102,6 +1202,7 @@
   </nav>
 
   <section id="home" class="hero">
+    <div class="hero-background"></div>
     <div class="container">
       <div class="hero-container">
         <div class="hero-text">
@@ -1109,7 +1210,7 @@
           <p class="subtitle">Aspiring Cybersecurity Analyst | AWS Certified | Skilled in Threat Intelligence, Networking, Linux & Security Tools</p>
           <p class="summary">
             Enthusiastic and technically skilled IT graduate with a solid foundation in Cybersecurity and Information Technology. Proficient in networking, Linux, AWS, and cyber threat intelligence, backed by industry certifications. Strong problem-solver and team player with a passion for leveraging cybersecurity tools and open-source intelligence to enhance digital security. Seeking an entry-level role as a Cybersecurity Analyst or IT professional to drive secure, innovative tech solutions.
-          "Passionate about defending digital landscapes through intelligent security solutions."
+            "Passionate about defending digital landscapes through intelligent security solutions."
           </p>
 
           <div class="tech-icons">
@@ -1248,7 +1349,7 @@
       </div>
       <div class="grid">
         <div class="sub-card">
-           <div style="text-align: center; margin-bottom: 1rem;">
+          <div style="text-align: center; margin-bottom: 1rem;">
             <img src="https://cdn-icons-png.flaticon.com/512/2305/2305999.png" alt="AWS Cloud Hosting" style="height: 60px; width: auto;">
           </div>
           <h3><i class="fab fa-aws"></i> Basic Cloud Hosting with AWS Free Tier</h3>
@@ -1283,7 +1384,7 @@
           <div style="text-align: center; margin-bottom: 1rem;">
             <img src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png" alt="Weather App Icon" style="height: 60px; width: auto;">
           </div>
-          <h3><i class="fas fa-cloud-sun"></i>Chasing Horizons (A Travel blog)</h3>
+          <h3><i class="fas fa-cloud-sun"></i> Chasing Horizons (A Travel Blog)</h3>
           <p>Created a travel blog platform to share adventures, featuring a clean UI with a parallax background, post creation, and local storage for persistence.</p>
           <ul>
             <li>Designed a responsive layout with animations for an engaging user experience.</li>
@@ -1306,13 +1407,18 @@
       </div>
       <div class="grid certifications-grid">
         <div class="sub-card">
+          <h3><i class="fas fa-user-shield"></i> eLearnSecurity Junior Penetration Tester (eJPTv2)</h3>
+          <p>INE Security</p>
+          <p class="date"><i class="far fa-calendar-alt"></i> Awarded on July 28, 2025</p>
+        </div>
+        <div class="sub-card">
           <h3><i class="fab fa-google"></i> Google Cybersecurity Professional Certificate</h3>
           <p>Google via Coursera</p>
           <p class="date"><i class="far fa-calendar-alt"></i> May 28, 2025</p>
         </div>
         <div class="sub-card">
           <h3><i class="fas fa-user-shield"></i> IBM Security Analyst Fundamentals Specialization</h3>
-          <p>Ibm via Coursera</p>
+          <p>IBM via Coursera</p>
           <p class="date"><i class="far fa-calendar-alt"></i> May 25, 2025</p>
         </div>
         <div class="sub-card">
@@ -1470,15 +1576,16 @@
       container.innerHTML = '';
       const binaryChars = ['0', '1'];
 
-      for (let i = 0; i < 15; i++) {
+      for (let i = 0; i < 30; i++) { // Increased number of streams
         const binary = document.createElement('div');
         binary.className = 'binary-code';
-        const streamLength = Math.floor(Math.random() * 15) + 10;
+        const streamLength = Math.floor(Math.random() * 20) + 15; // Longer streams
         binary.textContent = Array(streamLength).fill(0).map(() => binaryChars[Math.floor(Math.random() * binaryChars.length)]).join('');
 
         binary.style.left = `${Math.random() * 100}%`;
-        binary.style.animationDuration = `${10 + Math.random() * 15}s`;
-        binary.style.animationDelay = `${Math.random() * 10}s`;
+        binary.style.animationDuration = `${5 + Math.random() * 10}s`; // Faster animation
+        binary.style.animationDelay = `${Math.random() * 5}s`; // Reduced delay
+        binary.style.fontSize = `${10 + Math.random() * 4}px`; // Variable font size
 
         container.appendChild(binary);
       }
@@ -1605,7 +1712,7 @@
         draw() {
           ctx.beginPath();
           ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-          ctx.fillStyle = this.baseColor + '55';
+          ctx.fillStyle = this.baseColor + '66'; // Increased opacity
           ctx.fill();
         }
 
@@ -1617,8 +1724,8 @@
           if (this.y + this.size > particleCanvas.height || this.y - this.size < 0) {
             this.directionY = -this.directionY;
           }
-          this.x += this.directionX;
-          this.y += this.directionY;
+          this.x += this.directionX * 1.5; // Increased speed
+          this.y += this.directionY * 1.5; // Increased speed
           this.draw();
         }
       }
@@ -1634,19 +1741,19 @@
       function initParticles() {
         particlesArray = [];
         const colors = getThemeColorsForParticles();
-        const numberOfParticles = Math.max(30, (particleCanvas.width * particleCanvas.height) / 12000);
+        const numberOfParticles = Math.max(50, (particleCanvas.width * particleCanvas.height) / 8000); // Increased particles
         for (let i = 0; i < numberOfParticles; i++) {
-          const size = Math.random() * 1.5 + 0.5;
+          const size = Math.random() * 2 + 0.5; // Slightly larger particles
           const x = Math.random() * (particleCanvas.width - size * 2) + size;
           const y = Math.random() * (particleCanvas.height - size * 2) + size;
-          const directionX = (Math.random() * 0.3) - 0.15;
-          const directionY = (Math.random() * 0.3) - 0.15;
+          const directionX = (Math.random() * 0.5) - 0.25; // Faster movement
+          const directionY = (Math.random() * 0.5) - 0.25; // Faster movement
           particlesArray.push(new Particle(x, y, directionX, directionY, size, colors.particleBaseColor));
         }
       }
 
       function connectParticles(lineBaseColor) {
-        const maxDistance = 120;
+        const maxDistance = 150; // Increased connection distance
         for (let a = 0; a < particlesArray.length; a++) {
           for (let b = a + 1; b < particlesArray.length; b++) {
             const dx = particlesArray[a].x - particlesArray[b].x;
@@ -1655,10 +1762,9 @@
 
             if (distance < maxDistance) {
               const opacity = 1 - (distance / maxDistance);
-              const finalAlphaHex = Math.round(opacity * 0.4 * 255).toString(16).padStart(2, '0');
-
+              const finalAlphaHex = Math.round(opacity * 0.5 * 255).toString(16).padStart(2, '0'); // Increased line opacity
               ctx.strokeStyle = lineBaseColor + finalAlphaHex;
-              ctx.lineWidth = 0.3;
+              ctx.lineWidth = 0.5; // Thicker lines
               ctx.beginPath();
               ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
               ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
@@ -1694,7 +1800,3 @@
   </script>
 </body>
 </html>
-
-
-
-
