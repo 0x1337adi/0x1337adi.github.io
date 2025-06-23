@@ -1,0 +1,90 @@
+/* Professional, muted cyber gradient background */
+body {
+  transition: background 0.6s, color 0.6s;
+}
+
+.dark-mode {
+  background: linear-gradient(120deg, #23272f, #2d3748, #1a202c, #2c3e50);
+  background-size: 400% 400%;
+  animation: cyber-gradient 15s ease infinite;
+  color: #e5e7eb;
+}
+
+.light-mode {
+  background: linear-gradient(120deg, #f4f7fa, #e9ecef, #e0e7ef, #f0f4f8);
+  background-size: 400% 400%;
+  animation: cyber-gradient 15s ease infinite;
+  color: #1a202c;
+}
+
+@keyframes cyber-gradient {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* Glassmorphism card effect - more subtle */
+.glass {
+  background: rgba(40, 48, 60, 0.75);
+  box-shadow: 0 4px 16px 0 rgba(44, 62, 80, 0.10);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 14px;
+  border: 1.5px solid rgba(120, 180, 180, 0.10);
+  transition: background 0.6s, color 0.6s;
+}
+.light-mode .glass {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 16px 0 rgba(44, 62, 80, 0.06);
+  border: 1.5px solid rgba(120, 180, 180, 0.10);
+  color: #1a202c;
+}
+
+/* Softer border accent */
+.glow {
+  box-shadow: 0 0 0px 0px #7dd3fc, 0 0 0px 0px #7dd3fc33;
+  border-color: #7dd3fc;
+  transition: box-shadow 0.4s, border-color 0.4s;
+}
+
+/* Animated section headings - subtle */
+.animated-heading {
+  position: relative;
+  display: inline-block;
+  color: #3b82f6;
+  text-shadow: 0 0 2px #3b82f655;
+  animation: cyber-glow 2s infinite alternate;
+}
+@keyframes cyber-glow {
+  from { text-shadow: 0 0 2px #3b82f655; }
+  to { text-shadow: 0 0 8px #3b82f6; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #7dd3fc;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #23272f;
+}
+
+.light-mode ::-webkit-scrollbar-thumb {
+  background: #a7bfc9;
+}
+.light-mode ::-webkit-scrollbar-track {
+  background: #e9ecef;
+}
+
+/* Button and link hover - subtle */
+button, a {
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+button:hover, a:hover {
+  filter: brightness(0.97);
+  box-shadow: 0 2px 8px 0 rgba(59, 130, 246, 0.10);
+} 
