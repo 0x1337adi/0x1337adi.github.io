@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aditya Kumar | Cybersecurity Specialist</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen dark-mode font-inter">
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200/20">
+    <div class="container mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <a href="#" class="text-xl font-semibold text-gray-900 dark:text-white">AK</a>
+        <div class="hidden md:flex space-x-8">
+          <a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition">About</a>
+          <a href="#experience" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition">Experience</a>
+          <a href="#projects" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition">Projects</a>
+          <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition">Contact</a>
+        </div>
+        <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex items-center justify-center px-6">
+    <div class="text-center max-w-4xl mx-auto">
+      <div class="mb-8">
+        <h1 class="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-4 hero-title">
+          Aditya Kumar
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-6 hero-subtitle">
+          Cybersecurity Specialist & Ethical Hacker
+        </p>
+        <p class="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          Passionate about protecting digital assets, ethical hacking, and building secure systems. 
+          Certified professional with expertise in threat intelligence, digital forensics, and cloud security.
+        </p>
+      </div>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        <a href="#projects" class="px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition transform hover:scale-105">
+          View Projects
+        </a>
+        <a href="#contact" class="px-8 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition transform hover:scale-105">
+          Get in Touch
+        </a>
+      </div>
+
+      <!-- Social Links -->
+      <div class="flex justify-center space-x-6">
+        <a href="https://github.com/0x1337adi" target="_blank" class="social-link">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.084-.729.084-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.334-5.466-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.553 3.297-1.23 3.297-1.23.653 1.653.242 2.873.119 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.803 5.624-5.475 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576 4.765-1.588 8.199-6.084 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/kumaraditya766899/" target="_blank" class="social-link">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.841-1.563 3.039 0 3.6 2.001 3.6 4.601v5.595z"/>
+          </svg>
+        </a>
+        <a href="https://www.credly.com/users/aditya-kumar.c9be8cb7" target="_blank" class="social-link">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/>
+            <text x="12" y="16" text-anchor="middle" font-size="10" fill="#fff" font-family="Arial">C</text>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 px-6 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto max-w-4xl">
+      <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">About Me</h2>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+            I'm a passionate cybersecurity specialist with hands-on experience in digital forensics, 
+            threat intelligence, and cloud security. My journey includes internships with law enforcement 
+            and industry, along with multiple certifications.
+          </p>
+          <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+            I specialize in ethical hacking, incident response, and leveraging modern tools to defend 
+            digital assets. Always eager to learn and tackle new challenges in the ever-evolving 
+            cybersecurity landscape.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+            <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">6+</div>
+            <div class="text-gray-600 dark:text-gray-300">Certifications</div>
+          </div>
+          <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+            <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">2</div>
+            <div class="text-gray-600 dark:text-gray-300">Internships</div>
+          </div>
+          <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+            <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">5+</div>
+            <div class="text-gray-600 dark:text-gray-300">Core Skills</div>
+          </div>
+          <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+            <div class="text-2xl font-bold text-blue-600 dark:text-blue-400">∞</div>
+            <div class="text-gray-600 dark:text-gray-300">Learning</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="py-20 px-6">
+    <div class="container mx-auto max-w-4xl">
+      <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">Skills & Expertise</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Threat Intelligence</h3>
+          <p class="text-gray-600 dark:text-gray-300">Analyzing and responding to cybersecurity threats with advanced tools and methodologies.</p>
+        </div>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Digital Forensics</h3>
+          <p class="text-gray-600 dark:text-gray-300">Investigating digital evidence and conducting forensic analysis for security incidents.</p>
+        </div>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Cloud Security</h3>
+          <p class="text-gray-600 dark:text-gray-300">Securing cloud infrastructure and implementing best practices for cloud environments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-6 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto max-w-4xl text-center">
+      <h2 class="text-3xl font-bold mb-12 text-gray-900 dark:text-white">Get In Touch</h2>
+      <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+        I'm always interested in new opportunities and collaborations. 
+        Feel free to reach out if you'd like to connect!
+      </p>
+      <a href="mailto:your.email@example.com" class="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition transform hover:scale-105">
+        Say Hello
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 px-6 border-t border-gray-200 dark:border-gray-700">
+    <div class="container mx-auto text-center text-gray-600 dark:text-gray-400">
+      <p>&copy; 2025 Aditya Kumar. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html> 

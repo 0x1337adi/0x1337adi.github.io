@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills | Cybersecurity Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <style>
+    .cyber-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.18;
+    }
+    .cyber-binary {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      font-family: 'Fira Mono', 'Consolas', monospace;
+      font-size: 1.1rem;
+      color: #7dd3fc;
+      opacity: 0.10;
+      white-space: pre;
+      user-select: none;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body class="min-h-screen dark-mode">
+  <div class="cyber-bg">
+    <svg width="100%" height="100%" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="200" cy="200" r="120" fill="#7dd3fc" opacity="0.18"/>
+      <circle cx="1200" cy="700" r="180" fill="#60a5fa" opacity="0.13"/>
+      <rect x="900" y="100" width="180" height="180" rx="40" fill="#38bdf8" opacity="0.10"/>
+      <polygon points="400,800 600,700 700,900" fill="#64748b" opacity="0.10"/>
+    </svg>
+  </div>
+  <div class="cyber-binary">
+    1010101010 0101010101 1010101010 0101010101 1010101010 0101010101 1010101010 0101010101 1010101010 0101010101
+    0101010101 1010101010 0101010101 1010101010 0101010101 1010101010 0101010101 1010101010 0101010101 1010101010
+    1010101010 0101010101 1010101010 0101010101 1010101010 0101010101 1010101010 0101010101 1010101010 0101010101
+    0101010101 1010101010 0101010101 1010101010 0101010101 1010101010 0101010101 1010101010 0101010101 1010101010
+  </div>
+  <nav class="bg-gray-900 bg-opacity-90 shadow flex items-center justify-between relative z-10">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center w-full">
+      <a href="index.html" class="text-2xl font-bold text-blue-400 transition">Cyber Portfolio</a>
+      <div class="space-x-6 flex items-center">
+        <a href="projects.html" class="hover:text-blue-500 transition">Projects</a>
+        <a href="skills.html" class="hover:text-blue-500 transition">Skills</a>
+        <a href="experience.html" class="hover:text-blue-500 transition">Experience</a>
+        <a href="contact.html" class="hover:text-blue-500 transition">Contact</a>
+        <button id="theme-toggle" class="ml-6 px-3 py-2 rounded bg-gray-800 text-blue-400 border border-blue-300 hover:bg-blue-100 hover:text-gray-900 transition">Light Mode</button>
+      </div>
+    </div>
+  </nav>
+  <main class="container mx-auto px-4 py-16 relative z-10">
+    <div class="glass p-10 max-w-3xl mx-auto">
+      <h1 class="text-3xl font-bold mb-8 text-center animated-heading">Cybersecurity Skills</h1>
+      <div class="flex flex-wrap justify-center gap-4 mb-12">
+        <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-lg border border-blue-200">Penetration Testing</span>
+        <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-lg border border-blue-200">Network Security</span>
+        <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-lg border border-blue-200">Incident Response</span>
+        <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-lg border border-blue-200">SIEM</span>
+        <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-lg border border-blue-200">Ethical Hacking</span>
+      </div>
+      <section class="max-w-2xl mx-auto">
+        <h2 class="text-2xl font-semibold text-blue-400 mb-6 text-center">Certifications</h2>
+        <ul class="space-y-6">
+          <li class="bg-gray-800 border-l-4 border-blue-200 p-4 rounded shadow">
+            <span class="font-bold text-blue-400">ISC2 – Certified in Cybersecurity (CC)</span><br>
+            <span class="text-gray-200 text-sm">Validates core knowledge in security principles, network security, identity and access management, and incident response.</span>
+          </li>
+          <li class="bg-gray-800 border-l-4 border-blue-200 p-4 rounded shadow">
+            <span class="font-bold text-blue-400">eLearnSecurity Junior Penetration Tester (eJPT)</span><br>
+            <span class="text-gray-200 text-sm">Practical certification covering ethical hacking, vulnerability assessment, exploitation, and network reconnaissance.</span>
+          </li>
+          <li class="bg-gray-800 border-l-4 border-blue-200 p-4 rounded shadow">
+            <span class="font-bold text-blue-400">Microsoft Cybersecurity Analyst Professional Certificate</span><br>
+            <span class="text-gray-200 text-sm">Covers SOC workflows, threat detection, SIEM tools, and real-time incident response strategies.</span>
+          </li>
+          <li class="bg-gray-800 border-l-4 border-blue-200 p-4 rounded shadow">
+            <span class="font-bold text-blue-400">Google Cybersecurity Specialization</span><br>
+            <span class="text-gray-200 text-sm">Comprehensive program addressing system security, risk assessment, and cybersecurity best practices.</span>
+          </li>
+          <li class="bg-gray-800 border-l-4 border-blue-200 p-4 rounded shadow">
+            <span class="font-bold text-blue-400">Foundation Level Threat Intelligence Analyst – arcX</span><br>
+            <span class="text-gray-200 text-sm">Focuses on cyber threat intelligence (CTI), adversary profiling, intelligence cycles, and legal/ethical frameworks.</span>
+          </li>
+          <li class="bg-gray-800 border-l-4 border-blue-200 p-4 rounded shadow">
+            <span class="font-bold text-blue-400">Defensive Security Operations – Cybrary</span><br>
+            <span class="text-gray-200 text-sm">Emphasizes defense-in-depth strategies, live threat mitigation, and blue team operational readiness.</span>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+  <footer class="bg-gray-900 bg-opacity-90 shadow mt-16 py-4 text-center text-gray-400 relative z-10">
+    &copy; 2025 Cyber Portfolio. All rights reserved.
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html> 
