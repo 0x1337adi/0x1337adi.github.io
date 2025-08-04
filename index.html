@@ -1,4 +1,43 @@
-<!DOCTYPE html>
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
@@ -8,7 +47,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
-      /* Light Mode (Duller, less flashy) */
+      /* Light Mode */
       --bg-light: #F5F5F5;
       --card-bg-light: #EDEDED;
       --text-light: #333333;
@@ -22,8 +61,10 @@
       --bg-rgb: 245, 245, 245;
       --text-rgb: 51, 51, 51;
       --accent-rgb: 75, 154, 138;
+      --progress-bg-light: #D1D5DB;
+      --progress-fill-light: #4B9A8A;
 
-      /* Dark Mode (Unchanged) */
+      /* Dark Mode */
       --bg-dark: #1A1E21;
       --card-bg-dark: #25282A;
       --text-dark: #D3D3D3;
@@ -34,6 +75,8 @@
       --tertiary-dark: #A0A0A0;
       --shadow-dark: rgba(0, 196, 180, 0.2);
       --gradient-dark: linear-gradient(135deg, #1A1E21 0%, #25282A 100%);
+      --progress-bg-dark: #404040;
+      --progress-fill-dark: #00C4B4;
 
       /* Theme Variables - Default to light mode */
       --bg: var(--bg-light);
@@ -49,6 +92,8 @@
       --bg-rgb: 245, 245, 245;
       --text-rgb: 51, 51, 51;
       --accent-rgb: 75, 154, 138;
+      --progress-bg: var(--progress-bg-light);
+      --progress-fill: var(--progress-fill-light);
     }
 
     * {
@@ -81,6 +126,8 @@
       --bg-rgb: 26, 30, 33;
       --text-rgb: 211, 211, 211;
       --accent-rgb: 0, 196, 180;
+      --progress-bg: var(--progress-bg-dark);
+      --progress-fill: var(--progress-fill-dark);
     }
 
     #particle-canvas {
@@ -565,10 +612,41 @@
     }
 
     .skills-list {
-        font-size: 0.85rem;
-        color: var(--text);
-        opacity: 0.9;
-        line-height: 1.6;
+      font-size: 0.85rem;
+      color: var(--text);
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    .skill-item {
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .skill-item i {
+      font-size: 1rem;
+      color: var(--accent);
+    }
+
+    .skill-item span {
+      flex: 1;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: var(--progress-bg);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-top: 0.25rem;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--progress-fill);
+      transition: width 0.5s ease-in-out;
     }
 
     .sub-card .date {
@@ -601,7 +679,7 @@
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.75rem;
     }
-    .grid.certifications-grid {
+    .grid.certifications-grid, .grid.internships-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 
@@ -1064,7 +1142,7 @@
       }
       .nav-links, .footer-links { gap: 0.8rem; }
       nav a, .footer-links a { font-size: 0.9rem; }
-      .grid.certifications-grid, .grid {
+      .grid.certifications-grid, .grid.internships-grid, .grid {
         grid-template-columns: 1fr;
       }
       .table-format-wrapper {
@@ -1093,6 +1171,7 @@
       <a href="#skills">Skills</a>
       <a href="#education_strengths_table">Education & Strengths</a>
       <a href="#projects">Projects</a>
+      <a href="#internships">Internships</a>
       <a href="#certifications">Certifications</a>
       <a href="#contact">Contact</a>
     </div>
@@ -1145,23 +1224,133 @@
       <div class="grid">
         <div class="sub-card">
           <h3><i class="fas fa-shield-alt"></i> Cybersecurity & Pentesting</h3>
-          <p class="skills-list">Ethical Hacking, Penetration Testing (Metasploit), OSINT, Incident Response, Network Scanning.</p>
+          <div class="skill-item">
+            <i class="fas fa-user-secret"></i>
+            <span>Ethical Hacking</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-fingerprint"></i>
+            <span>Penetration Testing (Metasploit)</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 80%"></div></div>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-search"></i>
+            <span>OSINT</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 75%"></div></div>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>Incident Response</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 70%"></div></div>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-network-wired"></i>
+            <span>Network Scanning</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 80%"></div></div>
+          </div>
         </div>
         <div class="sub-card">
           <h3><i class="fas fa-cloud"></i> Cloud & Infrastructure</h3>
-          <p class="skills-list">AWS, Linux Administration, Virtualization, Cloud Security, Identity Management.</p>
+          <div class="skill-item">
+            <i class="fab fa-aws"></i>
+            <span>AWS</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 75%"></div></div>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-linux"></i>
+            <span>Linux Administration</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-server"></i>
+            <span>Virtualization</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 70%"></div></div>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-lock"></i>
+            <span>Cloud Security</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 70%"></div></div>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-key"></i>
+            <span>Identity Management</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 65%"></div></div>
+          </div>
         </div>
         <div class="sub-card">
           <h3><i class="fas fa-network-wired"></i> Networking & Analysis</h3>
-          <p class="skills-list">Networking, Cyber Threat Intelligence, Log Analysis & Forensics.</p>
+          <div class="skill-item">
+            <i class="fas fa-sitemap"></i>
+            <span>Networking</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 80%"></div></div>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-search-plus"></i>
+            <span>Cyber Threat Intelligence</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 75%"></div></div>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-file-alt"></i>
+            <span>Log Analysis</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 70%"></div></div>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-database"></i>
+            <span>Digital Forensics</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 65%"></div></div>
+          </div>
         </div>
         <div class="sub-card">
           <h3><i class="fas fa-code-branch"></i> Development & Tools</h3>
-          <p class="skills-list">Version Control (Git), Scripting (Python, Bash).</p>
+          <div class="skill-item">
+            <i class="fab fa-git"></i>
+            <span>Version Control (Git)</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 80%"></div></div>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-python"></i>
+            <span>Python</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-terminal"></i>
+            <span>Bash</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 75%"></div></div>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-code"></i>
+            <span>SQL</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 70%"></div></div>
+          </div>
         </div>
         <div class="sub-card">
           <h3><i class="fas fa-code"></i> Web Development</h3>
-          <p class="skills-list">HTML, CSS, JavaScript, Node.js, Express Server.</p>
+          <div class="skill-item">
+            <i class="fab fa-html5"></i>
+            <span>HTML</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 90%"></div></div>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-css3-alt"></i>
+            <span>CSS</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-js"></i>
+            <span>JavaScript</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 80%"></div></div>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-node-js"></i>
+            <span>Node.js</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 70%"></div></div>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-server"></i>
+            <span>Express.js</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 65%"></div></div>
+          </div>
         </div>
       </div>
     </div>
@@ -1265,25 +1454,25 @@
         </div>
         <div class="sub-card">
           <div style="text-align: center; margin-bottom: 1rem;">
-            <img src="https://cdn-icons-png.flaticon.com/512/3090/3090157.png" alt="IoT Pentesting Tool" style="height: 60px; width: auto;">
+            <img src="https://cdn-icons-png.flaticon.com/512/1087/1087840.png" alt="Anveshak Log Analyzer" style="height: 60px; width: auto;">
           </div>
-          <h3><i class="fas fa-microchip"></i> IoT-Based Pentesting Tool</h3>
-          <p>Developed a proof-of-concept IoT penetration testing tool using Python on a Raspberry Pi to automate the discovery of common vulnerabilities in networked smart devices.</p>
+          <h3><i class="fas fa-file-alt"></i> Anveshak: Cyber Threat Log Analyzer</h3>
+          <p>Developed a lightweight, browser-based log analysis tool for cybercrime investigation and digital forensics, enabling law enforcement to process logs and generate actionable reports.</p>
           <ul>
-            <li>Implemented scripts for network scanning and service enumeration.</li>
-            <li>Automated testing for default/weak credentials on common IoT protocols.</li>
-            <li>Designed a modular framework for adding new vulnerability checks.</li>
-            <li>Focused on identifying insecure configurations and open ports.</li>
+            <li>Built with Python, Streamlit, Splunk, Folium, and Matplotlib for efficient log parsing.</li>
+            <li>Automated threat detection with keyword-based risk classification (High/Medium/Low).</li>
+            <li>Integrated IP geolocation using IP-API and visualized with interactive Folium maps.</li>
+            <li>Generated professional PDF reports with risk breakdowns and log summaries.</li>
           </ul>
           <div class="project-tags">
-            <span>IoT</span> <span>Python</span> <span>Security</span> <span>Pentesting</span> <span>Esp 8266</span> <span>Networking</span>
+            <span>Python</span> <span>Streamlit</span> <span>Splunk</span> <span>Folium</span> <span>Matplotlib</span> <span>Cybersecurity</span> <span>Log Analysis</span>
           </div>
         </div>
         <div class="sub-card">
           <div style="text-align: center; margin-bottom: 1rem;">
             <img src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png" alt="Weather App Icon" style="height: 60px; width: auto;">
           </div>
-          <h3><i class="fas fa-cloud-sun"></i>Chasing Horizons (A Travel blog)</h3>
+          <h3><i class="fas fa-cloud-sun"></i> Chasing Horizons (A Travel blog)</h3>
           <p>Created a travel blog platform to share adventures, featuring a clean UI with a parallax background, post creation, and local storage for persistence.</p>
           <ul>
             <li>Designed a responsive layout with animations for an engaging user experience.</li>
@@ -1299,12 +1488,61 @@
     </div>
   </section>
 
+  <section id="internships">
+    <div class="container">
+      <div class="section-header">
+        <h2>Internships</h2>
+      </div>
+      <div class="grid internships-grid">
+        <div class="sub-card">
+          <h3><i class="fas fa-user-shield"></i> Cybersecurity & Digital Forensics Intern</h3>
+          <p>Uttarakhand Police · Internship</p>
+          <p class="date"><i class="far fa-calendar-alt"></i> Jun 2025 - Jul 2025 · 2 mos</p>
+          <p class="date"><i class="fas fa-map-marker-alt"></i> Dehradun, Uttarakhand, India · On-site</p>
+          <p>Currently interning at the STF Cyber Crime Police Station, Dehradun, under the mentorship of Deputy SP Ankush Mishra. This internship marks the beginning of my professional journey in cybersecurity and digital forensics.</p>
+          <ul>
+            <li>Learning about cybercrime investigation procedures through real-case exposure</li>
+            <li>Understanding the handling and analysis of digital evidence</li>
+            <li>Observing the use of forensic tools and law enforcement workflows</li>
+            <li>Gaining insights into the practical application of Indian cyber laws</li>
+            <li>Studying official documentation and reporting methods used in investigations</li>
+          </ul>
+          <p>This experience is providing valuable exposure to the operational side of cybersecurity in law enforcement and strengthening my foundational understanding of digital forensics.</p>
+        </div>
+        <div class="sub-card">
+          <h3><i class="fab fa-python"></i> Python Programming Intern</h3>
+          <p>YBI Foundation · Internship</p>
+          <p class="date"><i class="far fa-calendar-alt"></i> Jun 2025 - Jun 2025 · 1 mo</p>
+          <p class="date"><i class="fas fa-globe"></i> Remote</p>
+          <p>Proud to announce a new milestone in my learning journey! Successfully completed a 1-month internship in Python Programming with YBI Foundation, enhancing my technical foundation in a widely used programming language.</p>
+          <ul>
+            <li>Strengthening core Python programming concepts</li>
+            <li>Writing efficient, clean, and well-structured code</li>
+            <li>Solving real-world logical problems</li>
+            <li>Improving hands-on project development skills</li>
+          </ul>
+          <p>This experience has reinforced my programming fundamentals and prepared me to explore advanced domains like AI, data science, and software development.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="certifications">
     <div class="container">
       <div class="section-header">
         <h2>Certifications</h2>
       </div>
       <div class="grid certifications-grid">
+        <div class="sub-card">
+          <h3><i class="fas fa-user-shield"></i> Certified Red Team Analyst (CRTA)</h3>
+          <p>CyberWarfare Labs</p>
+          <p class="date"><i class="far fa-calendar-alt"></i> July 16, 2025</p>
+        </div>
+        <div class="sub-card">
+          <h3><i class="fas fa-shield-alt"></i> Blue Team Fundamentals (BTF)</h3>
+          <p>CyberWarfare Labs</p>
+          <p class="date"><i class="far fa-calendar-alt"></i> July 16, 2025</p>
+        </div>
         <div class="sub-card">
           <h3><i class="fab fa-google"></i> Google Cybersecurity Professional Certificate</h3>
           <p>Google via Coursera</p>
@@ -1323,17 +1561,17 @@
         <div class="sub-card">
           <h3><i class="fas fa-user-shield"></i> Cyber Threat Intelligence (Foundation Level)</h3>
           <p>ArcX</p>
-          <p class="date"><i class="far fa-calendar-alt"></i> Awarded on September 29, 2024</p>
+          <p class="date"><i class="far fa-calendar-alt"></i> September 29, 2024</p>
         </div>
         <div class="sub-card">
           <h3><i class="fab fa-aws"></i> AWS Cloud Practitioner Essentials</h3>
           <p>Amazon Web Services (AWS)</p>
-          <p class="date"><i class="far fa-calendar-alt"></i> Completed on September 22, 2024</p>
+          <p class="date"><i class="far fa-calendar-alt"></i> September 22, 2024</p>
         </div>
         <div class="sub-card">
           <h3><i class="fas fa-satellite-dish"></i> ISRO E-learning Program Certificate</h3>
           <p>Indian Space Research Organisation (ISRO)</p>
-          <p class="date"><i class="far fa-calendar-alt"></i> Issued on January 13, 2025</p>
+          <p class="date"><i class="far fa-calendar-alt"></i> January 13, 2025</p>
         </div>
       </div>
     </div>
@@ -1419,6 +1657,7 @@
       <a href="#skills">Skills</a>
       <a href="#education_strengths_table">Education & Strengths</a>
       <a href="#projects">Projects</a>
+      <a href="#internships">Internships</a>
       <a href="#certifications">Certifications</a>
       <a href="#contact">Contact</a>
     </div>
@@ -1694,10 +1933,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
